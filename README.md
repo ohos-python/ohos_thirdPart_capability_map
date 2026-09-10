@@ -1,0 +1,1 @@
+# ohos_thirdPart_capability_map
