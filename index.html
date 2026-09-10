@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>鸿蒙系统三方库能力地图</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: light-dark(#f5f7fb, #0c111b);
+      --surface: light-dark(#ffffff, #151c29);
+      --surface-2: light-dark(#eef3f9, #1d2736);
+      --text: light-dark(#172033, #ecf1f8);
+      --muted: light-dark(#5e6b7d, #aeb9c8);
+      --border: light-dark(#d7dfeb, #344155);
+      --blue: light-dark(#1f5f99, #76b7f0);
+      --blue-soft: light-dark(#e2effa, #193651);
+      --green: light-dark(#18794e, #57d79a);
+      --green-soft: light-dark(#ddf5e9, #153d2d);
+      --amber: light-dark(#996515, #f2c66d);
+      --amber-soft: light-dark(#fff2ce, #493817);
+      --red: light-dark(#b23a36, #ff8b86);
+      --red-soft: light-dark(#fde8e6, #4c2426);
+      --purple: light-dark(#6941a5, #c5a2ff);
+      --shadow: light-dark(0 12px 32px rgba(27, 51, 84, .09), 0 12px 32px rgba(0, 0, 0, .24));
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    button, input { font: inherit; }
+    .page { max-width: 1460px; margin: 0 auto; padding: 32px 28px 56px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, .75fr);
+      gap: 24px;
+      align-items: end;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 12px; font-size: clamp(28px, 4vw, 46px); line-height: 1.18; letter-spacing: -.03em; }
+    h2 { margin: 0 0 16px; font-size: 24px; }
+    h3 { margin-bottom: 8px; font-size: 17px; }
+    .lead { max-width: 760px; margin-bottom: 0; color: var(--muted); font-size: 16px; }
+    .hero-summary { padding-left: 24px; border-left: 3px solid var(--blue); }
+    .hero-summary strong { display: block; margin-bottom: 6px; font-size: 19px; color: var(--blue); }
+    .hero-summary p { margin: 0; color: var(--muted); }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 20px 0 36px; }
+    .metric { padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+    .metric-label { color: var(--muted); font-size: 13px; }
+    .metric-value { margin: 5px 0 2px; font-size: 29px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .metric-note { color: var(--muted); font-size: 12px; }
+    section { margin-top: 38px; }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 16px; }
+    .section-head p { max-width: 760px; margin-bottom: 0; color: var(--muted); }
+    .ecosystems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .panel { padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+    .panel-head h3 { margin: 0; }
+    .panel-total { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .bar-row { display: grid; grid-template-columns: minmax(120px, 1fr) 3.2fr 68px; gap: 10px; align-items: center; margin: 9px 0; }
+    .bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+    .bar-track { height: 10px; overflow: hidden; background: var(--surface-2); border-radius: 999px; }
+    .bar-fill { height: 100%; min-width: 2px; background: var(--blue); border-radius: inherit; }
+    .python .bar-fill { background: var(--purple); }
+    .c-cpp .bar-fill { background: var(--green); }
+    .bar-value { text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .filter {
+      min-height: 38px;
+      padding: 7px 14px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .filter[aria-pressed="true"] { color: light-dark(#fff, #0c111b); background: var(--blue); border-color: var(--blue); }
+    .scenario-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .scenario {
+      position: relative;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .scenario[hidden] { display: none; }
+    .scenario-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .status { flex: 0 0 auto; padding: 4px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .status.ready { color: var(--green); background: var(--green-soft); }
+    .status.conditional { color: var(--amber); background: var(--amber-soft); }
+    .status.gap { color: var(--red); background: var(--red-soft); }
+    .scenario p { color: var(--muted); font-size: 13px; }
+    .chain { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+    .chain span { padding: 5px 8px; background: var(--surface-2); border-radius: 7px; font-size: 12px; }
+    .packages { margin: 0; padding-left: 18px; font-size: 13px; }
+    .packages li + li { margin-top: 4px; }
+    .example { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; }
+    .example strong { color: var(--blue); }
+    .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    table { width: 100%; border-collapse: collapse; min-width: 980px; }
+    th, td { padding: 13px 15px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+    th { background: var(--surface-2); font-size: 13px; font-weight: 650; }
+    td { font-size: 13px; }
+    tr:last-child td { border-bottom: 0; }
+    code { padding: 2px 5px; background: var(--surface-2); border-radius: 5px; color: var(--text); }
+    .priority { white-space: nowrap; font-weight: 650; }
+    .priority.high { color: var(--red); }
+    .priority.medium { color: var(--amber); }
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; color: var(--muted); font-size: 12px; }
+    .dot { display: inline-block; width: 9px; height: 9px; margin-right: 6px; border-radius: 50%; }
+    .dot.ready { background: var(--green); }
+    .dot.conditional { background: var(--amber); }
+    .dot.gap { background: var(--red); }
+    .method { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; counter-reset: levels; }
+    .level { padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+    .level strong { display: block; margin-bottom: 6px; color: var(--blue); }
+    .level p { margin: 0; color: var(--muted); font-size: 12px; }
+    .catalog-controls { display: grid; grid-template-columns: minmax(130px, .4fr) minmax(180px, .65fr) minmax(260px, 1.45fr) auto; gap: 12px; align-items: end; margin-bottom: 14px; }
+    .field { display: grid; gap: 5px; color: var(--muted); font-size: 12px; }
+    .field select, .field input { width: 100%; min-height: 42px; padding: 8px 11px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 9px; }
+    .result-count { min-height: 42px; display: flex; align-items: center; justify-content: flex-end; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .library-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .library-row { padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .library-row strong { display: block; margin-bottom: 3px; overflow-wrap: anywhere; }
+    .library-meta { color: var(--muted); font-size: 12px; }
+    .library-desc { margin: 7px 0 0; color: var(--muted); font-size: 12px; }
+    .api-note { margin-top: 14px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .api-note p { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+    .api-note code { overflow-wrap: anywhere; }
+    .satisfaction-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items: start; }
+    .coverage-row { display: grid; grid-template-columns: minmax(145px, 1fr) 2.7fr 72px; gap: 10px; align-items: center; margin: 11px 0; }
+    .coverage-label { font-size: 13px; }
+    .coverage-label small { display: block; color: var(--muted); }
+    .coverage-track { height: 11px; overflow: hidden; background: var(--surface-2); border-radius: 999px; }
+    .coverage-fill { height: 100%; background: var(--green); border-radius: inherit; }
+    .coverage-value { text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .project-stack { display: flex; height: 28px; margin: 17px 0 11px; overflow: hidden; border-radius: 8px; background: var(--surface-2); }
+    .project-stack span { display: flex; min-width: 2px; align-items: center; justify-content: center; color: #fff; font-size: 12px; }
+    .project-stack span:nth-child(1) { background: #18794e; }
+    .project-stack span:nth-child(2) { background: #3979ad; }
+    .project-stack span:nth-child(3) { background: #b78127; }
+    .project-stack span:nth-child(4) { background: #c76243; }
+    .project-stack span:nth-child(5) { background: #9f3940; }
+    .cleaning-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .cleaning-item { padding: 13px 14px; background: var(--surface-2); border-radius: 10px; }
+    .cleaning-item strong { display: block; margin-bottom: 3px; font-size: 18px; }
+    .cleaning-item span { color: var(--muted); font-size: 12px; }
+    .project-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+    .project-kpi { padding: 14px 15px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .project-kpi span { display: block; color: var(--muted); font-size: 12px; }
+    .project-kpi strong { display: block; margin: 3px 0; font-size: 23px; font-variant-numeric: tabular-nums; }
+    .project-kpi small { color: var(--muted); }
+    .satisfaction-note { margin-top: 16px; padding: 14px 16px; color: var(--muted); background: var(--amber-soft); border-radius: 10px; font-size: 13px; }
+    .capability-controls { display: grid; grid-template-columns: minmax(170px, .45fr) minmax(170px, .45fr) minmax(260px, 1.1fr) auto; gap: 12px; align-items: end; margin-bottom: 14px; }
+    .maturity { display: inline-block; padding: 4px 9px; border-radius: 999px; white-space: nowrap; font-size: 12px; font-weight: 600; }
+    .maturity.ready { color: var(--green); background: var(--green-soft); }
+    .maturity.partial { color: var(--amber); background: var(--amber-soft); }
+    .maturity.missing { color: var(--red); background: var(--red-soft); }
+    .ability-list { margin: 0; padding-left: 18px; }
+    .ability-list li + li { margin-top: 4px; }
+    .domain-name { min-width: 150px; }
+    .domain-name strong { display: block; font-size: 14px; }
+    .domain-name small { color: var(--muted); }
+    .capability-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .capability-summary .metric { margin: 0; }
+    footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-summary { padding-left: 0; padding-top: 16px; border-left: 0; border-top: 3px solid var(--blue); }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .ecosystems, .scenario-grid, .satisfaction-grid { grid-template-columns: 1fr; }
+      .catalog-controls { grid-template-columns: 1fr 1fr; }
+      .capability-controls { grid-template-columns: 1fr 1fr; }
+      .result-count { justify-content: flex-start; }
+      .method { grid-template-columns: repeat(2, 1fr); }
+      .project-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .page { padding: 18px 14px 36px; }
+      .hero { padding: 22px; }
+      .metrics { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .bar-row { grid-template-columns: 120px 1fr 58px; }
+      .method { grid-template-columns: 1fr; }
+      .catalog-controls, .capability-controls, .library-list, .cleaning-summary, .project-kpis, .capability-summary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <h1>鸿蒙系统三方库能力地图</h1>
+        <p class="lead">从“适用场景”反向识别 C/C++、Python 与 Node.js 三方库能否组成完整开发链，区分库清单覆盖、端到端可用和生产级验证。</p>
+      </div>
+      <div class="hero-summary">
+        <strong>清洗后：已覆盖生态满足度 64.0%</strong>
+        <p>按项目引用次数加权为 71.3%；C/C++ 达到 91.8%，Python 与 Node.js 的主要缺口集中在 Top 框架和长尾依赖。</p>
+      </div>
+    </header>
+
+    <div class="metrics" aria-label="能力地图摘要">
+      <div class="metric"><div class="metric-label">三方库记录</div><div class="metric-value">78,007</div><div class="metric-note">Node.js 46,413 + Python 27,806 + C/C++ 3,788</div></div>
+      <div class="metric"><div class="metric-label">Python 标签覆盖</div><div class="metric-value">99.3%</div><div class="metric-note">11,892 条具体分类；15,718 条低置信度业务类；196 条待确认</div></div>
+      <div class="metric"><div class="metric-label">端到端可用场景</div><div class="metric-value">10</div><div class="metric-note">增加原生网络、GIS/科学计算和文档处理</div></div>
+      <div class="metric"><div class="metric-label">条件可用场景</div><div class="metric-value">6</div><div class="metric-note">依赖浏览器、硬件、系统桥接或外部服务</div></div>
+      <div class="metric"><div class="metric-label">清洗后需求覆盖</div><div class="metric-value" id="mapped-coverage-metric">64.0%</div><div class="metric-note">Python、Node.js、C/C++ 三类已覆盖生态</div></div>
+      <div class="metric"><div class="metric-label">依赖闭合候选</div><div class="metric-value" id="full-project-metric">51</div><div class="metric-note">目录级闭合，仍需构建与真机验证</div></div>
+    </div>
+
+    <section aria-labelledby="capability-overview-title">
+      <div class="section-head">
+        <div><h2 id="capability-overview-title">能力地图：已完成与未完成</h2><p>成熟度按能力链完整性划分。每个能力域都同时保留现有成果和待补齐项，避免用已收录包数量替代实际可交付能力。</p></div>
+      </div>
+      <div class="capability-summary" aria-label="能力域成熟度摘要">
+        <div class="metric"><div class="metric-label">已形成主要能力</div><div class="metric-value" id="cap-ready-count">—</div><div class="metric-note">核心链路已有代表库</div></div>
+        <div class="metric"><div class="metric-label">部分完成</div><div class="metric-value" id="cap-partial-count">—</div><div class="metric-note">存在 Top 库、接口或验证缺口</div></div>
+        <div class="metric"><div class="metric-label">尚未建设</div><div class="metric-value" id="cap-missing-count">—</div><div class="metric-note">当前没有对应生态目录或完整基线</div></div>
+      </div>
+      <div class="capability-controls">
+        <label class="field">成熟度<select id="capability-status"><option value="all">全部成熟度</option><option value="ready">已形成主要能力</option><option value="partial">部分完成</option><option value="missing">尚未建设</option></select></label>
+        <label class="field">生态<select id="capability-ecosystem"><option value="all">全部生态</option><option value="python">Python</option><option value="node">Node.js</option><option value="c">C/C++</option><option value="other">Go / Rust / Java / ArkTS</option></select></label>
+        <label class="field">搜索能力或库<input id="capability-search" type="search" placeholder="例如 Agent、FastAPI、Office、FFmpeg"></label>
+        <div class="result-count" id="capability-result-count" aria-live="polite"></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>能力域</th><th>成熟度</th><th>我们已经完成</th><th>我们还没有完成</th><th>当前可落地场景</th></tr></thead>
+          <tbody id="capability-map-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="classification-title">
+      <div class="section-head">
+        <div><h2 id="classification-title">当前三方库分类</h2><p>横条按各自生态中的最大类别缩放。Python 已从 8 类扩展到 21 类；仅按包名不能确认功能的库会保留低置信度或待确认标记。</p></div>
+      </div>
+      <div class="ecosystems">
+        <div class="panel node">
+          <div class="panel-head"><h3>Node.js</h3><span class="panel-total">46,413 条</span></div>
+          <div id="node-bars"></div>
+        </div>
+        <div class="panel python">
+          <div class="panel-head"><h3>Python</h3><span class="panel-total">27,806 条</span></div>
+          <div id="python-bars"></div>
+        </div>
+        <div class="panel c-cpp">
+          <div class="panel-head"><h3>C/C++</h3><span class="panel-total">3,788 条 / 3,293 个唯一库</span></div>
+          <div id="c-bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="satisfaction-title">
+      <div class="section-head">
+        <div><h2 id="satisfaction-title">清洗后的项目需求满足度</h2><p>基于 601 个项目、4,834 个原始依赖项进行生态纠正、别名归一和非三方库剔除，再与当前三类鸿蒙化目录匹配。</p></div>
+      </div>
+      <div class="satisfaction-grid">
+        <div class="panel">
+          <div class="panel-head"><h3>各生态目录覆盖</h3><span class="panel-total">按唯一库计算</span></div>
+          <div id="satisfaction-bars"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>项目依赖闭合分布</h3><span class="panel-total" id="project-total"></span></div>
+          <div class="project-stack" id="project-stack" aria-label="项目满足度分布"></div>
+          <div class="legend" id="project-bin-legend"></div>
+          <div class="cleaning-summary" id="cleaning-summary"></div>
+        </div>
+      </div>
+      <div class="satisfaction-note">满足度表示包名已进入鸿蒙兼容或移植目录，不代表安装、编译、启动、核心功能和真机测试已经通过。完整闭合项目应作为端到端验证候选继续推进。</div>
+      <div class="project-kpis" aria-label="项目覆盖率摘要">
+        <div class="project-kpi"><span>至少一个依赖已覆盖</span><strong id="any-project-rate">84.4%</strong><small id="any-project-count">276 / 327 个项目</small></div>
+        <div class="project-kpi"><span>项目平均依赖覆盖率</span><strong id="average-project-rate">—</strong><small>逐项目覆盖率简单平均</small></div>
+        <div class="project-kpi"><span>高覆盖项目（≥80%）</span><strong id="high-project-rate">30.9%</strong><small id="high-project-count">101 / 327 个项目</small></div>
+        <div class="project-kpi"><span>项目完全覆盖率</span><strong id="full-project-rate">15.6%</strong><small id="full-project-count">51 / 327 个项目</small></div>
+      </div>
+      <div class="section-head" style="margin-top:22px">
+        <div><h3>按项目类型分类</h3><p>综合项目名称、框架和依赖关键词确定一个主要项目类型，并统计各类型的平均覆盖率与完全覆盖率。</p></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>项目类型</th><th>项目数</th><th>至少部分覆盖</th><th>平均覆盖率</th><th>完全覆盖率</th><th>代表项目</th></tr></thead>
+          <tbody id="project-type-summary"></tbody>
+        </table>
+      </div>
+      <div class="section-head" style="margin-top:22px">
+        <div><h3>项目分类与覆盖明细</h3><p>可按项目类型查看每个项目的主要框架、依赖数量和覆盖率。</p></div>
+      </div>
+      <div class="catalog-controls" style="grid-template-columns:minmax(220px,.6fr) 1fr auto">
+        <label class="field">项目类型<select id="project-type-filter"><option value="all">全部项目类型</option></select></label>
+        <label class="field">搜索项目<input id="project-search" type="search" placeholder="例如 Agent、lobe-chat、Electron"></label>
+        <div class="result-count" id="project-result-count" aria-live="polite"></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>项目</th><th>项目类型</th><th>主要框架</th><th>已覆盖/有效依赖</th><th>项目覆盖率</th><th>涉及生态</th></tr></thead>
+          <tbody id="project-coverage-table"></tbody>
+        </table>
+      </div>
+      <div class="section-head" style="margin-top:22px">
+        <div><h3>高频需求缺口</h3><p>清洗后按项目引用次数排序，优先展示已纳入生态但目录尚未覆盖的库。</p></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>三方库</th><th>生态</th><th>状态</th><th>引用次数</th><th>示例项目</th></tr></thead>
+          <tbody id="demand-gap-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="library-catalog-title">
+      <div class="section-head">
+        <div><h2 id="library-catalog-title">Python / C/C++ 库与接口目录</h2><p>Python 27,806 条记录已重新分析：42.8% 获得具体能力分类，56.5% 因缺少描述暂归低置信度业务类，只有 196 条仍待确认。C/C++ 分类保持不变。</p></div>
+      </div>
+      <div class="catalog-controls">
+        <label class="field">生态<select id="catalog-ecosystem"><option value="python">Python</option><option value="c">C/C++</option></select></label>
+        <label class="field">能力分类<select id="library-category"><option value="all">全部分类</option></select></label>
+        <label class="field">搜索库、描述或接口<input id="library-search" type="search" placeholder="例如 pydantic、agent、PDF、USB"></label>
+        <div class="result-count" id="library-result-count" aria-live="polite"></div>
+      </div>
+      <div class="library-list" id="library-list" aria-live="polite"></div>
+      <div class="api-note">
+        <p><strong>页面查询接口</strong>：浏览器控制台或其他脚本可直接读取重新分类后的完整目录。</p>
+        <code>HarmonyCapabilityMap.queryPythonLibraries({ categoryId: "agent-tui", keyword: "mcp", limit: 20 })</code><br>
+        <code>HarmonyCapabilityMap.getPythonCategories()</code>　<code>HarmonyCapabilityMap.queryCLibraries({ categoryId: "security", keyword: "tls" })</code>
+      </div>
+    </section>
+
+    <section aria-labelledby="scenarios-title">
+      <div class="section-head">
+        <div><h2 id="scenarios-title">场景端到端能力</h2><p>“端到端可用”表示入口、核心框架、数据/存储、外部操作和工程工具均有代表库；不代表这些组合已经完成生产认证。</p></div>
+      </div>
+      <div class="controls" role="group" aria-label="按成熟度筛选场景">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">全部场景</button>
+        <button class="filter" type="button" data-filter="ready" aria-pressed="false">端到端可用</button>
+        <button class="filter" type="button" data-filter="conditional" aria-pressed="false">条件可用</button>
+      </div>
+      <div class="scenario-grid" id="scenario-grid" aria-live="polite"></div>
+      <div class="legend"><span><i class="dot ready"></i>完整库链</span><span><i class="dot conditional"></i>存在设备、服务或生态前提</span></div>
+    </section>
+
+    <section aria-labelledby="gaps-title">
+      <div class="section-head">
+        <div><h2 id="gaps-title">Top 级库与关键环节缺口</h2><p>这里的“缺口”仅表示当前三方库清单没有发现精确主包名，或三方库组合尚未完成场景验证；不等同于上游项目不存在。</p></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>场景</th><th>当前已有能力</th><th>当前清单未发现或未证明</th><th>影响</th><th>优先级</th></tr></thead>
+          <tbody>
+            <tr><td>Python Web 服务</td><td><code>uvicorn</code>、<code>gunicorn</code>、requests/httpx、数据库驱动</td><td><code>FastAPI</code>、<code>Flask</code>、<code>Django</code>、<code>Celery</code> 主包</td><td>缺少主流框架与异步任务基线，Python 服务端难形成标准参考栈</td><td class="priority high">高</td></tr>
+            <tr><td>Python 交互式数据应用</td><td>NumPy、Pandas、Polars、Matplotlib、Plotly</td><td><code>Jupyter</code>、<code>Streamlit</code>、<code>Gradio</code> 主包</td><td>分析与报告可完成，但交互式 Notebook/数据应用入口不足</td><td class="priority high">高</td></tr>
+            <tr><td>Python Agent/LLM</td><td>Transformers、Torch、ONNX Runtime、LlamaIndex、ChromaDB</td><td><code>openai</code>、<code>anthropic</code>、<code>langchain</code> 主包</td><td>本地推理与 RAG 基础较好，主流云模型 SDK 需由 Node.js 补位</td><td class="priority medium">中</td></tr>
+            <tr><td>Python 办公文档</td><td>openpyxl、python-docx、ReportLab、Selenium、Playwright</td><td><code>python-pptx</code>、<code>pypdf</code> 主包</td><td>PPT 与 PDF 读写链存在空档，可由 Node.js pptxgenjs/pdfkit 临时补位</td><td class="priority medium">中</td></tr>
+            <tr><td>Node.js 服务与数据库</td><td>Express、Koa、Nest、GraphQL、SQLite、Prisma、MySQL2</td><td><code>fastify</code>、<code>pg</code>、<code>mongoose</code>、<code>redis</code> 精确主包</td><td>本地与 MySQL 场景完整，PostgreSQL/MongoDB/Redis 标准栈覆盖不足</td><td class="priority medium">中</td></tr>
+            <tr><td>Node.js 测试与浏览器</td><td>Mocha、ESLint、Prettier、Puppeteer、Chrome DevTools MCP</td><td><code>jest</code>、<code>vitest</code>、<code>playwright</code> 精确主包</td><td>已有可用替代，但缺少主流测试与跨浏览器自动化组合</td><td class="priority medium">中</td></tr>
+            <tr><td>C/C++ 边缘 AI</td><td>ONNX Runtime、ncnn、FAISS、Tesseract、OpenCV</td><td><code>tensorflow-lite</code>、<code>pytorch</code>、<code>llama.cpp</code> 精确主包及 NPU 后端验证</td><td>视觉/OCR/向量检索可用，主流大模型与硬件推理覆盖不足</td><td class="priority medium">中</td></tr>
+            <tr><td>C/C++ 办公文档</td><td>Poppler、PDFium、MuPDF tools、QPDF、pdfio、libgsf、Catdoc</td><td><code>libreoffice</code> 主包与 DOCX/PPTX 完整编辑写回链</td><td>PDF 和文本提取较完整，复杂 Office 编辑仍需 Python/Node.js 补位</td><td class="priority medium">中</td></tr>
+            <tr><td>硬件与多媒体</td><td>OpenCV、FFmpeg、GStreamer、SDL2、ALSA、OpenAL、libusb、hidapi</td><td>相机/麦克风设备链、硬件编解码、NPU/GPU 与驱动端到端验证</td><td>文件级和软件编解码可用，实时设备链仍是兼容性风险</td><td class="priority high">高</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="levels-title">
+      <div class="section-head"><div><h2 id="levels-title">能力地图验证等级</h2><p>建议把“库已收录”和“场景已闭环”分层记录，避免用包数量代替可交付能力。</p></div></div>
+      <div class="method">
+        <div class="level"><strong>L1 清单覆盖</strong><p>包名和目标版本进入兼容或移植清单。</p></div>
+        <div class="level"><strong>L2 可安装加载</strong><p>在目标鸿蒙设备上完成安装、导入或 require。</p></div>
+        <div class="level"><strong>L3 单项功能</strong><p>核心 API、原生依赖和错误路径通过测试。</p></div>
+        <div class="level"><strong>L4 场景闭环</strong><p>按参考架构完成输入、处理、存储、输出和回归。</p></div>
+        <div class="level"><strong>L5 生产基线</strong><p>性能、稳定性、安全、升级和发布全部验证。</p></div>
+      </div>
+    </section>
+
+    <footer>数据基线：OpenHarmony Node.js、Python、C/C++ 三方库清单与全部项目三方库归一总结表；统计更新至 2026-09-10。需求侧已剔除 ArkUI/平台占位项、运行时二进制和系统接口，并完成明确的生态纠正与名称别名归一。</footer>
+  </main>
+
+  <script src="python-library-capabilities.js"></script>
+  <script src="c-library-capabilities.js"></script>
+  <script src="third-party-satisfaction-cleaned.js"></script>
+  <script>
+    const pythonCatalog = window.HARMONY_PYTHON_CATALOG || { meta: {}, categories: [], libraries: [] };
+    const cCatalog = window.HARMONY_C_CATALOG || { meta: {}, categories: [], libraries: [] };
+    const satisfactionData = window.HARMONY_SATISFACTION_DATA || { meta: {}, ecosystems: [], cleaning: [], projectBins: [], projectTypes: [], projects: [], coveredCandidates: [], gaps: [] };
+    const classifications = {
+      node: [
+        ["开发基础库", 5074], ["前端开发库", 5782], ["后端开发库", 1501], ["Agent/TUI开发库", 227],
+        ["通用办公开发库", 230], ["数据库与存储", 476], ["网络与通信", 524], ["构建与工程工具", 2030],
+        ["测试与质量", 1563], ["数据处理与可视化", 326], ["AI与机器学习", 173], ["多媒体与图形", 377],
+        ["安全与加密", 261], ["云服务与DevOps", 1359], ["跨端与移动开发", 203], ["系统与原生能力", 380],
+        ["业务应用与集成", 292], ["其他/待确认", 25635]
+      ],
+      python: pythonCatalog.categories.length
+        ? pythonCatalog.categories.map(item => [item.label, item.recordCount])
+        : [["业务与行业组件", 16805], ["Agent与TUI开发", 2166], ["开发基础库", 1824], ["云服务与DevOps", 1274], ["测试与质量", 1251]],
+      c: cCatalog.categories.length
+        ? cCatalog.categories.map(item => [item.label, item.recordCount])
+        : [["业务与领域组件", 1714], ["其他/待确认", 289], ["语言运行时与脚本", 255], ["UI与跨平台应用框架", 203], ["开发基础库", 177]]
+    };
+
+    const capabilityMap = [
+      {
+        domain: "开发基础与工程工具", maturity: "ready", maturityText: "已形成主要能力", ecosystems: ["python", "node", "c"],
+        done: ["Node.js：TypeScript、Babel、Rollup、esbuild、Webpack", "Python：Pydantic、Click/Typer、打包与通用工具", "C/C++：CMake、Meson、Ninja、Boost、GLib"],
+        missing: ["跨三种生态的统一 CI、版本矩阵和回归基线", "Go、Rust、Java 构建生态尚未进入当前能力地图"],
+        scenario: "三方库构建、命令行工具、跨语言工程底座"
+      },
+      {
+        domain: "前端 Web 开发", maturity: "partial", maturityText: "部分完成", ecosystems: ["node"],
+        done: ["React、Vue、Angular、Svelte", "Vite、Webpack、Rollup、Tailwind CSS"],
+        missing: ["Next.js、Zustand、class-variance-authority、Sonner、Monaco Editor 主包", "WebView 渲染、输入法、剪贴板和无障碍真机验证"],
+        scenario: "WebView 管理台、仪表盘和跨端前端应用"
+      },
+      {
+        domain: "后端服务与 API", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["Node.js：Express、Koa、Nest、GraphQL、Socket.IO", "Python：Uvicorn、Gunicorn、requests/httpx、数据库驱动", "C/C++：curl、gRPC、HTTP/2/3、Protobuf"],
+        missing: ["Python：FastAPI、Flask、Django、Celery", "Node.js：Fastify、pg、Mongoose、Redis 主包", "服务部署、守护进程和压力测试基线"],
+        scenario: "本地 API、实时数据服务、安全网关"
+      },
+      {
+        domain: "Agent 与 TUI 智能工具", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node"],
+        done: ["Node.js：OpenAI/Anthropic SDK、LangChain、MCP SDK", "Ink、Blessed、OpenTUI、PTY 与终端执行", "浏览器工具、本地 SQLite、Word/PPT/Excel 输出"],
+        missing: ["Python：openai、anthropic、mcp、langchain 主包", "统一的工具权限、凭据管理、沙箱与长任务恢复接口", "端到端 Agent 参考应用的稳定性验证"],
+        scenario: "本地智能办公助手、终端 Agent、研发助手"
+      },
+      {
+        domain: "浏览器自动化与 RPA", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node"],
+        done: ["Puppeteer、Chrome DevTools MCP、agent-browser", "Python Playwright、Selenium、BeautifulSoup、requests/httpx"],
+        missing: ["Node.js Playwright 精确主包", "鸿蒙浏览器控制接口、登录态、下载上传和异常恢复统一封装", "多浏览器真机兼容回归"],
+        scenario: "网页巡检、数据采集、自动对账与报告"
+      },
+      {
+        domain: "办公文档与知识管理", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["Python：openpyxl、python-docx、ReportLab", "Node.js：docx、pptxgenjs、xlsx、pdfkit、mammoth", "C/C++：Poppler、PDFium、QPDF、Tesseract"],
+        missing: ["Python：python-pptx、pypdf 主包", "DOCX/PPTX 复杂排版编辑写回与 Office 高保真转换", "模板兼容、字体替换和批量渲染基线"],
+        scenario: "报告生成、投标材料、PDF 归档、知识库入库"
+      },
+      {
+        domain: "数据分析与科学计算", maturity: "ready", maturityText: "已形成主要能力", ecosystems: ["python", "c"],
+        done: ["NumPy、SciPy、Pandas、Polars、PyArrow", "Matplotlib、Plotly", "C/C++：Eigen、BLAS/LAPACK、FFTW、GDAL、PROJ、GEOS"],
+        missing: ["Jupyter、Streamlit、Gradio 交互入口", "大规模数据集性能与内存基线", "科学计算硬件加速验证"],
+        scenario: "离线分析、GIS 计算、自动报告和量化处理"
+      },
+      {
+        domain: "数据库、存储与中间件", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["SQLite、SQLAlchemy、Prisma、Sequelize、TypeORM", "MySQL、PostgreSQL、MongoDB、Redis 的部分驱动", "C/C++ SQLite/libpq/MariaDB Connector 与序列化组件"],
+        missing: ["Node.js：pg、mongoose、redis 精确主包", "跨版本数据库兼容、连接池、事务和故障恢复测试", "Go/Java 中间件生态尚未覆盖"],
+        scenario: "离线数据库工具、业务服务持久化、缓存与检索"
+      },
+      {
+        domain: "AI 与机器学习", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["Python：Torch、Transformers、ONNX Runtime、LlamaIndex、ChromaDB", "C/C++：ONNX Runtime、ncnn、FAISS、Tesseract、OpenCV", "Node.js 模型 API 与 Agent 入口"],
+        missing: ["TensorFlow Lite、llama.cpp 等精确主包覆盖", "NPU/GPU 后端、模型分发、量化和性能基线", "Python 主流云模型 SDK 缺口"],
+        scenario: "本地推理、OCR、向量检索和 RAG"
+      },
+      {
+        domain: "多媒体与图形", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["FFmpeg、GStreamer、OpenCV、SDL2", "ALSA、OpenAL、PortAudio、图像编解码", "Python Pillow/OpenCV 与 Node.js 图形处理组件"],
+        missing: ["x264 精确库记录", "相机、麦克风、硬件编解码与实时预览链", "音视频设备权限和长时间稳定性验证"],
+        scenario: "素材批处理、图片识别、视频转码和播放器底座"
+      },
+      {
+        domain: "网络、协议与安全", maturity: "ready", maturityText: "已形成主要能力", ecosystems: ["python", "node", "c"],
+        done: ["curl、OpenSSL、GnuTLS、nghttp2/3、WebSocket++", "MQTT、gRPC、Protobuf、JSON/YAML", "Python/Node.js HTTP、WebSocket 与加密组件"],
+        missing: ["真实网络切换、代理、证书存储和系统权限回归", "国密、硬件密钥与系统安全服务的统一接口验证"],
+        scenario: "安全网络客户端、本地网关、协议转换服务"
+      },
+      {
+        domain: "桌面、TUI 与跨端应用", maturity: "partial", maturityText: "部分完成", ecosystems: ["node", "c", "other"],
+        done: ["Qt、GTK、wxWidgets、Cairo、字体与显示协议库", "Node.js Electron 周边工具及多个鸿蒙 Electron 项目样例", "ncurses、终端和本地文件/数据库能力"],
+        missing: ["electron 精确主包未进入当前 Node.js 目录", "窗口、输入法、通知、剪贴板、托盘和无障碍统一验证", "ArkUI 属于系统能力，不计入三方库完成量"],
+        scenario: "桌面工具、终端应用和跨平台客户端"
+      },
+      {
+        domain: "云原生、运维与安全工具", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c", "other"],
+        done: ["AWS SDK、Docker/Kubernetes/OpenTelemetry 客户端", "Prometheus、日志、配置和网络诊断组件", "C/C++ 系统、网络与性能工具底座"],
+        missing: ["依赖远端云、Docker daemon 或 Kubernetes 集群，不能视为设备本地闭环", "Go 是该领域主要生态，但当前 1,569 个 Go 需求库尚未纳入", "发布、升级、守护和故障恢复基线"],
+        scenario: "运维控制面、资源查询、监控和诊断"
+      },
+      {
+        domain: "测试与质量保障", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node", "c"],
+        done: ["Python pytest 等测试工具", "Node.js Mocha、ESLint、Prettier", "C/C++ gtest、基准测试与静态分析组件"],
+        missing: ["Node.js：Jest、Vitest 主包", "跨版本、跨设备和跨生态统一测试矩阵", "L2-L5 验证结果尚未系统回写能力地图"],
+        scenario: "单元测试、质量检查、兼容性回归"
+      },
+      {
+        domain: "Go、Rust、Java 与 ArkTS 生态", maturity: "missing", maturityText: "尚未建设", ecosystems: ["other"],
+        done: ["需求侧已识别 Go 1,569、Rust 179、Java 105、ArkTS 9 个有效依赖", "已清除 ArkUI、官方组件和描述性占位项"],
+        missing: ["尚无对应的鸿蒙化三方库目录、分类标签和版本匹配结果", "尚未建立 Top 库优先级、编译适配流水线和端到端示例", "这些生态当前不能计为已满足"],
+        scenario: "后续生态扩展和能力地图第二阶段"
+      }
+    ];
+
+    const scenarios = [
+      {
+        status: "ready", title: "Agent/TUI 智能工具", statusText: "端到端可用",
+        summary: "从对话入口、Agent 编排、终端执行、浏览器操作到本地记忆与文档输出形成完整链路。",
+        chain: ["TUI/PTY", "MCP/LLM", "工具调用", "SQLite", "办公输出"],
+        packages: ["Node.js：OpenAI、Anthropic SDK、LangChain、MCP SDK", "交互与执行：Ink、Blessed、OpenTUI、bun-pty", "工具：Puppeteer、Chrome DevTools MCP、agent-browser、docx、pptxgenjs"],
+        example: "鸿蒙本地智能办公助手：读取任务 → 操作网页 → 写入 SQLite → 生成 Word/PPT/Excel 报告。"
+      },
+      {
+        status: "ready", title: "Node.js Web 全栈应用", statusText: "端到端可用",
+        summary: "前端、构建、服务端、实时通信、数据库和质量工具均有成熟代表库。",
+        chain: ["React/Vue", "Vite/Webpack", "Express/Nest", "GraphQL/WebSocket", "SQLite/Prisma"],
+        packages: ["前端：React、Vue、Angular、Svelte、Tailwind CSS", "后端：Express、Koa、Nest、GraphQL、Socket.IO", "工程：TypeScript、Rollup、esbuild、Mocha、ESLint、Prettier"],
+        example: "鸿蒙 WebView 管理工具：React 页面 → Nest API → Prisma/SQLite → WebSocket 实时刷新。"
+      },
+      {
+        status: "ready", title: "数据分析与自动报告", statusText: "端到端可用",
+        summary: "Python 已覆盖数据读取、数值计算、数据框、可视化和办公文件输出。",
+        chain: ["采集", "Pandas/Polars", "NumPy/SciPy", "Matplotlib/Plotly", "Excel/Word/PDF"],
+        packages: ["计算：NumPy、SciPy、Pandas、Polars、PyArrow", "可视化：Matplotlib、Plotly", "输出：openpyxl、python-docx、ReportLab"],
+        example: "运营日报：HTTP/数据库取数 → Pandas 汇总 → 图表 → Excel 与 Word/PDF 报告。"
+      },
+      {
+        status: "ready", title: "办公文档自动化", statusText: "端到端可用",
+        summary: "双生态可以完成表格、Word、PPT、PDF 的生成、提取、转换和归档。",
+        chain: ["网页/数据输入", "结构化处理", "Office 文件生成", "PDF 输出", "归档"],
+        packages: ["Python：openpyxl、python-docx、ReportLab", "Node.js：docx、pptxgenjs、xlsx、pdfkit、mammoth", "转换与图表：libreoffice-convert、Mermaid CLI"],
+        example: "投标材料生成器：模板数据 → Excel 附表 → Word 正文 → PPT 汇报 → PDF 归档。"
+      },
+      {
+        status: "ready", title: "本地数据库工具", statusText: "端到端可用",
+        summary: "本地 SQLite 与多种 ORM 已适配，可连接 TUI、Web 或批处理入口。",
+        chain: ["TUI/Web", "业务逻辑", "ORM", "SQLite", "导入导出"],
+        packages: ["Node.js：better-sqlite3、sqlite3、Prisma、Sequelize、TypeORM", "Python：SQLAlchemy、SQLite、Psycopg2、MySQLclient、PyMongo、Redis", "向量存储：ChromaDB"],
+        example: "离线资产管理：本地表单/TUI → SQLite → 搜索统计 → Excel/PDF 导出。"
+      },
+      {
+        status: "ready", title: "浏览器自动化与 RPA", statusText: "端到端可用",
+        summary: "页面控制、网络请求、内容解析、结果存储和报告输出都有对应库。",
+        chain: ["任务输入", "浏览器控制", "页面解析", "数据校验", "存储/报告"],
+        packages: ["Node.js：Puppeteer、Chrome DevTools MCP、agent-browser", "Python：Selenium、Playwright、requests、httpx、BeautifulSoup4", "输出：SQLite、Pandas、Excel/Word/PDF"],
+        example: "网页巡检机器人：登录系统 → 执行操作 → 截取/提取数据 → 对账 → 生成巡检报告。"
+      },
+      {
+        status: "ready", title: "API 聚合与实时数据服务", statusText: "端到端可用",
+        summary: "HTTP、WebSocket、GraphQL、数据清洗、缓存和持久化已具备。",
+        chain: ["HTTP/API", "协议适配", "数据转换", "缓存/数据库", "Web/TUI 输出"],
+        packages: ["Node.js：Axios、Undici、ws、Socket.IO、GraphQL", "Python：requests、httpx、websockets", "存储：SQLite、MySQL、MongoDB、Redis"],
+        example: "多源行情聚合器：并发调用 API → 统一数据模型 → 缓存/入库 → WebSocket 推送。"
+      },
+      {
+        status: "ready", title: "C/C++ 安全网络与本地数据服务", statusText: "端到端可用", ecosystems: ["c"],
+        summary: "协议、TLS、序列化、数据库、构建、日志和测试均有成熟原生库，可形成无脚本运行时的服务闭环。",
+        chain: ["curl/gRPC", "OpenSSL", "Protobuf", "SQLite/PostgreSQL", "CMake/gtest"],
+        packages: ["通信：curl、gRPC、nghttp2/3、WebSocket++、Paho MQTT", "安全与协议：OpenSSL、GnuTLS、Protobuf、JSON/YAML", "数据与工程：SQLite3、libpq、MariaDB Connector/C、spdlog、gtest"],
+        example: "本地安全网关：接收 HTTP/MQTT → TLS 与协议校验 → Protobuf 转换 → SQLite 落库 → 指标日志输出。"
+      },
+      {
+        status: "ready", title: "C/C++ 科学计算与离线 GIS 引擎", statusText: "端到端可用", ecosystems: ["c"],
+        summary: "数值计算、坐标转换、空间几何、栅格/矢量数据和空间数据库可以组成离线计算链。",
+        chain: ["GDAL", "PROJ", "GEOS", "Eigen/BLAS", "SpatiaLite"],
+        packages: ["GIS：GDAL、PROJ、GEOS、GeoTIFF、SpatiaLite", "数值：Eigen、BLAS/LAPACK、FFTW、GMP、MPFR", "科学格式：NetCDF、HDF、CFITSIO/WCSLib"],
+        example: "离线地图分析：读取栅格/矢量 → 坐标转换 → 空间相交与缓冲 → SpatiaLite 存储 → 导出统计结果。"
+      },
+      {
+        status: "ready", title: "C/C++ PDF 与文档处理引擎", statusText: "端到端可用", ecosystems: ["c"],
+        summary: "PDF 读取、渲染、合并、校验、文本提取和部分 Office 格式解析具备完整原生工具链。",
+        chain: ["文档输入", "Poppler/PDFium", "QPDF/pdfio", "OCR/拼写", "归档输出"],
+        packages: ["PDF：Poppler、PDFium、MuPDF tools、QPDF、pdfio", "文档：libgsf、Catdoc、AbiWord OpenXML 插件", "增强：Tesseract、Hunspell、Enchant、libarchive"],
+        example: "离线文档索引器：扫描 PDF/Office → 提取文字与元数据 → OCR → 建立索引 → 生成归档 PDF。"
+      },
+      {
+        status: "conditional", title: "本地 AI 推理与 RAG", statusText: "条件可用", ecosystems: ["python", "node", "c"],
+        summary: "模型、推理、Embedding、向量库与 Agent 入口基本齐全，硬件加速和模型分发尚需验证。",
+        chain: ["文档解析", "Embedding", "ChromaDB", "Torch/ONNX", "Agent UI"],
+        packages: ["Python：Torch、Transformers、ONNX Runtime、LlamaIndex、ChromaDB", "C/C++：ONNX Runtime、ncnn、FAISS、Tesseract、OpenCV", "Node.js：LangChain、MCP SDK、OpenAI/Anthropic SDK；缺口为 NPU/GPU 后端与模型分发"],
+        example: "离线知识助手：文档切分 → 向量化 → 本地检索 → 模型生成 → TUI 展示。"
+      },
+      {
+        status: "conditional", title: "图像、音视频与实时媒体", statusText: "条件可用", ecosystems: ["python", "node", "c"],
+        summary: "文件级处理链完整，实时摄像头、音频和硬件编解码仍依赖系统接口。",
+        chain: ["设备/文件输入", "OpenCV", "FFmpeg/GStreamer", "SDL2/OpenAL", "显示/文件输出"],
+        packages: ["C/C++：FFmpeg、GStreamer、SDL2、ALSA、OpenAL、PortAudio", "Python：OpenCV、Pillow、ffmpeg-python；Node.js：resvg-js", "待验证：设备采集、实时预览与硬件编解码兼容性"],
+        example: "批量素材处理：图片缩放/识别 → 视频转码 → 缩略图 → 结果清单。"
+      },
+      {
+        status: "conditional", title: "C/C++ 跨平台原生 GUI", statusText: "条件可用", ecosystems: ["c"],
+        summary: "Qt、GTK、GNUstep、Cairo、字体与显示协议库齐全，跨平台桌面应用链需要结合实际显示后端验证。",
+        chain: ["Qt/GTK", "Cairo/字体", "X11/Wayland", "系统服务", "应用打包"],
+        packages: ["UI：Qt Base/QML/Quick、GTK3/4、wxWidgets、GNUstep", "图形：Cairo、FreeType、HarfBuzz、Vulkan、OpenGL", "待验证：显示后端、窗口输入法、通知、剪贴板和无障碍插件兼容性"],
+        example: "跨平台桌面工具：Qt/GTK 界面 → C/C++ 业务逻辑 → SQLite/网络服务 → 本地文件输出。"
+      },
+      {
+        status: "conditional", title: "C/C++ 外设与硬件加速应用", statusText: "条件可用", ecosystems: ["c"],
+        summary: "用户态外设和计算 API 已收录，是否可用取决于鸿蒙设备节点、权限、驱动和系统服务。",
+        chain: ["libusb/HID", "PC/SC", "设备权限", "OpenCL/Vulkan", "业务输出"],
+        packages: ["外设：libusb、hidapi、PCSC-Lite、libusbmuxd", "计算：OpenCL ICD Loader、Vulkan、SIMD/Highway、OpenMP/MPI", "缺口：真实设备驱动、权限声明、热插拔与异常恢复验证"],
+        example: "USB/HID 数据采集：发现设备 → 权限申请 → 读取数据 → 本地分析 → UI/网络输出。"
+      },
+      {
+        status: "conditional", title: "Python Web 服务", statusText: "条件可用",
+        summary: "服务器、网络和数据库底座存在，但主流框架主包缺失，当前更适合轻量或定制服务。",
+        chain: ["Uvicorn/Gunicorn", "HTTP", "业务逻辑", "数据库", "监控"],
+        packages: ["已有：Uvicorn、Gunicorn、requests/httpx、SQLAlchemy、Redis", "未发现：FastAPI、Flask、Django、Celery 主包", "建议：补齐一套 ASGI 框架与任务队列参考栈"],
+        example: "当前可做定制 ASGI/WSGI 服务；补齐 FastAPI 后可形成标准 Python API 参考应用。"
+      },
+      {
+        status: "conditional", title: "云服务与 DevOps 控制面", statusText: "条件可用",
+        summary: "SDK、容器与可观测性客户端丰富，但运行依赖远端服务、守护进程或集群。",
+        chain: ["云 SDK", "容器 API", "集群 API", "Telemetry", "远端平台"],
+        packages: ["Python：Docker、Kubernetes、OpenTelemetry、Prometheus Client", "Node.js：AWS SDK 等云客户端", "外部前提：云账号、Docker daemon、Kubernetes 集群"],
+        example: "鸿蒙运维控制台：查询云资源 → 调用集群 API → 展示指标；不是设备本地独立闭环。"
+      }
+    ];
+
+    function scenarioEcosystems(item) {
+      if (item.ecosystems) return item.ecosystems;
+      const text = JSON.stringify(item).toLowerCase();
+      const result = [];
+      if (/python|pandas|numpy|uvicorn|gunicorn/.test(text)) result.push("python");
+      if (/node\.js|react|nest|puppeteer|npm|typescript/.test(text)) result.push("node");
+      if (/c\/c\+\+|openssl|gdal|qt\/gtk|libusb|ffmpeg\/gstreamer/.test(text)) result.push("c");
+      return result;
+    }
+
+    function queryCLibraries({ categoryId = "all", keyword = "", limit = 50, offset = 0 } = {}) {
+      const needle = String(keyword).trim().toLocaleLowerCase("zh-CN");
+      const safeLimit = Math.max(1, Math.min(Number(limit) || 50, 500));
+      const safeOffset = Math.max(0, Number(offset) || 0);
+      const matched = cCatalog.libraries.filter(item => {
+        if (categoryId !== "all" && item.categoryId !== categoryId) return false;
+        if (!needle) return true;
+        return [item.name, item.description, item.category, item.interfaceSurface]
+          .join(" ").toLocaleLowerCase("zh-CN").includes(needle);
+      });
+      return { total: matched.length, offset: safeOffset, limit: safeLimit, items: matched.slice(safeOffset, safeOffset + safeLimit) };
+    }
+
+    const pythonCategoryMap = new Map(pythonCatalog.categories.map(item => [item.id, item]));
+    function normalizePythonLibrary(item) {
+      const category = pythonCategoryMap.get(item.c) || { label: item.c, interfaceSurface: "" };
+      return {
+        name: item.n, versions: item.v, categoryId: item.c, category: category.label,
+        interfaceSurface: category.interfaceSurface, adaptedRecords: item.a,
+        directRecords: item.d, completedAt: item.t, classificationMethod: item.m
+      };
+    }
+
+    function queryPythonLibraries({ categoryId = "all", keyword = "", limit = 50, offset = 0 } = {}) {
+      const needle = String(keyword).trim().toLocaleLowerCase("zh-CN");
+      const safeLimit = Math.max(1, Math.min(Number(limit) || 50, 500));
+      const safeOffset = Math.max(0, Number(offset) || 0);
+      const matched = pythonCatalog.libraries.filter(item => {
+        if (categoryId !== "all" && item.c !== categoryId) return false;
+        if (!needle) return true;
+        const category = pythonCategoryMap.get(item.c) || {};
+        return [item.n, category.label, category.interfaceSurface]
+          .join(" ").toLocaleLowerCase("zh-CN").includes(needle);
+      });
+      return { total: matched.length, offset: safeOffset, limit: safeLimit, items: matched.slice(safeOffset, safeOffset + safeLimit).map(normalizePythonLibrary) };
+    }
+
+    window.HarmonyCapabilityMap = Object.freeze({
+      version: "1.1.0",
+      meta: { python: pythonCatalog.meta, c: cCatalog.meta },
+      queryPythonLibraries,
+      queryCLibraries,
+      getPythonCategories: () => pythonCatalog.categories.map(item => ({ ...item })),
+      getCCategories: () => cCatalog.categories.map(item => ({ ...item })),
+      getSatisfactionSummary: () => JSON.parse(JSON.stringify(satisfactionData)),
+      getCapabilityMap: ({ maturity = "all", ecosystem = "all", keyword = "" } = {}) => {
+        const needle = String(keyword).trim().toLocaleLowerCase("zh-CN");
+        return capabilityMap.filter(item =>
+          (maturity === "all" || item.maturity === maturity) &&
+          (ecosystem === "all" || item.ecosystems.includes(ecosystem)) &&
+          (!needle || JSON.stringify(item).toLocaleLowerCase("zh-CN").includes(needle))
+        ).map(item => ({ ...item, ecosystems: [...item.ecosystems], done: [...item.done], missing: [...item.missing] }));
+      },
+      getScenarios: ({ status = "all", ecosystem = "all", keyword = "" } = {}) => {
+        const needle = String(keyword).trim().toLocaleLowerCase("zh-CN");
+        return scenarios.filter(item =>
+          (status === "all" || item.status === status) &&
+          (ecosystem === "all" || scenarioEcosystems(item).includes(ecosystem)) &&
+          (!needle || JSON.stringify(item).toLocaleLowerCase("zh-CN").includes(needle))
+        ).map(item => ({ ...item, ecosystems: scenarioEcosystems(item) }));
+      },
+      getGapMatrix: () => Array.from(document.querySelectorAll("[aria-labelledby='gaps-title'] tbody tr")).map(row =>
+        Array.from(row.cells).map(cell => cell.textContent.trim())
+      )
+    });
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+      })[character]);
+    }
+
+    function renderBars(targetId, rows) {
+      const target = document.getElementById(targetId);
+      const max = Math.max(...rows.map(([, value]) => value));
+      target.innerHTML = rows.map(([label, value]) => `
+        <div class="bar-row">
+          <div class="bar-label" title="${label}">${label}</div>
+          <div class="bar-track" role="img" aria-label="${label} ${value.toLocaleString('zh-CN')} 条">
+            <div class="bar-fill" style="width:${(value / max * 100).toFixed(2)}%"></div>
+          </div>
+          <div class="bar-value">${value.toLocaleString('zh-CN')}</div>
+        </div>`).join("");
+    }
+
+    function renderScenarios(filter = "all") {
+      const grid = document.getElementById("scenario-grid");
+      const visible = scenarios.filter(item => filter === "all" || item.status === filter);
+      grid.innerHTML = visible.map(item => `
+        <article class="scenario" data-status="${item.status}">
+          <div class="scenario-top"><h3>${item.title}</h3><span class="status ${item.status}">${item.statusText}</span></div>
+          <p>${item.summary}</p>
+          <div class="chain" aria-label="能力链">${item.chain.map(step => `<span>${step}</span>`).join("")}</div>
+          <ul class="packages">${item.packages.map(pkg => `<li>${pkg}</li>`).join("")}</ul>
+          <div class="example"><strong>示例：</strong>${item.example}</div>
+        </article>`).join("");
+      grid.setAttribute("aria-label", `显示 ${visible.length} 个场景`);
+    }
+
+    function initializeCapabilityMap() {
+      const status = document.getElementById("capability-status");
+      const ecosystem = document.getElementById("capability-ecosystem");
+      const search = document.getElementById("capability-search");
+      const count = document.getElementById("capability-result-count");
+      const table = document.getElementById("capability-map-table");
+      const maturityCounts = capabilityMap.reduce((result, item) => {
+        result[item.maturity] = (result[item.maturity] || 0) + 1;
+        return result;
+      }, {});
+      document.getElementById("cap-ready-count").textContent = maturityCounts.ready || 0;
+      document.getElementById("cap-partial-count").textContent = maturityCounts.partial || 0;
+      document.getElementById("cap-missing-count").textContent = maturityCounts.missing || 0;
+
+      const ecosystemLabels = { python: "Python", node: "Node.js", c: "C/C++", other: "其他生态" };
+      const refresh = () => {
+        const needle = search.value.trim().toLocaleLowerCase("zh-CN");
+        const rows = capabilityMap.filter(item =>
+          (status.value === "all" || item.maturity === status.value) &&
+          (ecosystem.value === "all" || item.ecosystems.includes(ecosystem.value)) &&
+          (!needle || JSON.stringify(item).toLocaleLowerCase("zh-CN").includes(needle))
+        );
+        count.textContent = `显示 ${rows.length} / ${capabilityMap.length} 个能力域`;
+        table.innerHTML = rows.map(item => `
+          <tr>
+            <td class="domain-name"><strong>${escapeHtml(item.domain)}</strong><small>${item.ecosystems.map(value => ecosystemLabels[value]).join("、")}</small></td>
+            <td><span class="maturity ${item.maturity}">${escapeHtml(item.maturityText)}</span></td>
+            <td><ul class="ability-list">${item.done.map(value => `<li>${escapeHtml(value)}</li>`).join("")}</ul></td>
+            <td><ul class="ability-list">${item.missing.map(value => `<li>${escapeHtml(value)}</li>`).join("")}</ul></td>
+            <td>${escapeHtml(item.scenario)}</td>
+          </tr>`).join("");
+      };
+      status.addEventListener("change", refresh);
+      ecosystem.addEventListener("change", refresh);
+      search.addEventListener("input", refresh);
+      refresh();
+    }
+
+    function renderSatisfaction() {
+      const formatPercent = value => `${(Number(value || 0) * 100).toFixed(1)}%`;
+      const mappedMetric = document.getElementById("mapped-coverage-metric");
+      const projectMetric = document.getElementById("full-project-metric");
+      if (mappedMetric) mappedMetric.textContent = formatPercent(satisfactionData.meta.mappedCoverage);
+      if (projectMetric) projectMetric.textContent = Number(satisfactionData.meta.fullProjects || 0).toLocaleString("zh-CN");
+
+      const bars = document.getElementById("satisfaction-bars");
+      bars.innerHTML = satisfactionData.ecosystems.map(item => `
+        <div class="coverage-row">
+          <div class="coverage-label">${escapeHtml(item.ecosystem)}<small>${item.matched.toLocaleString("zh-CN")} / ${item.libraries.toLocaleString("zh-CN")} · ${escapeHtml(item.scope)}</small></div>
+          <div class="coverage-track" role="img" aria-label="${escapeHtml(item.ecosystem)} 覆盖率 ${formatPercent(item.coverage)}"><div class="coverage-fill" style="width:${formatPercent(item.coverage)}"></div></div>
+          <div class="coverage-value">${formatPercent(item.coverage)}</div>
+        </div>`).join("");
+
+      const totalProjects = satisfactionData.projectBins.reduce((sum, item) => sum + item.count, 0);
+      document.getElementById("project-total").textContent = `${totalProjects.toLocaleString("zh-CN")} 个有效项目`;
+      document.getElementById("project-stack").innerHTML = satisfactionData.projectBins.map(item => `
+        <span style="width:${formatPercent(item.count / totalProjects)}" title="${item.label}：${item.count} 个">${item.count >= 20 ? item.count : ""}</span>`).join("");
+      document.getElementById("project-bin-legend").innerHTML = satisfactionData.projectBins.map((item, index) => `
+        <span><i class="dot ${index === 0 ? "ready" : index === 4 ? "gap" : "conditional"}"></i>${item.label}：${item.count}（${formatPercent(item.count / totalProjects)}）</span>`).join("");
+
+      const meta = satisfactionData.meta;
+      document.getElementById("any-project-rate").textContent = formatPercent(meta.anyProjectCoverage);
+      document.getElementById("any-project-count").textContent = `${meta.anyCoveredProjects.toLocaleString("zh-CN")} / ${totalProjects.toLocaleString("zh-CN")} 个项目`;
+      document.getElementById("average-project-rate").textContent = formatPercent(meta.averageProjectCoverage);
+      document.getElementById("high-project-rate").textContent = formatPercent(meta.highProjectCoverage);
+      document.getElementById("high-project-count").textContent = `${meta.highCoverageProjects.toLocaleString("zh-CN")} / ${totalProjects.toLocaleString("zh-CN")} 个项目`;
+      document.getElementById("full-project-rate").textContent = formatPercent(meta.fullProjectCoverage);
+      document.getElementById("full-project-count").textContent = `${meta.fullProjects.toLocaleString("zh-CN")} / ${totalProjects.toLocaleString("zh-CN")} 个项目`;
+
+      document.getElementById("project-type-summary").innerHTML = satisfactionData.projectTypes.map(item => `
+        <tr><td><strong>${escapeHtml(item.projectType)}</strong></td><td>${item.projects.toLocaleString("zh-CN")}</td><td>${item.anyCoveredProjects.toLocaleString("zh-CN")}（${formatPercent(item.anyCoverage)}）</td><td>${formatPercent(item.averageCoverage)}</td><td>${item.fullProjects.toLocaleString("zh-CN")}（${formatPercent(item.fullCoverage)}）</td><td>${item.representatives.slice(0, 3).map(escapeHtml).join("、")}</td></tr>`).join("");
+
+      const projectTypeFilter = document.getElementById("project-type-filter");
+      satisfactionData.projectTypes.forEach(item => {
+        const option = document.createElement("option");
+        option.value = item.projectType;
+        option.textContent = `${item.projectType}（${item.projects}）`;
+        projectTypeFilter.appendChild(option);
+      });
+
+      const renderProjectCoverage = () => {
+        const keyword = document.getElementById("project-search").value.trim().toLocaleLowerCase("zh-CN");
+        const projectType = projectTypeFilter.value;
+        const projects = satisfactionData.projects.filter(item =>
+          (projectType === "all" || item.projectType === projectType) &&
+          (!keyword || [item.project, item.projectType, item.framework, item.primaryLanguage]
+            .join(" ").toLocaleLowerCase("zh-CN").includes(keyword))
+        );
+        document.getElementById("project-result-count").textContent = `匹配 ${projects.length.toLocaleString("zh-CN")} 个项目，显示前 ${Math.min(projects.length, 80)} 个`;
+        document.getElementById("project-coverage-table").innerHTML = projects.slice(0, 80).map(item => `
+          <tr><td><code>${escapeHtml(item.project)}</code></td><td>${escapeHtml(item.projectType)}</td><td>${escapeHtml(item.framework || "—")}</td><td>${item.matched.toLocaleString("zh-CN")} / ${item.dependencies.toLocaleString("zh-CN")}</td><td class="priority ${item.coverage < .5 ? "high" : item.coverage < 1 ? "medium" : ""}">${formatPercent(item.coverage)}</td><td>${item.ecosystems.map(escapeHtml).join("、")}</td></tr>`).join("");
+      };
+      projectTypeFilter.addEventListener("change", renderProjectCoverage);
+      document.getElementById("project-search").addEventListener("input", renderProjectCoverage);
+      renderProjectCoverage();
+
+      const visibleCleaning = satisfactionData.cleaning.filter(item => item.category !== "无需调整");
+      document.getElementById("cleaning-summary").innerHTML = visibleCleaning.map(item => `
+        <div class="cleaning-item"><strong>${item.libraries.toLocaleString("zh-CN")}</strong><span>${escapeHtml(item.category)} · ${item.references.toLocaleString("zh-CN")} 次引用</span></div>`).join("");
+
+      const mappedGaps = satisfactionData.gaps.filter(item => item.status === "目录缺口").slice(0, 20);
+      document.getElementById("demand-gap-table").innerHTML = mappedGaps.map(item => `
+        <tr><td><code>${escapeHtml(item.name)}</code></td><td>${escapeHtml(item.ecosystem)}</td><td class="priority high">${escapeHtml(item.status)}</td><td>${item.references.toLocaleString("zh-CN")}</td><td>${item.projects.slice(0, 4).map(escapeHtml).join("、")}</td></tr>`).join("");
+    }
+
+    function initializeLibraryCatalog() {
+      const ecosystem = document.getElementById("catalog-ecosystem");
+      const category = document.getElementById("library-category");
+      const search = document.getElementById("library-search");
+      const count = document.getElementById("library-result-count");
+      const list = document.getElementById("library-list");
+
+      const populateCategories = () => {
+        const catalog = ecosystem.value === "python" ? pythonCatalog : cCatalog;
+        category.innerHTML = '<option value="all">全部分类</option>';
+        catalog.categories.forEach(item => {
+          const option = document.createElement("option");
+          option.value = item.id;
+          option.textContent = `${item.label}（${item.uniqueLibraries.toLocaleString("zh-CN")}）`;
+          category.appendChild(option);
+        });
+        if (ecosystem.value === "python" && pythonCategoryMap.has("agent-tui")) {
+          category.value = "agent-tui";
+        }
+      };
+
+      const refresh = () => {
+        const isPython = ecosystem.value === "python";
+        const result = isPython
+          ? queryPythonLibraries({ categoryId: category.value, keyword: search.value, limit: 20 })
+          : queryCLibraries({ categoryId: category.value, keyword: search.value, limit: 20 });
+        count.textContent = `${isPython ? "Python" : "C/C++"} 匹配 ${result.total.toLocaleString("zh-CN")} 个库，显示前 ${result.items.length.toLocaleString("zh-CN")} 个`;
+        list.innerHTML = result.items.map(item => `
+          <article class="library-row">
+            <strong>${escapeHtml(item.name)}</strong>
+            <div class="library-meta">${escapeHtml(item.category)} · ${isPython
+              ? `${item.adaptedRecords.toLocaleString("zh-CN")} 条需鸿蒙源 / ${item.directRecords.toLocaleString("zh-CN")} 条直接可用`
+              : `${item.recordCount.toLocaleString("zh-CN")} 个版本记录 · ${item.downloads.toLocaleString("zh-CN")} 次拉取`}</div>
+            <p class="library-desc">${escapeHtml(item.interfaceSurface)}${!isPython && item.description ? `。${escapeHtml(item.description.slice(0, 180))}` : ""}${isPython && item.classificationMethod === "broad-domain-fallback" ? "。仅依据包名归入低置信度业务类，建议结合 PyPI 描述复核。" : ""}</p>
+          </article>`).join("") || '<p class="library-desc">没有匹配的库。</p>';
+      };
+      ecosystem.addEventListener("change", () => { populateCategories(); refresh(); });
+      category.addEventListener("change", refresh);
+      search.addEventListener("input", refresh);
+      populateCategories();
+      refresh();
+    }
+
+    renderBars("node-bars", classifications.node);
+    renderBars("python-bars", classifications.python);
+    renderBars("c-bars", classifications.c);
+    initializeCapabilityMap();
+    renderSatisfaction();
+    renderScenarios();
+    initializeLibraryCatalog();
+
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter").forEach(item => item.setAttribute("aria-pressed", "false"));
+        button.setAttribute("aria-pressed", "true");
+        renderScenarios(button.dataset.filter);
+      });
+    });
+  </script>
+</body>
+</html>
