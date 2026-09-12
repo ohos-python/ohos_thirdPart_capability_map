@@ -1,0 +1,12 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+# Local rendering / inspection caches, not research inputs.
+*.inspect.ndjson
+outputs/taxonomy-validation-20260912/preview-*.png
+outputs/taxonomy-validation-20260912/page-*.html

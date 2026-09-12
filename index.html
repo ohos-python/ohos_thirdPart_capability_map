@@ -204,8 +204,8 @@
         <p class="lead">从“适用场景”反向识别 C/C++、Python 与 Node.js 三方库能否组成完整开发链，区分库清单覆盖、端到端可用和生产级验证。</p>
       </div>
       <div class="hero-summary">
-        <strong>清洗后：已覆盖生态满足度 64.0%</strong>
-        <p>按项目引用次数加权为 71.3%；C/C++ 达到 91.8%，Python 与 Node.js 的主要缺口集中在 Top 框架和长尾依赖。</p>
+        <strong>清洗后：已覆盖生态满足度 64.1%</strong>
+        <p>按项目引用次数加权为 71.7%；Electron 与 Playwright 已按验证结果计入支持，C/C++ 达到 91.8%。</p>
       </div>
     </header>
 
@@ -214,8 +214,8 @@
       <div class="metric"><div class="metric-label">Python 标签覆盖</div><div class="metric-value">99.3%</div><div class="metric-note">11,892 条具体分类；15,718 条低置信度业务类；196 条待确认</div></div>
       <div class="metric"><div class="metric-label">端到端可用场景</div><div class="metric-value">10</div><div class="metric-note">增加原生网络、GIS/科学计算和文档处理</div></div>
       <div class="metric"><div class="metric-label">条件可用场景</div><div class="metric-value">6</div><div class="metric-note">依赖浏览器、硬件、系统桥接或外部服务</div></div>
-      <div class="metric"><div class="metric-label">清洗后需求覆盖</div><div class="metric-value" id="mapped-coverage-metric">64.0%</div><div class="metric-note">Python、Node.js、C/C++ 三类已覆盖生态</div></div>
-      <div class="metric"><div class="metric-label">依赖闭合候选</div><div class="metric-value" id="full-project-metric">51</div><div class="metric-note">目录级闭合，仍需构建与真机验证</div></div>
+      <div class="metric"><div class="metric-label">清洗后需求覆盖</div><div class="metric-value" id="mapped-coverage-metric">64.1%</div><div class="metric-note">Python、Node.js、C/C++ 三类已覆盖生态</div></div>
+      <div class="metric"><div class="metric-label">依赖闭合候选</div><div class="metric-value" id="full-project-metric">52</div><div class="metric-note">目录级闭合，仍需构建与真机验证</div></div>
     </div>
 
     <section aria-labelledby="capability-overview-title">
@@ -280,9 +280,9 @@
       <div class="satisfaction-note">满足度表示包名已进入鸿蒙兼容或移植目录，不代表安装、编译、启动、核心功能和真机测试已经通过。完整闭合项目应作为端到端验证候选继续推进。</div>
       <div class="project-kpis" aria-label="项目覆盖率摘要">
         <div class="project-kpi"><span>至少一个依赖已覆盖</span><strong id="any-project-rate">84.4%</strong><small id="any-project-count">276 / 327 个项目</small></div>
-        <div class="project-kpi"><span>项目平均依赖覆盖率</span><strong id="average-project-rate">—</strong><small>逐项目覆盖率简单平均</small></div>
-        <div class="project-kpi"><span>高覆盖项目（≥80%）</span><strong id="high-project-rate">30.9%</strong><small id="high-project-count">101 / 327 个项目</small></div>
-        <div class="project-kpi"><span>项目完全覆盖率</span><strong id="full-project-rate">15.6%</strong><small id="full-project-count">51 / 327 个项目</small></div>
+        <div class="project-kpi"><span>项目平均依赖覆盖率</span><strong id="average-project-rate">58.0%</strong><small>逐项目覆盖率简单平均</small></div>
+        <div class="project-kpi"><span>高覆盖项目（≥80%）</span><strong id="high-project-rate">31.8%</strong><small id="high-project-count">104 / 327 个项目</small></div>
+        <div class="project-kpi"><span>项目完全覆盖率</span><strong id="full-project-rate">15.9%</strong><small id="full-project-count">52 / 327 个项目</small></div>
       </div>
       <div class="section-head" style="margin-top:22px">
         <div><h3>按项目类型分类</h3><p>综合项目名称、框架和依赖关键词确定一个主要项目类型，并统计各类型的平均覆盖率与完全覆盖率。</p></div>
@@ -362,7 +362,7 @@
             <tr><td>Python Agent/LLM</td><td>Transformers、Torch、ONNX Runtime、LlamaIndex、ChromaDB</td><td><code>openai</code>、<code>anthropic</code>、<code>langchain</code> 主包</td><td>本地推理与 RAG 基础较好，主流云模型 SDK 需由 Node.js 补位</td><td class="priority medium">中</td></tr>
             <tr><td>Python 办公文档</td><td>openpyxl、python-docx、ReportLab、Selenium、Playwright</td><td><code>python-pptx</code>、<code>pypdf</code> 主包</td><td>PPT 与 PDF 读写链存在空档，可由 Node.js pptxgenjs/pdfkit 临时补位</td><td class="priority medium">中</td></tr>
             <tr><td>Node.js 服务与数据库</td><td>Express、Koa、Nest、GraphQL、SQLite、Prisma、MySQL2</td><td><code>fastify</code>、<code>pg</code>、<code>mongoose</code>、<code>redis</code> 精确主包</td><td>本地与 MySQL 场景完整，PostgreSQL/MongoDB/Redis 标准栈覆盖不足</td><td class="priority medium">中</td></tr>
-            <tr><td>Node.js 测试与浏览器</td><td>Mocha、ESLint、Prettier、Puppeteer、Chrome DevTools MCP</td><td><code>jest</code>、<code>vitest</code>、<code>playwright</code> 精确主包</td><td>已有可用替代，但缺少主流测试与跨浏览器自动化组合</td><td class="priority medium">中</td></tr>
+            <tr><td>Node.js 测试与浏览器</td><td>Mocha、ESLint、Prettier、Puppeteer、Playwright、Chrome DevTools MCP</td><td><code>jest</code>、<code>vitest</code> 精确主包</td><td>浏览器自动化主链已覆盖，主流测试框架仍需补齐</td><td class="priority medium">中</td></tr>
             <tr><td>C/C++ 边缘 AI</td><td>ONNX Runtime、ncnn、FAISS、Tesseract、OpenCV</td><td><code>tensorflow-lite</code>、<code>pytorch</code>、<code>llama.cpp</code> 精确主包及 NPU 后端验证</td><td>视觉/OCR/向量检索可用，主流大模型与硬件推理覆盖不足</td><td class="priority medium">中</td></tr>
             <tr><td>C/C++ 办公文档</td><td>Poppler、PDFium、MuPDF tools、QPDF、pdfio、libgsf、Catdoc</td><td><code>libreoffice</code> 主包与 DOCX/PPTX 完整编辑写回链</td><td>PDF 和文本提取较完整，复杂 Office 编辑仍需 Python/Node.js 补位</td><td class="priority medium">中</td></tr>
             <tr><td>硬件与多媒体</td><td>OpenCV、FFmpeg、GStreamer、SDL2、ALSA、OpenAL、libusb、hidapi</td><td>相机/麦克风设备链、硬件编解码、NPU/GPU 与驱动端到端验证</td><td>文件级和软件编解码可用，实时设备链仍是兼容性风险</td><td class="priority high">高</td></tr>
@@ -382,12 +382,12 @@
       </div>
     </section>
 
-    <footer>数据基线：OpenHarmony Node.js、Python、C/C++ 三方库清单与全部项目三方库归一总结表；统计更新至 2026-09-10。需求侧已剔除 ArkUI/平台占位项、运行时二进制和系统接口，并完成明确的生态纠正与名称别名归一。</footer>
+    <footer>数据基线：OpenHarmony Node.js、Python、C/C++ 三方库清单与全部项目三方库归一总结表；统计更新至 2026-09-12。需求侧已剔除 ArkUI/平台占位项、运行时二进制和系统接口，并完成明确的生态纠正与名称别名归一；Electron 与 Playwright 按已验证支持项计入。</footer>
   </main>
 
   <script src="python-library-capabilities.js"></script>
   <script src="c-library-capabilities.js"></script>
-  <script src="third-party-satisfaction-cleaned.js"></script>
+  <script src="third-party-satisfaction-cleaned-v2.js"></script>
   <script>
     const pythonCatalog = window.HARMONY_PYTHON_CATALOG || { meta: {}, categories: [], libraries: [] };
     const cCatalog = window.HARMONY_C_CATALOG || { meta: {}, categories: [], libraries: [] };
@@ -435,8 +435,8 @@
       },
       {
         domain: "浏览器自动化与 RPA", maturity: "partial", maturityText: "部分完成", ecosystems: ["python", "node"],
-        done: ["Puppeteer、Chrome DevTools MCP、agent-browser", "Python Playwright、Selenium、BeautifulSoup、requests/httpx"],
-        missing: ["Node.js Playwright 精确主包", "鸿蒙浏览器控制接口、登录态、下载上传和异常恢复统一封装", "多浏览器真机兼容回归"],
+        done: ["Node.js：Puppeteer、Playwright、Chrome DevTools MCP、agent-browser", "Python：Playwright、Selenium、BeautifulSoup、requests/httpx"],
+        missing: ["鸿蒙浏览器控制接口、登录态、下载上传和异常恢复统一封装", "Chromium/WebView 版本矩阵与多浏览器真机兼容回归"],
         scenario: "网页巡检、数据采集、自动对账与报告"
       },
       {
@@ -477,8 +477,8 @@
       },
       {
         domain: "桌面、TUI 与跨端应用", maturity: "partial", maturityText: "部分完成", ecosystems: ["node", "c", "other"],
-        done: ["Qt、GTK、wxWidgets、Cairo、字体与显示协议库", "Node.js Electron 周边工具及多个鸿蒙 Electron 项目样例", "ncurses、终端和本地文件/数据库能力"],
-        missing: ["electron 精确主包未进入当前 Node.js 目录", "窗口、输入法、通知、剪贴板、托盘和无障碍统一验证", "ArkUI 属于系统能力，不计入三方库完成量"],
+        done: ["Qt、GTK、wxWidgets、Cairo、字体与显示协议库", "Node.js Electron 主包、周边工具及多个鸿蒙 Electron 项目样例", "ncurses、终端和本地文件/数据库能力"],
+        missing: ["窗口、输入法、通知、剪贴板、托盘和无障碍统一验证", "Electron 版本矩阵、自动更新、签名和长时间运行基线", "ArkUI 属于系统能力，不计入三方库完成量"],
         scenario: "桌面工具、终端应用和跨平台客户端"
       },
       {

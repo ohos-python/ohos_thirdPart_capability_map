@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="鸿蒙三方库能力地图V1候选场景目录：15个能力大类、具体任务与验收边界，支持独立的范围决策。">
+  <title>开发场景目录 V1 · 鸿蒙三方库能力地图</title>
+  <link rel="stylesheet" href="scenarios-v1.css">
+  <script defer src="scenarios-v1-data.js"></script>
+  <script defer src="scenarios-v1.js"></script>
+</head>
+<body>
+  <a class="skip" href="#catalogue">跳到场景目录</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">鸿蒙三方库能力地图</a>
+    <nav aria-label="页面导航"><a href="index.html">查看原版地图 ↗</a><span class="version">场景目录 V1</span></nav>
+  </header>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow">SCENARIO CATALOGUE <span>范围规划 · 2026.09</span></div>
+      <h1 id="page-title">先看清场景，再决定范围。</h1>
+      <p class="lead">把开发任务拆成可讨论、可验收的能力。先保留候选场景，再决定哪些本期纳入、哪些以后做。<strong>这里不提前排除场景，也不宣称已经适配。</strong></p>
+      <div class="steps" aria-label="工作阶段"><span class="current">01 罗列场景</span><span>02 决策范围</span><span>03 映射关键库</span><span>04 真机端到端验证</span></div>
+    </section>
+    <section class="summary" aria-label="全目录范围">
+      <div><span>能力大类</span><strong>15</strong><small>沿用讨论确认的分类</small></div>
+      <div><span>基础候选场景</span><strong id="base-count">120</strong><small>每项都有任务、能力与验收结果</small></div>
+      <div><span>跨领域候选</span><strong id="extension-count">15</strong><small>完整保留，是否独立成类待讨论</small></div>
+      <div><span>尚待范围决策</span><strong id="pending-count">135</strong><small id="decision-summary">本期 0 · 后续 0 · 暂不需要 0</small></div>
+    </section>
+    <details class="principles">
+      <summary>如何阅读：范围决策 ≠ 适配状态 <span>分类边界与证据口径</span></summary>
+      <div class="principle-grid">
+        <div><h2>两个维度分开</h2><p>“待决策 / 本期纳入 / 后续考虑 / 暂不需要”只是需求范围。所有场景的适配状态均为<strong>未评估</strong>，后续再关联库清单、系统接口与测试证据。</p></div>
+        <div><h2>保留跨领域能力</h2><p>IoT、机器人、区块链等以行业组合场景单列，关联已有大类，不强行新增一级分类。目录是V1候选清单，不是所有开发领域的穷尽清单。</p></div>
+        <div><h2>三条容易混淆的边界</h2><p>第10类直接处理文档文件；第12类操作实际软件与浏览器；第13类负责Agent任务决策。三者可以组成同一端到端流程。</p></div>
+        <div><h2>参考，不作认证宣称</h2><p>借鉴ACM分类思想、SWEBOK工程范围与CNCF技术分区。运行时、标准库、ArkUI和操作系统接口单列依赖，不能算作已适配三方库。</p></div>
+      </div>
+      <p class="source-line">研究底稿：<a href="outputs/taxonomy-validation-20260912/鸿蒙三方库15类分类验证与GitHub高星项目对照.xlsx">601条本地记录与165个GitHub样本对照表</a>。本页为场景定义，不沿用样本归类率作为能力覆盖率。</p>
+    </details>
+    <div class="workspace">
+      <aside class="sidebar" aria-label="能力大类筛选">
+        <div class="sidebar-head">能力目录 <span>15 + 跨领域</span></div>
+        <div id="domain-nav"></div>
+        <p>一个场景有一个主归类，也可以关联其他类别的能力。</p>
+      </aside>
+      <section class="content" id="catalogue" aria-labelledby="catalogue-title">
+        <div class="content-head"><div><div class="eyebrow">SCOPE WORKSPACE</div><h2 id="catalogue-title">候选场景总览</h2></div><span class="count" id="result-count" aria-live="polite"></span></div>
+        <div class="toolbar">
+          <label class="search-label" for="search">搜索场景、能力或依赖<input id="search" type="search" placeholder="例如：PPT、日志、机器人、MCP" autocomplete="off"></label>
+          <label for="status-filter">范围状态<select id="status-filter"><option value="all">全部状态</option><option value="pending">待决策</option><option value="include">本期纳入</option><option value="later">后续考虑</option><option value="exclude">暂不需要</option></select></label>
+          <button id="clear-filter" class="quiet" type="button">清除筛选</button>
+        </div>
+        <div class="list-tools"><span>展开大类查看任务，展开场景查看能力链与验收。</span><div><button id="expand-all" type="button">展开全部大类</button><button id="collapse-all" type="button">收起全部大类</button></div></div>
+        <div id="groups"></div>
+        <div id="empty" class="empty" hidden><h3>没有匹配的场景</h3><p>可更换关键词或清除状态与类别筛选。已有范围决策不会丢失。</p></div>
+      </section>
+    </div>
+    <section class="decision-bar" aria-labelledby="decision-title">
+      <div><h2 id="decision-title">保存这次范围讨论</h2><p id="save-state" role="status">决策仅保存在当前浏览器；不会修改原版地图。</p><p class="muted">换设备、换浏览器或从本地文件切换到网站前，请导出备份。没有同步到仓库或其他人。</p></div>
+      <div class="actions"><button type="button" id="export" class="primary">导出完整场景与决策 JSON</button><button type="button" id="import">导入决策</button><input type="file" id="import-file" accept="application/json,.json" hidden></div>
+    </section>
+    <p id="message" role="status" class="message"></p>
+    <footer>V1 · 2026-09-12 · 独立页面，不修改原版 <a href="index.html">index.html</a>。<a href="README-v1.md">页面与保存说明</a></footer>
+  </main>
+  <noscript><p class="noscript">本页需要启用JavaScript才能展示场景目录。原版页面未受影响。</p></noscript>
+</body>
+</html>
