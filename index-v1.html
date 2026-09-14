@@ -7,6 +7,8 @@
   <title>开发场景目录 V1 · 鸿蒙三方库能力地图</title>
   <link rel="stylesheet" href="scenarios-v1.css">
   <script defer src="scenarios-v1-data.js"></script>
+  <script defer src="scenarios-v1-coverage.js"></script>
+  <script defer src="scenarios-v1-library-candidates.js"></script>
   <script defer src="scenarios-v1.js"></script>
 </head>
 <body>
@@ -28,6 +30,12 @@
       <div><span>跨领域候选</span><strong id="extension-count">15</strong><small>完整保留，是否独立成类待讨论</small></div>
       <div><span>尚待范围决策</span><strong id="pending-count">135</strong><small id="decision-summary">本期 0 · 后续 0 · 暂不需要 0</small></div>
     </section>
+    <section class="summary" aria-label="场景三方库识别统计">
+      <div><span>识别唯一三方库</span><strong id="identified-library-count">—</strong><small>按来源生态 + 库名去重</small></div>
+      <div><span>功能匹配关系</span><strong id="function-match-count">—</strong><small>官方/目录描述命中具体场景</small></div>
+      <div><span>需复核关系</span><strong id="fallback-count">—</strong><small>无细分命中，按项目大类回退</small></div>
+      <div><span>官方功能描述</span><strong id="registry-description-count">—</strong><small>npm、PyPI、Homebrew</small></div>
+    </section>
     <details class="principles">
       <summary>如何阅读：范围决策 ≠ 适配状态 <span>分类边界与证据口径</span></summary>
       <div class="principle-grid">
@@ -35,8 +43,10 @@
         <div><h2>保留跨领域能力</h2><p>IoT、机器人、区块链等以行业组合场景单列，关联已有大类，不强行新增一级分类。目录是V1候选清单，不是所有开发领域的穷尽清单。</p></div>
         <div><h2>三条容易混淆的边界</h2><p>第10类直接处理文档文件；第12类操作实际软件与浏览器；第13类负责Agent任务决策。三者可以组成同一端到端流程。</p></div>
         <div><h2>参考，不作认证宣称</h2><p>借鉴ACM分类思想、SWEBOK工程范围与CNCF技术分区。运行时、标准库、ArkUI和操作系统接口单列依赖，不能算作已适配三方库。</p></div>
+        <div><h2>生态数据口径</h2><p><strong>Go、Java、Rust当前标记为“数据缺失”</strong>，待取得对应鸿蒙三方库目录后重新评估。数据缺失不等于能力不支持，也不按0%场景覆盖解释。</p></div>
+        <div><h2>场景卡片统计口径</h2><p>三方库根据 npm、PyPI、Homebrew 官方功能描述和现有目录说明在120个基础场景中全局匹配；没有细分功能命中的条目按项目所属大类回退并标记“需复核”。每条保留功能来源、匹配词、语言和鸿蒙化状态。</p></div>
       </div>
-      <p class="source-line">研究底稿：<a href="outputs/taxonomy-validation-20260912/鸿蒙三方库15类分类验证与GitHub高星项目对照.xlsx">601条本地记录与165个GitHub样本对照表</a>。本页为场景定义，不沿用样本归类率作为能力覆盖率。</p>
+      <p class="source-line">研究底稿：<a href="outputs/taxonomy-validation-20260912/鸿蒙三方库15类分类验证与GitHub高星项目对照.xlsx">601条本地记录与165个GitHub样本对照表</a>；<a href="outputs/taxonomy-validation-20260912/MATCH_GAP_AUDIT.md">目录低匹配原因审计</a>。本页为场景定义，不沿用样本归类率作为能力覆盖率。</p>
     </details>
     <div class="workspace">
       <aside class="sidebar" aria-label="能力大类筛选">

@@ -392,6 +392,10 @@
     const pythonCatalog = window.HARMONY_PYTHON_CATALOG || { meta: {}, categories: [], libraries: [] };
     const cCatalog = window.HARMONY_C_CATALOG || { meta: {}, categories: [], libraries: [] };
     const satisfactionData = window.HARMONY_SATISFACTION_DATA || { meta: {}, ecosystems: [], cleaning: [], projectBins: [], projectTypes: [], projects: [], coveredCandidates: [], gaps: [] };
+    const missingEcosystemData = new Set(["Go", "Java", "Rust"]);
+    satisfactionData.ecosystems.forEach(item => {
+      if (missingEcosystemData.has(item.ecosystem)) item.scope = "数据缺失，待补充";
+    });
     const classifications = {
       node: [
         ["开发基础库", 5074], ["前端开发库", 5782], ["后端开发库", 1501], ["Agent/TUI开发库", 227],
@@ -494,9 +498,9 @@
         scenario: "单元测试、质量检查、兼容性回归"
       },
       {
-        domain: "Go、Rust、Java 与 ArkTS 生态", maturity: "missing", maturityText: "尚未建设", ecosystems: ["other"],
+        domain: "Go、Rust、Java 与 ArkTS 生态", maturity: "missing", maturityText: "数据缺失/尚未建设", ecosystems: ["other"],
         done: ["需求侧已识别 Go 1,569、Rust 179、Java 105、ArkTS 9 个有效依赖", "已清除 ArkUI、官方组件和描述性占位项"],
-        missing: ["尚无对应的鸿蒙化三方库目录、分类标签和版本匹配结果", "尚未建立 Top 库优先级、编译适配流水线和端到端示例", "这些生态当前不能计为已满足"],
+        missing: ["Go、Rust、Java 当前缺少可用于适配判断的鸿蒙三方库目录，待补充数据后重新评估", "ArkTS 尚未纳入本轮目录建设", "尚未建立 Top 库优先级、编译适配流水线和端到端示例"],
         scenario: "后续生态扩展和能力地图第二阶段"
       }
     ];

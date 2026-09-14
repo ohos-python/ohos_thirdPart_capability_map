@@ -1,6 +1,11 @@
 /* V1 is a planning catalogue, not an adaptation-status database. Stable IDs survive decision exports. */
 window.SCENARIO_V1 = {
   version: '1.0.0', date: '2026-09-12',
+  ecosystemEvidence: [
+    { ecosystem: 'Go', status: 'missing-data', label: '数据缺失', note: '当前没有可用于鸿蒙适配判断的三方库目录，待后续补充数据后重新评估。' },
+    { ecosystem: 'Java', status: 'missing-data', label: '数据缺失', note: '当前没有可用于鸿蒙适配判断的三方库目录，待后续补充数据后重新评估。' },
+    { ecosystem: 'Rust', status: 'missing-data', label: '数据缺失', note: '当前没有可用于鸿蒙适配判断的三方库目录，待后续补充数据后重新评估。' }
+  ],
   domains: [
     [1,'基础编程与通用工具','日志生成在本类；日志汇聚、查询和告警在15类。','各主流语言'],
     [2,'系统资源与原生互操作','运行时、标准库和系统接口单列提供方类型，不混入三方库数量。','C/C++、Rust、Go'],

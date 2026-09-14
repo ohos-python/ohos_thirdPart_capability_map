@@ -17,7 +17,7 @@
 - [会话与数据交接](HANDOFF.md)：已达成的结论、统计口径、限制和下一步。
 - [V1 使用说明](README-v1.md)；[分类验证数据与复现说明](outputs/taxonomy-validation-20260912/README.md)。
 
-下表为原版页面依赖；V1 仅依赖 `scenarios-v1.css`、`scenarios-v1-data.js`、`scenarios-v1.js`。
+下表为原版页面依赖；V1 仅依赖 `scenarios-v1.css`、`scenarios-v1-data.js`、`scenarios-v1-coverage.js`、`scenarios-v1-library-candidates.js`、`scenarios-v1.js`。
 
 | 文件 | 用途 | 页面运行时是否必需 |
 | --- | --- | --- |
@@ -44,6 +44,7 @@ python -m http.server 8000
 - 需求数据：601 条原始项目记录（按当前 URL/名称规则归一后 583 个项目标识）、4,834 条原始三方库记录；各指标分母不同，详见交接文档。
 - 清洗处理：剔除 ArkUI/平台占位项、运行时二进制和系统接口；纠正明确的前端生态误分类；统一 C/C++ `lib` 前缀等别名。
 - 当前满足度表示依赖名称已进入兼容或移植目录，不代表安装、编译、启动、核心功能和真机测试已经完成。
+- Go、Java、Rust 当前缺少可用于适配判断的完整目录数据，统一显示为“数据缺失，待补充”；不按0%能力或场景覆盖解释。
 - 用户确认支持项：Node.js `electron`、`playwright` 已纳入满足度；本仓库尚未附上对应真机测试报告，不外推到所有版本、绑定和系统接口。
 
 V1 的浏览器勾选与备注保存在 localStorage，不会随 Git 提交同步；换设备前请使用页面导出 JSON，在新设备导入。
