@@ -122,8 +122,17 @@ test('local assets and links exist; main index matches the reviewed baseline acr
   assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
  }
  // Git may check out LF as CRLF on Windows; compare content after normalizing only CRLF.
- assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\r\n/g,'\n')).digest('hex').toUpperCase(),'EF93C881D84953D9866BD80806E97312BC585A51422D55B0FB2776656AD5DC8D');
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\r\n/g,'\n')).digest('hex').toUpperCase(),'828B81C87F675A41200D2D44E2E87FE1CBE80CCEEFA9DBAE373C95185A1173FF');
  assert.ok(!/fetch\(|XMLHttpRequest|WebSocket\(/.test(source));
  assert.match(source,/class="candidate-language"/);
  assert.match(source,/输入库名、语言、功能、分配依据或状态/);
+});
+
+test('main page scenario analysis button links to V1, with a return link',()=>{
+ const main=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const hero=main.match(/<header class="hero">([\s\S]*?)<\/header>/)?.[1];
+ assert.ok(hero,'Main page hero exists');
+ assert.match(hero,/<a class="scenario-link" href="index-v1\.html">场景分析\s*<span aria-hidden="true">→<\/span><\/a>/);
+ assert.ok(fs.existsSync(path.join(root,'index-v1.html')));
+ assert.match(html,/<a\b[^>]*href="index\.html"/);
 });
