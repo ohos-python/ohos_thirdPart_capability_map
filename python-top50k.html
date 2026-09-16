@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python Top5万包的场景覆盖分析：并列展示库数量覆盖率、下载量加权覆盖率与高下载量缺口。">
+  <title>Python Top5万覆盖分析 · 鸿蒙三方库能力地图</title>
+  <link rel="stylesheet" href="python-top50k.css">
+  <script defer src="python-top50k-data.js"></script>
+  <script defer src="python-top50k.js"></script>
+</head>
+<body>
+  <a class="skip" href="#comparison">跳到场景对比</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">鸿蒙三方库能力地图</a>
+    <nav aria-label="页面导航">
+      <a href="index.html">原版地图</a>
+      <a href="index-v1.html">场景分析</a>
+      <a href="python-top50k.html" aria-current="page">Python Top5万覆盖分析</a>
+    </nav>
+  </header>
+  <main class="page">
+    <div class="eyebrow">PYTHON ECOSYSTEM <span>阶段数据 · 双指标对照</span></div>
+    <h1>覆盖了多少库，<br>也看覆盖了多少下载需求。</h1>
+    <p class="lead">在同一份 Top5万分母中，把<strong>库数量</strong>与<strong>下载量权重</strong>放在一起。两个指标分别呈现，不合成分数，也不等同于项目端到端完成度。</p>
+    <p class="snapshot" id="snapshot">正在读取本地统计快照…</p>
+    <noscript><p class="notice">请启用 JavaScript 以查看交互统计。该页面仅使用同目录静态数据，不需要网络查询。</p></noscript>
+    <p id="load-error" class="notice" role="alert" hidden></p>
+    <div id="dashboard" hidden>
+      <section class="metrics" aria-label="Top5万全量指标，不随场景筛选变化">
+        <article class="metric count-metric">
+          <div class="metric-title"><span>库数量覆盖率</span><span class="tag count">广度</span></div>
+          <strong id="count-coverage">—</strong>
+          <p id="count-total">—</p>
+          <div class="track" aria-hidden="true"><div id="count-bar" class="fill count-fill"></div></div>
+          <small>已完成目录命中库数 ÷ Top5万库数</small>
+        </article>
+        <article class="metric download-metric">
+          <div class="metric-title"><span>下载量加权覆盖率</span><span class="tag downloads">下载权重</span></div>
+          <strong id="download-coverage">—</strong>
+          <p id="download-total">—</p>
+          <div class="track" aria-hidden="true"><div id="download-bar" class="fill download-fill"></div></div>
+          <small>命中库下载量之和 ÷ Top5万全部下载量之和</small>
+        </article>
+      </section>
+      <div class="context-strip"><p id="interpretation"></p><p id="unclassified"></p></div>
+      <aside class="notice"><strong>“已完成”按目录包名命中统计。</strong>下载量包含这些包在全部版本、全部平台上的下载，不是鸿蒙实际下载量；尚未核验版本兼容和真机运行。下载数据来自 ClickPy 镜像，未通过官方 BigQuery 独立复核，且跨越计数口径调整。</aside>
+
+      <section id="comparison" aria-labelledby="comparison-title">
+        <div class="section-heading"><div><div class="eyebrow">SCENE COMPARISON</div><h2 id="comparison-title">各场景 · 数量 × 下载量</h2><p>沿用首页21个标签及Top5万唯一主标签；不是V1的135项细分场景。每个包只计入一行。</p></div><button type="button" id="export-data">导出汇总 JSON</button></div>
+        <div class="toolbar">
+          <label for="category-search">查找场景<input type="search" id="category-search" placeholder="例如：Agent、办公、基础" autocomplete="off"></label>
+          <label for="sort-order">排序<select id="sort-order"><option value="original">原标签顺序</option><option value="downloads">下载量覆盖率：高 → 低</option><option value="count">库数量覆盖率：高 → 低</option><option value="gap">未命中下载量：高 → 低</option></select></label>
+          <span id="result-count" role="status" aria-live="polite"></span>
+        </div>
+        <div class="table-wrap" role="region" aria-label="场景双指标对比表，可横向滚动" tabindex="0">
+          <table>
+            <caption>全量总指标不随筛选变化。下载量单位为亿次，括号说明与精确值可在场景详情查看。</caption>
+            <thead><tr><th scope="col">场景标签</th><th scope="col">已完成 / 全部库数</th><th scope="col" class="count-head">数量覆盖率</th><th scope="col">已完成 / 全部下载量<br><small>亿次</small></th><th scope="col" class="download-head">下载量覆盖率</th><th scope="col">未命中下载量<br><small>亿次</small></th><th scope="col">明细</th></tr></thead>
+            <tbody id="category-rows"></tbody>
+            <tfoot id="table-total"></tfoot>
+          </table>
+        </div>
+        <p id="no-results" class="empty" hidden>未找到匹配的场景，请更换关键词。</p>
+        <p class="muted small">“其他/待确认”保留在总量内。下载覆盖率较高可能由少数高下载量库贡献，不表示该场景的所有关键能力已具备。</p>
+      </section>
+
+      <section id="details" class="detail-panel" aria-labelledby="detail-title">
+        <div class="section-heading"><div><div class="eyebrow">EVIDENCE & GAPS</div><h2 id="detail-title">场景详情</h2></div><label for="detail-category">选择场景<select id="detail-category"></select></label></div>
+        <p id="detail-summary" aria-live="polite"></p>
+        <div class="detail-grid">
+          <div><h3>高下载量缺口 · 前10个未命中包</h3><p class="muted small">未命中当前目录不等于客观不支持。优先核对条目遗漏、别名和版本，再决定适配。</p><div class="table-wrap"><table class="compact"><thead><tr><th scope="col">包名 / 分类证据</th><th scope="col">Top5万排名</th><th scope="col">下载量（次）</th></tr></thead><tbody id="missing-rows"></tbody></table></div></div>
+          <div><h3>已命中的高下载量包 · 前5个</h3><div class="table-wrap"><table class="compact"><thead><tr><th scope="col">包名</th><th scope="col">下载量（次）</th></tr></thead><tbody id="matched-rows"></tbody></table></div><h3 class="evidence-heading">主标签的证据分布</h3><ul id="evidence-list" class="evidence-list"></ul></div>
+        </div>
+      </section>
+      <details class="method"><summary>数据来源、计算公式与限制</summary><div class="method-body">
+        <p><strong>数量覆盖率：</strong>同场景已完成目录命中包数 / 同场景全部Top5万包数。</p>
+        <p><strong>下载量覆盖率：</strong>同场景命中包的下载计数之和 / 同场景全部Top5万包的下载计数之和。总覆盖率由总和计算，不取各场景百分比的算术平均。</p>
+        <p>已完成口径包括当前 Python 目录的“已适配”和“直接可用”记录；按PEP503归一化包名匹配。每种包仅计一次，不把不同版本当作不同库。</p>
+        <ul id="limitations"></ul>
+        <p>原始来源：<a href="https://github.com/ClickHouse/clickpy">ClickPy / ClickHouse</a> · <a href="https://docs.pypi.org/api/bigquery/">PyPI官方数据说明</a> · <a href="https://blog.pypi.org/posts/2026-08-31-download-counts/">2026-08-24计数规则调整</a></p>
+        <p class="muted small">本页随仓库保存静态快照，不会联网更新。导出JSON包含原始整数、来源哈希和证据分布。</p>
+      </div></details>
+    </div>
+    <footer><a href="index.html">← 返回能力地图</a><span>Python Top5万 · 数量与下载权重双指标 · 无后端依赖</span></footer>
+  </main>
+</body>
+</html>

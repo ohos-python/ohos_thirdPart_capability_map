@@ -116,13 +116,18 @@ test('imported notes are escaped when rendered; storage failures remain exportab
  await a.import({schemaVersion:1,catalogueVersion:'1.0.0',decisions:{'S01-01':{status:'include',notes:'</textarea><img src=x onerror=alert(1)>'}}});
  assert.ok(a.nodes.groups.innerHTML.includes('&lt;/textarea&gt;&lt;img'));assert.ok(!a.nodes.groups.innerHTML.includes('<img src=x'));
 });
-test('local assets and links exist; main index matches the reviewed baseline across Git line endings',()=>{
+test('local assets and links exist; main index preserves baseline except approved Top50k navigation',()=>{
  for(const m of html.matchAll(/(?:src|href)="([^"]+)"/g)){
   if(m[1].startsWith('#')||m[1].startsWith('http'))continue;
   assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
  }
- // Git may check out LF as CRLF on Windows; compare content after normalizing only CRLF.
- assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\r\n/g,'\n')).digest('hex').toUpperCase(),'828B81C87F675A41200D2D44E2E87FE1CBE80CCEEFA9DBAE373C95185A1173FF');
+ // Keep the original baseline protection. Strip only the two expressly approved
+ // navigation changes, then require every other byte (apart from CRLF) to match.
+ const main=fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\r\n/g,'\n');
+ const baseline=main
+  .replace('    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }','    .hero-actions { display: flex; flex-wrap: wrap; margin-top: 20px; }')
+  .replace('          <a class="scenario-link" href="python-top50k.html">Python Top5万覆盖分析 <span aria-hidden="true">→</span></a>\n','');
+ assert.equal(crypto.createHash('sha256').update(baseline).digest('hex').toUpperCase(),'828B81C87F675A41200D2D44E2E87FE1CBE80CCEEFA9DBAE373C95185A1173FF');
  assert.ok(!/fetch\(|XMLHttpRequest|WebSocket\(/.test(source));
  assert.match(source,/class="candidate-language"/);
  assert.match(source,/输入库名、语言、功能、分配依据或状态/);
