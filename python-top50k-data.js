@@ -27,7 +27,8 @@ window.PYTHON_TOP50K_COVERAGE = {
       "按分发包名命中，不核对版本/操作系统/架构；命中库的全部版本、全部平台下载均计入加权分子，并非鸿蒙平台实际下载量。",
       "主标签来自阶段分类，名称候选、多义及其他/待确认均保留；不代表每个包功能已经人工确认。",
       "仅覆盖Top50000分母，不是整个PyPI；其他/待确认保留在总量中，不因未分类而剔除。"
-    ]
+    ],
+    "labelPolicy": "显示名称与能力地图首页保持一致；原始分类ID、归属、数量、下载计数和证据等级不变。行业应用与待复核库是domain的显示名称；Top5万仍按本批元数据分类，不沿用首页低置信度行业暂归。"
   },
   "total": {
     "packages": 50000,
@@ -41,7 +42,7 @@ window.PYTHON_TOP50K_COVERAGE = {
   "categories": [
     {
       "id": "domain",
-      "label": "业务与行业组件",
+      "label": "行业应用与待复核库",
       "packages": 832,
       "matchedPackages": 179,
       "totalDownloads": 354453757,
@@ -80,7 +81,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 708,
           "name": "holidays",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 27192148,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -89,7 +90,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1501,
           "name": "cuda-python",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 7330861,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -98,7 +99,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1651,
           "name": "eth-utils",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 6162695,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -107,7 +108,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1666,
           "name": "eth-hash",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 6075608,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -116,7 +117,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1673,
           "name": "eth-typing",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 6031803,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -125,7 +126,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1681,
           "name": "eth-abi",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 5988773,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -134,7 +135,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1776,
           "name": "eth-keyfile",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 5485541,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -143,7 +144,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 1849,
           "name": "web3",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 5123905,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -152,7 +153,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 2185,
           "name": "fhir-resources",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 3705130,
           "matched": false,
           "classificationConfidence": "仅包名/关键词候选"
@@ -161,7 +162,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 2242,
           "name": "ccxt",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 3521131,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -172,7 +173,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 434,
           "name": "zope-interface",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 51157097,
           "matched": true,
           "classificationConfidence": "仅包名/关键词候选"
@@ -181,7 +182,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 569,
           "name": "stripe",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 36539506,
           "matched": true,
           "classificationConfidence": "仅包名/关键词候选"
@@ -190,7 +191,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 573,
           "name": "gspread",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 36110078,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -199,7 +200,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 746,
           "name": "zope-event",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 24943222,
           "matched": true,
           "classificationConfidence": "仅包名/关键词候选"
@@ -208,7 +209,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 814,
           "name": "yfinance",
           "categoryId": "domain",
-          "category": "业务与行业组件",
+          "category": "行业应用与待复核库",
           "downloads": 21922515,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -217,7 +218,8 @@ window.PYTHON_TOP50K_COVERAGE = {
       "unmatchedDownloads": 119769256,
       "downloadWeightedCoverage": 0.6621018859732385,
       "packageCoverage": 0.21514423076923078,
-      "shareOfTop50kDownloads": 0.0025396669821755222
+      "shareOfTop50kDownloads": 0.0025396669821755222,
+      "originalLabel": "业务与行业组件"
     },
     {
       "id": "agent-tui",
@@ -401,7 +403,7 @@ window.PYTHON_TOP50K_COVERAGE = {
     },
     {
       "id": "foundation",
-      "label": "开发基础库",
+      "label": "通用编程工具库",
       "packages": 2478,
       "matchedPackages": 988,
       "totalDownloads": 35819186066,
@@ -440,7 +442,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 12,
           "name": "pygments",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 1008309887,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -449,7 +451,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 28,
           "name": "attrs",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 741850881,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -458,7 +460,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 77,
           "name": "zipp",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 400093153,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -467,7 +469,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 113,
           "name": "et-xmlfile",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 286213140,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -476,7 +478,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 124,
           "name": "wcwidth",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 251694787,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -485,7 +487,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 151,
           "name": "defusedxml",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 201191512,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -494,7 +496,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 194,
           "name": "cfgv",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 164951284,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -503,7 +505,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 201,
           "name": "toml",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 156450324,
           "matched": false,
           "classificationConfidence": "仅包名/关键词候选"
@@ -512,7 +514,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 232,
           "name": "deprecated",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 138823467,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -521,7 +523,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 265,
           "name": "babel",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 110516600,
           "matched": false,
           "classificationConfidence": "功能元数据规则匹配"
@@ -532,7 +534,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 3,
           "name": "typing-extensions",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 1494435437,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -541,7 +543,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 8,
           "name": "charset-normalizer",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 1316202418,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -550,7 +552,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 13,
           "name": "pluggy",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 991211335,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -559,7 +561,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 14,
           "name": "python-dateutil",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 958635071,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -568,7 +570,7 @@ window.PYTHON_TOP50K_COVERAGE = {
           "rank": 15,
           "name": "pyyaml",
           "categoryId": "foundation",
-          "category": "开发基础库",
+          "category": "通用编程工具库",
           "downloads": 956731264,
           "matched": true,
           "classificationConfidence": "功能元数据规则匹配"
@@ -577,7 +579,8 @@ window.PYTHON_TOP50K_COVERAGE = {
       "unmatchedDownloads": 4055712717,
       "downloadWeightedCoverage": 0.8867726165098505,
       "packageCoverage": 0.3987086359967716,
-      "shareOfTop50kDownloads": 0.25664505562067363
+      "shareOfTop50kDownloads": 0.25664505562067363,
+      "originalLabel": "开发基础库"
     },
     {
       "id": "cloud",

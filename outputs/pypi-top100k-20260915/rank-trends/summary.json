@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-16T07:15:22.196Z",
+    "generatedAt": "2026-09-16T08:42:52.017Z",
     "window": {
       "start": "2026-08-16",
       "endExclusive": "2026-09-15",
@@ -191,7 +191,7 @@
     },
     {
       "id": "domain",
-      "label": "业务与行业组件",
+      "label": "行业应用与待复核库",
       "points": [
         {
           "cutoff": 10000,
@@ -523,7 +523,7 @@
     },
     {
       "id": "foundation",
-      "label": "开发基础库",
+      "label": "通用编程工具库",
       "points": [
         {
           "cutoff": 10000,

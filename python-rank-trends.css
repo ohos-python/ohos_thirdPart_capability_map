@@ -1,4 +1,12 @@
 /* Scoped to the merged Python page. Other language pages are unaffected. */
+.category-help{margin:0;font-size:14px;text-align:left}
+.category-help summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600;line-height:1.6}
+.category-help summary:focus-visible{outline:2px solid var(--blue,#2263a5);outline-offset:3px}
+.category-help-hint{font-size:12px;font-weight:400;color:var(--blue,#2263a5);white-space:nowrap}
+.category-help p{padding:12px;margin:4px 0 10px;background:var(--soft,#edf2f8);color:var(--text,#182536);border-left:3px solid var(--blue,#2263a5);font-weight:400;line-height:1.8;overflow-wrap:anywhere}
+td .category-help{min-width:160px;max-width:320px}
+td .category-help[open]{min-width:270px}
+.rank-trends .category-help{margin:0 0 14px}
 .rank-trends{margin-top:40px;scroll-margin-top:20px}
 .rank-trends .jump{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0}
 .rank-trends section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;scroll-margin-top:20px}

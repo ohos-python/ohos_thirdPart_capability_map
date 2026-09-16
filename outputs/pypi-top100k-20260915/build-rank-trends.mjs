@@ -4,6 +4,7 @@ import readline from 'node:readline';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 const dir=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(dir,'../..');
 const output=path.join(dir,'rank-trends');
@@ -13,6 +14,11 @@ const catBytes=await fs.readFile(path.join(root,'python-library-capabilities.js'
 const raw=catBytes.toString('utf8');
 const catalog=JSON.parse(raw.slice(raw.indexOf('=')+1).trim().replace(/;$/,''));
 const reference=JSON.parse(await fs.readFile(path.join(dir,'top50k-download-weighted/summary.json'),'utf8'));
+const labelContext={window:{}};
+vm.runInNewContext(await fs.readFile(path.join(root,'category-display-labels.js'),'utf8'),labelContext);
+const displayLabel=labelContext.window.CAPABILITY_CATEGORY_LABELS.label;
+vm.runInNewContext(await fs.readFile(path.join(root,'python-category-help.js'),'utf8'),labelContext);
+const categoryHelp=labelContext.window.PYTHON_CATEGORY_HELP;
 const norm=n=>n.toLowerCase().replace(/[-_.]+/g,'-');
 const supported=new Set(catalog.libraries.map(r=>norm(r.n)));
 const classified=new Map(),classificationHash=createHash('sha256');
@@ -21,7 +27,7 @@ for await(const line of readline.createInterface({input,crlfDelay:Infinity})){
  if(!line.trim())continue;const r=JSON.parse(line);assert(!classified.has(r.name));classified.set(r.name,{categoryId:r.categoryId,rank:r.rank,downloads:r.downloads});
 }
 const blank=()=>({packages:0,matchedPackages:0,totalDownloads:0,matchedDownloads:0});
-const groups=[{id:'overall',label:'Python 总体'},...reference.categories.map(c=>({id:c.id,label:c.label}))].map(c=>({...c,points:[],current:blank(),previous:blank()}));
+const groups=[{id:'overall',label:'Python 总体'},...reference.categories.map(c=>({id:c.id,label:displayLabel(c.label)}))].map(c=>({...c,points:[],current:blank(),previous:blank()}));
 const byId=new Map(groups.map(c=>[c.id,c]));
 const rows=ranking.packages.slice().sort((a,b)=>a.rank-b.rank),seen=new Set();assert.equal(rows.length,100000);assert.equal(classified.size,100000);
 for(let i=0;i<rows.length;i++){
@@ -71,7 +77,17 @@ for(const g of groups){
  sections.push(`<section id="${g.id}"><h2>${esc(g.label)}</h2><p>累计 ${pct(first.weightedCoverage)} → ${pct(last.weightedCoverage)}；净变化 ${delta(net)} 个百分点；${trend}。Top10万内：${num(last.matchedPackages)} / ${num(last.packages)} 个库命中。</p><div class="chart"><img src="${prefix+g.id}.svg" width="1100" height="710" alt="${esc(g.label)}的累计与新增区间下载加权覆盖趋势"></div><p><a href="${prefix+g.id}.svg" download>下载矢量图 SVG</a></p><details><summary>查看10档精确数值（变化单位：百分点）</summary><div class="table"><table><thead><tr><th>全局排名范围</th><th>场景命中/全部库</th><th>命中/全部下载计数</th><th>累计覆盖率</th><th>比上一档变化</th><th>新增区间本场景覆盖率</th></tr></thead><tbody>${g.points.map(p=>`<tr><td>Top${p.cutoff/10000}万</td><td>${num(p.matchedPackages)} / ${num(p.packages)}</td><td>${num(p.matchedDownloads)} / ${num(p.totalDownloads)}</td><td>${pct(p.weightedCoverage)}</td><td>${delta(p.changePp)}</td><td>${pct(p.batch.weightedCoverage)}</td></tr>`).join('')}</tbody></table></div></details></section>`);
 }
 const html=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Python 下载排名覆盖趋势</title><style>body{margin:0;background:#f6f8fc;color:#182536;font:16px/1.75 "Microsoft YaHei",sans-serif}main{max-width:1180px;margin:auto;padding:28px 20px}a{color:#2263a5}nav{display:flex;gap:18px;flex-wrap:wrap}h1{font-size:32px}h2{font-size:23px;margin-top:0}.note{border-left:4px solid #2263a5;padding:14px 18px;background:#eaf1f9}section{background:white;padding:24px;margin:26px 0;border:1px solid #dde5ef;border-radius:12px}.chart,.table{overflow-x:auto}.chart img{display:block;width:100%;min-width:920px;height:auto}table{border-collapse:collapse;min-width:900px;width:100%;font-size:14px}td,th{border-bottom:1px solid #dce3ed;padding:10px;text-align:right}td:first-child,th:first-child{text-align:left}summary{cursor:pointer;font-weight:600}.jump{display:flex;gap:8px 20px;flex-wrap:wrap;margin:24px 0}footer{color:#53647a;font-size:14px}@media(max-width:600px){main{padding:18px 12px}section{padding:14px}h1{font-size:26px}}@media print{body{background:white}section{break-inside:avoid;border:0;padding:0}.chart img{min-width:0}nav,.jump,details{display:none}}</style></head><body><main><nav><a href="index.html">← 能力地图</a><a href="python-top50k.html">Python Top5万</a><a href="outputs/pypi-top100k-20260915/rank-trends/summary.json" download>下载趋势数据 JSON</a></nav><h1>Python · 下载排名覆盖趋势</h1><p>总体1张 + 21个场景各1张。Top1万 → Top10万，每档扩大1万个分发包；当前已适配清单固定不变。</p><div class="note">上图：当前排名范围内，命中库下载量 ÷ 全部库下载量。下图：仅新增排名区间内的同一比例。<br>场景图从<strong>全局TopN</strong>筛选本场景的库，并不是每个场景分别取N万个库。蓝线纵轴局部放大，必须结合刻度判断幅度，不可跨图比较斜率；下方柱图统一0—100%。<br>这是排名分母扩大时的敏感性分析，不是时间走势，不表示预测或新增适配收益。手机可横向查看图表。</div><div class="jump">${groups.map(g=>`<a href="#${g.id}">${esc(g.label)}</a>`).join('')}</div>${sections.join('\n')}<footer><h2>统计边界</h2><ul>${result.meta.limitations.map(s=>`<li>${esc(s)}</li>`).join('')}</ul><p>生成时间：${esc(result.meta.generatedAt)}。所有数据和图表均为本地静态文件，不请求外部网络。</p></footer></main></body></html>`;
-await fs.writeFile(path.join(root,'python-rank-trends.html'),html);
+// Add native, initially collapsed explanations next to the actual chart labels.
+for(let i=0;i<groups.length;i++)if(categoryHelp.has(groups[i].id)){
+ const heading=`<h2>${esc(groups[i].label)}</h2>`;
+ sections[i]=sections[i].replace(heading,heading+categoryHelp.html(groups[i].id,groups[i].label));
+}
+let standalone=html.replace('</head>','<link rel="stylesheet" href="python-rank-trends.css"></head>');
+for(const g of groups)if(categoryHelp.has(g.id)){
+ const heading=`<h2>${esc(g.label)}</h2>`;
+ standalone=standalone.replace(heading,heading+categoryHelp.html(g.id,g.label));
+}
+await fs.writeFile(path.join(root,'python-rank-trends.html'),standalone);
 // Merge the same plots into the existing Python Top50k page, without an iframe.
 // Managed markers make rebuilding idempotent and preserve all existing content.
 const mergedSections=sections.map(s=>s.replace(/<section id="([^"]+)"/, '<section id="rank-$1"').replace('<img src=', '<img loading="lazy" src='));

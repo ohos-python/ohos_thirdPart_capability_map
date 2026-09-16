@@ -33,3 +33,20 @@ test('Top50k page embeds all 22 charts with unique anchors, not an iframe',()=>{
  for(const file of page.matchAll(/(?:href|src)="([^"#]+)"/g))if(!/^https?:/.test(file[1]))assert.ok(fs.existsSync(path.join(root,file[1])),file[1]);
  assert.match(page,/id="category-rows"/);assert.match(page,/id="missing-rows"/);assert.match(page,/id="matched-rows"/);
 });
+test('trend labels match Top50k presentation and preserve stable category IDs',()=>{
+ const expected={foundation:'通用编程工具库',domain:'行业应用与待复核库'};
+ const html=fs.readFileSync(path.join(root,'python-rank-trends.html'),'utf8');
+ for(const [id,label] of Object.entries(expected)){
+  assert.equal(d.groups.find(g=>g.id===id).label,label);
+  assert.ok(fs.readFileSync(path.join(base,'rank-trends',id+'.svg'),'utf8').includes(label));
+  assert.ok(html.includes(label));
+ }
+});
+test('both trend reports contain the two collapsed category explanations',()=>{
+ for(const name of ['python-rank-trends.html','python-top50k.html']){
+  const html=fs.readFileSync(path.join(root,name),'utf8');
+  assert.equal((html.match(/<details class="category-help">/g)||[]).length,2);
+  assert.ok(!/<details class="category-help" open/.test(html));
+  assert.ok(html.includes('轻触展开或收起解释'));assert.ok(html.includes('不沿用首页'));
+ }
+});

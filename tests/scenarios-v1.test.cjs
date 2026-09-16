@@ -128,7 +128,12 @@ test('local assets and links exist; main index preserves baseline except approve
   .replace('    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }','    .hero-actions { display: flex; flex-wrap: wrap; margin-top: 20px; }')
   .replace('          <a class="scenario-link" href="python-top50k.html">Python Top5万覆盖分析 <span aria-hidden="true">→</span></a>\n','')
   .replace('          <a class="scenario-link" href="nodejs-coverage.html">Node.js 覆盖分析 <span aria-hidden="true">→</span></a>\n','')
-  .replace('          <a class="scenario-link" href="cpp-coverage.html">C/C++ 覆盖分析 <span aria-hidden="true">→</span></a>\n','');
+  .replace('          <a class="scenario-link" href="cpp-coverage.html">C/C++ 覆盖分析 <span aria-hidden="true">→</span></a>\n','')
+  // Approved homepage label clarification: strip its guide and presentation adapter only.
+  .replace(/        <!-- CATEGORY_LABEL_GUIDE_START -->[\s\S]*?        <!-- CATEGORY_LABEL_GUIDE_END -->\n/,'')
+  .replace('  <script src="category-display-labels.js"></script>\n','')
+  .replace(/window\.CAPABILITY_CATEGORY_LABELS\.decorate\((window\.HARMONY_(?:PYTHON|C)_CATALOG \|\| \{ meta: \{\}, categories: \[\], libraries: \[\] \})\)/g,'$1')
+  .replace('      rows = rows.map(([label, value]) => [window.CAPABILITY_CATEGORY_LABELS.label(label), value]);\n','');
  assert.equal(crypto.createHash('sha256').update(baseline).digest('hex').toUpperCase(),'828B81C87F675A41200D2D44E2E87FE1CBE80CCEEFA9DBAE373C95185A1173FF');
  assert.ok(!/fetch\(|XMLHttpRequest|WebSocket\(/.test(source));
  assert.match(source,/class="candidate-language"/);

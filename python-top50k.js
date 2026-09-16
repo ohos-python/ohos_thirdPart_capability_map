@@ -7,6 +7,7 @@
   const percent=n=>n===null?'N/A':(n*100).toFixed(2)+'%';
   const yi=n=>(n/1e8).toFixed(2);
   const ratio=(n,d)=>d?n/d:null;
+  const categoryLabel=c=>window.PYTHON_CATEGORY_HELP.html(c.id,c.label);
   function valid(){
     if(!data||!data.total||!Array.isArray(data.categories)||!data.categories.length)return false;
     if(new Set(data.categories.map(c=>c.id)).size!==data.categories.length)return false;
@@ -29,7 +30,7 @@
   $('count-total').textContent=`已完成目录命中 ${number(total.matchedPackages)} / ${number(total.packages)} 个包`;
   $('download-total').textContent=`命中包下载 ${yi(total.matchedDownloads)} / ${yi(total.totalDownloads)} 亿次`;
   $('count-bar').style.width=percent(countRate);$('download-bar').style.width=percent(downloadRate);
-  $('interpretation').textContent=`两种覆盖率相差 ${((downloadRate-countRate)*100).toFixed(2)} 个百分点：已收录的库贡献了相对更多的下载量。`;
+  $('interpretation').textContent=`数量覆盖率衡量库的覆盖广度，下载量加权覆盖率作为按使用热度衡量场景支持度的代理指标。两者相差 ${((downloadRate-countRate)*100).toFixed(2)} 个百分点，说明当前命中库贡献了相对更多的样本下载量。`;
   const unknown=data.categories.find(c=>c.id==='other');
   $('unclassified').textContent=unknown?`其他/待确认：${number(unknown.packages)} 个包，占总下载量 ${percent(unknown.totalDownloads/total.totalDownloads)}；分类修订会影响场景间的分配。`:'';
   $('detail-category').innerHTML=data.categories.map(c=>`<option value="${escape(c.id)}">${escape(c.label)}</option>`).join('');
@@ -38,12 +39,12 @@
   const rateCell=(rate,kind)=>`<td class="rate ${kind}-rate"><span>${percent(rate)}</span><div class="track" aria-hidden="true"><div class="fill ${kind}-fill" style="width:${rate===null?0:Math.max(0,Math.min(100,rate*100))}%"></div></div></td>`;
   function renderTable(){
     const q=$('category-search').value.trim().toLowerCase();
-    const rows=data.categories.filter(c=>c.label.toLowerCase().includes(q));
+    const rows=data.categories.filter(c=>[c.label,c.originalLabel||''].some(label=>label.toLowerCase().includes(q)));
     const sort=$('sort-order').value;
     if(sort==='downloads')rows.sort((a,b)=>(ratio(b.matchedDownloads,b.totalDownloads)??-1)-(ratio(a.matchedDownloads,a.totalDownloads)??-1));
     if(sort==='count')rows.sort((a,b)=>(ratio(b.matchedPackages,b.packages)??-1)-(ratio(a.matchedPackages,a.packages)??-1));
     if(sort==='gap')rows.sort((a,b)=>(b.totalDownloads-b.matchedDownloads)-(a.totalDownloads-a.matchedDownloads));
-    $('category-rows').innerHTML=rows.map(c=>`<tr data-row="${escape(c.id)}"><td>${escape(c.label)}</td><td>${number(c.matchedPackages)} / ${number(c.packages)}</td>${rateCell(ratio(c.matchedPackages,c.packages),'count')}<td title="${number(c.matchedDownloads)} / ${number(c.totalDownloads)} 次">${yi(c.matchedDownloads)} / ${yi(c.totalDownloads)}</td>${rateCell(ratio(c.matchedDownloads,c.totalDownloads),'download')}<td title="${number(c.totalDownloads-c.matchedDownloads)} 次">${yi(c.totalDownloads-c.matchedDownloads)}</td><td><button type="button" class="detail-button" data-category="${escape(c.id)}" aria-label="查看${escape(c.label)}的明细" aria-pressed="${c.id===$('detail-category').value}">查看明细</button></td></tr>`).join('');
+    $('category-rows').innerHTML=rows.map(c=>`<tr data-row="${escape(c.id)}"><td>${categoryLabel(c)}</td><td>${number(c.matchedPackages)} / ${number(c.packages)}</td>${rateCell(ratio(c.matchedPackages,c.packages),'count')}<td title="${number(c.matchedDownloads)} / ${number(c.totalDownloads)} 次">${yi(c.matchedDownloads)} / ${yi(c.totalDownloads)}</td>${rateCell(ratio(c.matchedDownloads,c.totalDownloads),'download')}<td title="${number(c.totalDownloads-c.matchedDownloads)} 次">${yi(c.totalDownloads-c.matchedDownloads)}</td><td><button type="button" class="detail-button" data-category="${escape(c.id)}" aria-label="查看${escape(c.label)}的明细" aria-pressed="${c.id===$('detail-category').value}">查看明细</button></td></tr>`).join('');
     $('result-count').textContent=`显示 ${rows.length} / ${data.categories.length} 个标签 · 总指标仍为Top5万全量`;
     $('no-results').hidden=rows.length!==0;
     $('table-total').innerHTML=`<tr><td>Top5万全量合计</td><td>${number(total.matchedPackages)} / ${number(total.packages)}</td><td class="count">${percent(countRate)}</td><td>${yi(total.matchedDownloads)} / ${yi(total.totalDownloads)}</td><td class="downloads">${percent(downloadRate)}</td><td>${yi(total.totalDownloads-total.matchedDownloads)}</td><td>全量</td></tr>`;
@@ -51,6 +52,7 @@
   function renderDetails(){
     const c=data.categories.find(c=>c.id===$('detail-category').value);if(!c)return;
     $('detail-title').textContent=c.label+' · 详情';
+    $('detail-category-help').innerHTML=window.PYTHON_CATEGORY_HELP.has(c.id)?categoryLabel(c):'';
     $('detail-summary').textContent=`库数量：${number(c.matchedPackages)} / ${number(c.packages)}（${percent(ratio(c.matchedPackages,c.packages))}）；下载量：${number(c.matchedDownloads)} / ${number(c.totalDownloads)} 次（${percent(ratio(c.matchedDownloads,c.totalDownloads))}）。未命中包 ${number(c.packages-c.matchedPackages)} 个，下载量 ${number(c.totalDownloads-c.matchedDownloads)} 次。`;
     $('missing-rows').innerHTML=c.topMissing.length?c.topMissing.map(r=>`<tr><td><a href="https://pypi.org/project/${encodeURIComponent(r.name)}/">${escape(r.name)}</a><small>${escape(r.classificationConfidence)}</small></td><td>${number(r.rank)}</td><td>${number(r.downloads)}</td></tr>`).join(''):'<tr><td colspan="3">当前分母内无未命中包</td></tr>';
     $('matched-rows').innerHTML=c.topMatched.length?c.topMatched.map(r=>`<tr><td>${escape(r.name)}</td><td>${number(r.downloads)}</td></tr>`).join(''):'<tr><td colspan="2">当前分母内无命中包</td></tr>';

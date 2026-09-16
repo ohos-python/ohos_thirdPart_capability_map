@@ -256,6 +256,14 @@
         <div><h2 id="classification-title">当前三方库分类</h2><p>横条按各自生态中的最大类别缩放。Python 已从 8 类扩展到 21 类；仅按包名不能确认功能的库会保留低置信度或待确认标记。</p></div>
       </div>
       <div class="ecosystems">
+        <!-- CATEGORY_LABEL_GUIDE_START -->
+        <aside class="panel" style="grid-column: 1 / -1" aria-labelledby="category-guide-title">
+          <h3 id="category-guide-title">这两类怎么理解？</h3>
+          <p><strong>通用编程工具库</strong>（原“开发基础库”）：解决各种应用都会遇到的小问题，例如配置读写、JSON/YAML解析、数据校验、日期、缓存、字符串、容器和通用算法。不包括已单列的构建工具、测试框架、Web框架和数据库驱动；语言标准库本身也不因此计入三方库。</p>
+          <p><strong>行业应用与待复核库</strong>（原“业务与行业组件 / 业务与领域组件”）：包括金融、电商、医疗、教育、工业等特定领域组件，也保留历史上因信息不足而暂归此类的条目。它不是一个功能已全部确认的行业库集合。</p>
+          <p>特别注意：Python有15,718条记录属于低置信度暂归条目，不能将本类总数当作已确认的行业能力。此次只优化显示名称，不移动库、不改变类别ID和统计数量；“其他/待确认”仍独立保留，后续重新分类需单独复核。</p>
+        </aside>
+        <!-- CATEGORY_LABEL_GUIDE_END -->
         <div class="panel node">
           <div class="panel-head"><h3>Node.js</h3><span class="panel-total">46,413 条</span></div>
           <div id="node-bars"></div>
@@ -398,9 +406,10 @@
   <script src="python-library-capabilities.js"></script>
   <script src="c-library-capabilities.js"></script>
   <script src="third-party-satisfaction-cleaned-v2.js"></script>
+  <script src="category-display-labels.js"></script>
   <script>
-    const pythonCatalog = window.HARMONY_PYTHON_CATALOG || { meta: {}, categories: [], libraries: [] };
-    const cCatalog = window.HARMONY_C_CATALOG || { meta: {}, categories: [], libraries: [] };
+    const pythonCatalog = window.CAPABILITY_CATEGORY_LABELS.decorate(window.HARMONY_PYTHON_CATALOG || { meta: {}, categories: [], libraries: [] });
+    const cCatalog = window.CAPABILITY_CATEGORY_LABELS.decorate(window.HARMONY_C_CATALOG || { meta: {}, categories: [], libraries: [] });
     const satisfactionData = window.HARMONY_SATISFACTION_DATA || { meta: {}, ecosystems: [], cleaning: [], projectBins: [], projectTypes: [], projects: [], coveredCandidates: [], gaps: [] };
     const missingEcosystemData = new Set(["Go", "Java", "Rust"]);
     satisfactionData.ecosystems.forEach(item => {
@@ -713,6 +722,7 @@
     }
 
     function renderBars(targetId, rows) {
+      rows = rows.map(([label, value]) => [window.CAPABILITY_CATEGORY_LABELS.label(label), value]);
       const target = document.getElementById(targetId);
       const max = Math.max(...rows.map(([, value]) => value));
       target.innerHTML = rows.map(([label, value]) => `
