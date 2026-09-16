@@ -16,7 +16,7 @@ test('Real local increases are retained, not forced into declining lines',()=>{
  assert.ok(d.groups[0].points.slice(1).every(p=>p.changePp<0));
 });
 test('22 SVGs have labelled axes and valid bounded marks',()=>{
- for(const g of d.groups){const svg=fs.readFileSync(path.join(base,'rank-trends',g.id+'.svg'),'utf8');assert.match(svg,/<title /);assert.match(svg,/局部纵轴/);assert.match(svg,/全局下载排名上限/);assert.match(svg,/0—100%/);assert.ok(!/NaN|undefined|Infinity/.test(svg));assert.equal((svg.match(/<circle /g)||[]).length,g.points.filter(p=>p.weightedCoverage!==null).length);for(const m of svg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)"/g)){assert(+m[1]>=105&&+m[1]<=1030);assert(+m[2]>=135&&+m[2]<=310);}}
+ for(const g of d.groups){const svg=fs.readFileSync(path.join(base,'rank-trends',g.id+'.svg'),'utf8');assert.match(svg,/<title /);assert.match(svg,/局部纵轴/);assert.match(svg,/全局下载排名上限/);assert.ok(!/新增排名区间|下图|0—100%|#a64b14/.test(svg));assert.equal((svg.match(/<rect /g)||[]).length,1);assert.match(svg,/viewBox="0 0 1100 430"/);assert.ok(!/NaN|undefined|Infinity/.test(svg));assert.equal((svg.match(/<circle /g)||[]).length,g.points.filter(p=>p.weightedCoverage!==null).length);for(const m of svg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)"/g)){assert(+m[1]>=105&&+m[1]<=1030);assert(+m[2]>=135&&+m[2]<=310);}}
 });
 test('Report contains all charts and links, without external runtime dependencies',()=>{
  const html=fs.readFileSync(path.join(root,'python-rank-trends.html'),'utf8');assert.equal((html.match(/<section id=/g)||[]).length,22);assert.equal((html.match(/<img /g)||[]).length,22);assert.ok(!/\bfetch\(|<script|https?:\/\//.test(html));
