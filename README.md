@@ -10,10 +10,14 @@
 
 ## 页面文件
 
-当前保留两个独立入口：
+当前保留以下独立入口：
 
 - [原版能力地图](index.html)：现有库目录、缺口和项目依赖满足度。
 - [场景目录 V1](index-v1.html)：15 个能力大类、135 个候选场景，先决策范围，再评估适配。
+- [Python Top5万覆盖分析](python-top50k.html)：数量与下载加权覆盖分析，保留此前页面。
+- [Node.js覆盖分析](nodejs-coverage.html)：18个标签，1,801个项目依赖样本；不是npm全生态Top5万。数量覆盖73.29%，下载加权覆盖95.40%。
+- [C/C++覆盖分析](cpp-coverage.html)：21个标签，ConanCenter与Homebrew原生候选并集2,589个包族，数量覆盖33.76%；Homebrew安装子集覆盖82.18%。Conan官网热门榜10个库下载计数另列，窗口未说明，不是全量下载覆盖率。
+- [Node.js / C/C++分析底稿](outputs/ecosystem-coverage-20260916/README.md)；[C/C++口径与来源](outputs/ecosystem-coverage-20260916/NATIVE-METHOD.md)。
 - [会话与数据交接](HANDOFF.md)：已达成的结论、统计口径、限制和下一步。
 - [V1 使用说明](README-v1.md)；[分类验证数据与复现说明](outputs/taxonomy-validation-20260912/README.md)。
 
@@ -27,6 +31,8 @@
 | `third-party-satisfaction-cleaned-v2.js` | 项目需求清洗结果、覆盖率、项目分类和缺口；Electron、Playwright按已验证支持项计入 | 是 |
 
 页面不依赖后端接口、数据库或第三方 CDN，可以通过 GitHub Pages 静态发布。
+
+Node.js与C/C++页分别依赖同目录的`nodejs-coverage-data.js`、`cpp-coverage-data.js`，共享`ecosystem-coverage.js`、`ecosystem-coverage.css`及`python-top50k.css`。页面不读取outputs；研究快照与脚本用于离线复核。npm窗口为2026-08-16—2026-09-14，Homebrew官方30d窗口为2026-08-17—2026-09-16，两者不能混算。目录命中不等于鸿蒙真机端到端可用。
 
 ## 本地预览
 

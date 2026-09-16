@@ -1,0 +1,192 @@
+{
+  "url": "https://conan.io/center",
+  "fetchedAt": "2026-09-16T06:32:00.946Z",
+  "rawSha256": "2e06f71e728faf05988e1620e0d0c6804ab922dce248b80304091bde45c18b21",
+  "field": "props.pageProps.data.popular[].total_downloads",
+  "window": null,
+  "windowStatus": "官网页面未说明统计窗口；不推断为累计或最近30天",
+  "scope": "官方首页热门榜，非全量逐库下载数据",
+  "sourceRecipes": 1948,
+  "rows": [
+    {
+      "name": "fmt",
+      "rank": 1,
+      "downloads": 681558
+    },
+    {
+      "name": "zlib",
+      "rank": 2,
+      "downloads": 640352
+    },
+    {
+      "name": "cmake",
+      "rank": 3,
+      "downloads": 576173
+    },
+    {
+      "name": "eigen",
+      "rank": 4,
+      "downloads": 413010
+    },
+    {
+      "name": "rapidjson",
+      "rank": 5,
+      "downloads": 400001
+    },
+    {
+      "name": "pybind11",
+      "rank": 6,
+      "downloads": 389590
+    },
+    {
+      "name": "lz4",
+      "rank": 7,
+      "downloads": 375490
+    },
+    {
+      "name": "gtest",
+      "rank": 8,
+      "downloads": 353999
+    },
+    {
+      "name": "abseil",
+      "rank": 9,
+      "downloads": 352207
+    },
+    {
+      "name": "nlohmann_json",
+      "rank": 10,
+      "downloads": 289275
+    }
+  ],
+  "rawData": {
+    "popular": [
+      {
+        "name": "fmt",
+        "total_downloads": 681558
+      },
+      {
+        "name": "zlib",
+        "total_downloads": 640352
+      },
+      {
+        "name": "cmake",
+        "total_downloads": 576173
+      },
+      {
+        "name": "eigen",
+        "total_downloads": 413010
+      },
+      {
+        "name": "rapidjson",
+        "total_downloads": 400001
+      },
+      {
+        "name": "pybind11",
+        "total_downloads": 389590
+      },
+      {
+        "name": "lz4",
+        "total_downloads": 375490
+      },
+      {
+        "name": "gtest",
+        "total_downloads": 353999
+      },
+      {
+        "name": "abseil",
+        "total_downloads": 352207
+      },
+      {
+        "name": "nlohmann_json",
+        "total_downloads": 289275
+      }
+    ],
+    "updated": [
+      {
+        "name": "influxdb-cpp-rest",
+        "version": "1.0.3"
+      },
+      {
+        "name": "libavrocpp",
+        "version": "1.12.2"
+      },
+      {
+        "name": "rabbitmq-c",
+        "version": "0.17.0"
+      },
+      {
+        "name": "sdl",
+        "version": "3.4.14"
+      },
+      {
+        "name": "unordered_dense",
+        "version": "4.9.2"
+      },
+      {
+        "name": "arrow",
+        "version": "19.0.1"
+      },
+      {
+        "name": "mgclient",
+        "version": "1.8.0"
+      },
+      {
+        "name": "opentelemetry-cpp",
+        "version": "1.21.0"
+      },
+      {
+        "name": "mini",
+        "version": "0.9.16"
+      },
+      {
+        "name": "thrift",
+        "version": "0.24.0"
+      }
+    ],
+    "new": [
+      {
+        "name": "influxdb-cpp-rest",
+        "version": "1.0.3"
+      },
+      {
+        "name": "libavrocpp",
+        "version": "1.12.2"
+      },
+      {
+        "name": "rabbitmq-c",
+        "version": "0.17.0"
+      },
+      {
+        "name": "openexr",
+        "version": "3.3.13"
+      },
+      {
+        "name": "mgclient",
+        "version": "1.8.0"
+      },
+      {
+        "name": "openexr",
+        "version": "3.4.14"
+      },
+      {
+        "name": "openexr",
+        "version": "3.2.11"
+      },
+      {
+        "name": "unordered_dense",
+        "version": "4.9.2"
+      },
+      {
+        "name": "thrift",
+        "version": "0.24.0"
+      },
+      {
+        "name": "mini",
+        "version": "0.9.20"
+      }
+    ],
+    "referenceNum": 10287,
+    "recipesNum": 1948
+  }
+}

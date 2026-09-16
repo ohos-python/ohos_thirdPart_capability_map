@@ -126,7 +126,9 @@ test('local assets and links exist; main index preserves baseline except approve
  const main=fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\r\n/g,'\n');
  const baseline=main
   .replace('    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }','    .hero-actions { display: flex; flex-wrap: wrap; margin-top: 20px; }')
-  .replace('          <a class="scenario-link" href="python-top50k.html">Python Top5万覆盖分析 <span aria-hidden="true">→</span></a>\n','');
+  .replace('          <a class="scenario-link" href="python-top50k.html">Python Top5万覆盖分析 <span aria-hidden="true">→</span></a>\n','')
+  .replace('          <a class="scenario-link" href="nodejs-coverage.html">Node.js 覆盖分析 <span aria-hidden="true">→</span></a>\n','')
+  .replace('          <a class="scenario-link" href="cpp-coverage.html">C/C++ 覆盖分析 <span aria-hidden="true">→</span></a>\n','');
  assert.equal(crypto.createHash('sha256').update(baseline).digest('hex').toUpperCase(),'828B81C87F675A41200D2D44E2E87FE1CBE80CCEEFA9DBAE373C95185A1173FF');
  assert.ok(!/fetch\(|XMLHttpRequest|WebSocket\(/.test(source));
  assert.match(source,/class="candidate-language"/);

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Node.js 项目依赖覆盖分析 · 鸿蒙三方库能力地图</title>
+  <link rel="stylesheet" href="python-top50k.css"><link rel="stylesheet" href="ecosystem-coverage.css">
+  <script defer src="nodejs-coverage-data.js"></script><script defer src="ecosystem-coverage.js"></script>
+</head>
+<body>
+  <a class="skip" href="#comparison">跳到场景对比</a>
+  <header class="topbar"><a class="brand" href="index.html">鸿蒙三方库能力地图</a><nav aria-label="页面导航"><a href="index.html">原版地图</a><a href="index-v1.html">场景分析</a><a href="python-top50k.html">Python Top5万</a><a href="nodejs-coverage.html" aria-current="page">Node.js</a><a href="cpp-coverage.html">C/C++</a></nav></header>
+  <main class="page">
+    <div class="eyebrow">NODE.JS / NPM <span>双指标 · 证据分层</span></div>
+    <h1>Node.js 项目依赖覆盖分析</h1>
+    <p class="lead" id="scope">现有项目依赖样本 · 非 npm 全生态 Top5万</p>
+    <p id="snapshot" class="snapshot"></p>
+    <noscript><p class="notice">启用 JavaScript 后可查看本地静态快照，无需联网。</p></noscript>
+    <p id="load-error" class="notice" role="alert" hidden></p>
+    <div id="dashboard" hidden>
+      <aside id="boundary" class="notice"></aside>
+      <section class="metrics" aria-label="全量样本指标，不随筛选变化">
+        <article class="metric"><div class="metric-title">库数量覆盖率 <span class="tag count">目录命中</span></div><strong id="count-rate"></strong><p id="count-numbers"></p><small>样本内命中包数 ÷ 样本全部包数</small></article>
+        <article class="metric download-metric"><div class="metric-title" id="weight-title">下载量加权覆盖率</div><strong id="weight-rate"></strong><p id="weight-numbers"></p><small id="weight-quality"></small></article>
+      </section>
+      <p id="catalog-summary" class="muted small"></p>
+      <section id="comparison">
+        <div class="section-heading"><div><div class="eyebrow">SCENE COMPARISON</div><h2>各场景 · 数量 × 使用热度</h2><p id="category-policy"></p></div><button id="export" type="button">导出逐库 JSON</button></div>
+        <div class="toolbar"><label for="category-search">场景搜索<input id="category-search" type="search" placeholder="例如：办公、Agent、基础"></label><label for="sort">排序<select id="sort"><option value="original">原标签顺序</option><option value="count">数量覆盖率：高 → 低</option><option value="weight">下载覆盖率：高 → 低</option><option value="gap">未命中库数：多 → 少</option></select></label><span id="result-count" role="status" aria-live="polite"></span></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="各场景覆盖表"><table><caption>比例从同一分母计算；“—”表示暂无数据，不表示0%。点击场景可查看逐库功能。</caption><thead><tr><th scope="col">场景标签</th><th scope="col">命中 / 全部包</th><th scope="col">数量覆盖率</th><th scope="col">命中 / 全部下载计数</th><th scope="col">下载覆盖率</th><th scope="col">下载数据完整性</th><th scope="col">明细</th></tr></thead><tbody id="category-rows"></tbody><tfoot id="total-row"></tfoot></table></div>
+        <p id="no-results" class="empty" hidden>没有匹配的场景。</p>
+      </section>
+      <section class="detail-panel" id="details" aria-labelledby="detail-title">
+        <div class="section-heading"><div><div class="eyebrow">FUNCTIONS & EVIDENCE</div><h2 id="detail-title">逐库功能与适配证据</h2><p>按下载量降序；没有下载数据时按包名排序。未命中不等于不支持。</p></div></div>
+        <div class="toolbar"><label for="detail-category">场景<select id="detail-category"></select></label><label for="match-filter">适配状态<select id="match-filter"><option value="all">全部</option><option value="missing">当前未命中</option><option value="matched">目录 / 用户确认命中</option></select></label><label for="package-search">库名或功能<input id="package-search" type="search" placeholder="搜索库名或官方功能描述"></label></div>
+        <p id="detail-summary" aria-live="polite"></p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="逐库功能表"><table class="library-table"><thead><tr><th scope="col">包名 / 功能</th><th scope="col">场景 / 分类证据</th><th scope="col">目录匹配证据</th><th scope="col">下载计数</th></tr></thead><tbody id="library-rows"></tbody></table></div>
+        <div class="pagination"><button id="previous" type="button">上一页</button><span id="page-label" role="status" aria-live="polite"></span><button id="next" type="button">下一页</button></div>
+      </section>
+      <details class="method"><summary>统计方法、分母、来源与限制</summary><div class="method-body"><p id="denominator"></p><p>数量覆盖率 = 同场景命中库数 / 同场景样本库数；下载加权覆盖率 = 同场景命中库下载计数之和 / 同场景已取得下载计数之和。若有缺失，仅代表已获取数据子集。总比例按总和计算，不平均各场景百分比。</p><ul id="limitations"></ul><h3>来源与快照</h3><ul id="sources"></ul><p id="excluded"></p><p>全量逐库JSON包含功能、分类规则、匹配证据、官方链接及来源哈希，可离线复核。页面不会自动联网更新。</p></div></details>
+    </div>
+    <footer><a href="index.html">← 返回能力地图</a><span>数量和热度分别展示 · 不等于端到端完成度</span></footer>
+  </main>
+</body>
+</html>

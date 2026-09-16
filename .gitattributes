@@ -1,0 +1,2 @@
+# Preserve snapshot bytes: source SHA-256 values must survive Windows checkout.
+outputs/ecosystem-coverage-20260916/*.json -text
