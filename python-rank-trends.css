@@ -1,0 +1,13 @@
+/* Scoped to the merged Python page. Other language pages are unaffected. */
+.rank-trends{margin-top:40px;scroll-margin-top:20px}
+.rank-trends .jump{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0}
+.rank-trends section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;scroll-margin-top:20px}
+.rank-trends section>p{font-size:14px;color:var(--muted)}
+.rank-trends .chart,.rank-trends .table{overflow-x:auto}
+.rank-trends .chart img{display:block;width:100%;min-width:920px;height:auto;background:#fff}
+.rank-trends details{margin-top:16px}
+.rank-trends summary{cursor:pointer;font-weight:600}
+.rank-trends table{min-width:950px}
+.rank-trends .trend-boundary{font-size:13px;color:var(--muted)}
+@media(max-width:600px){.rank-trends section{padding:14px}.rank-trends .jump{gap:8px 16px}}
+@media print{.rank-trends section{break-inside:avoid;border:0;padding:0}.rank-trends .chart img{min-width:0}.rank-trends .jump{display:none}}

@@ -14,7 +14,7 @@
 
 - [原版能力地图](index.html)：现有库目录、缺口和项目依赖满足度。
 - [场景目录 V1](index-v1.html)：15 个能力大类、135 个候选场景，先决策范围，再评估适配。
-- [Python Top5万覆盖分析](python-top50k.html)：数量与下载加权覆盖分析，保留此前页面。
+- [Python Top5万覆盖与趋势分析](python-top50k.html)：原有数量、下载加权覆盖和场景详情，同页合并Top1万—10万总体及21个场景趋势图。趋势为排名分母敏感性分析，不是时间预测。
 - [Node.js覆盖分析](nodejs-coverage.html)：18个标签，1,801个项目依赖样本；不是npm全生态Top5万。数量覆盖73.29%，下载加权覆盖95.40%。
 - [C/C++覆盖分析](cpp-coverage.html)：21个标签，ConanCenter与Homebrew原生候选并集2,589个包族，数量覆盖33.76%；Homebrew安装子集覆盖82.18%。Conan官网热门榜10个库下载计数另列，窗口未说明，不是全量下载覆盖率。
 - [Node.js / C/C++分析底稿](outputs/ecosystem-coverage-20260916/README.md)；[C/C++口径与来源](outputs/ecosystem-coverage-20260916/NATIVE-METHOD.md)。
@@ -31,6 +31,8 @@
 | `third-party-satisfaction-cleaned-v2.js` | 项目需求清洗结果、覆盖率、项目分类和缺口；Electron、Playwright按已验证支持项计入 | 是 |
 
 页面不依赖后端接口、数据库或第三方 CDN，可以通过 GitHub Pages 静态发布。
+
+Python合并页新增`python-rank-trends.css`及`outputs/pypi-top100k-20260915/rank-trends/`中的22份SVG；该目录同时保存PNG和趋势汇总JSON。`python-rank-trends.html`保留独立查看入口。这里只发布趋势聚合数据及Top5万核对汇总，不夹带原有Top10万大型原始研究文件；重新聚合须另行提供原始ranking.json和packages-classified.jsonl。
 
 Node.js与C/C++页分别依赖同目录的`nodejs-coverage-data.js`、`cpp-coverage-data.js`，共享`ecosystem-coverage.js`、`ecosystem-coverage.css`及`python-top50k.css`。页面不读取outputs；研究快照与脚本用于离线复核。npm窗口为2026-08-16—2026-09-14，Homebrew官方30d窗口为2026-08-17—2026-09-16，两者不能混算。目录命中不等于鸿蒙真机端到端可用。
 

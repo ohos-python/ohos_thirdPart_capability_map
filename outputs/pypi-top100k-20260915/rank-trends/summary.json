@@ -1,0 +1,3679 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-16T07:15:22.196Z",
+    "window": {
+      "start": "2026-08-16",
+      "endExclusive": "2026-09-15",
+      "days": 30
+    },
+    "source": "ClickPy / PyPI public download statistics mirror",
+    "rankingSha256": "7b71de8f8b68696158b09dccdb66b7244c5f44f0ae8d8e82fd60e9e3ccdd652d",
+    "catalogSha256": "b52cea38d59a93787737c56c2ff49d1a6eef90c0458ebddef66c49776115db39",
+    "classificationSha256": "3fbc6dde8055e9cbf6c416a39f3a36accaa8d4023db5006782c327d9dab7f17b",
+    "catalogNames": 27248,
+    "cutoffPolicy": "全局Python下载排名Top1万至Top10万，每档增加1万个分发包；场景只取该全局范围内属于自己的库，不是场景内TopN。",
+    "metric": "目录命中库下载量 / 同一排名范围、同一场景全部库下载量",
+    "changePolicy": "当前累计覆盖率减上一档，单位为百分点；负值下降，正值上升。零分母保留null。",
+    "limitations": [
+      "统计窗口为2026-08-16至2026-09-14 UTC；混合2026-08-24前后下载计数口径，镜像同步完整性及官方BigQuery对照未验证。",
+      "下载计数包含自动化、CI及间接依赖，不能换算成用户数、项目数或实际场景端到端完成度。",
+      "按分发包名命中，不核对版本/操作系统/架构；命中库的全部版本、全部平台下载均计入加权分子，并非鸿蒙平台实际下载量。",
+      "主标签来自阶段分类，名称候选、多义及其他/待确认均保留；不代表每个包功能已经人工确认。",
+      "本次分母扩大到Top100000，未重新采集；不是整个PyPI。图中的横轴是排名阈值，不是时间，也不是新增适配数量。"
+    ]
+  },
+  "groups": [
+    {
+      "id": "overall",
+      "label": "Python 总体",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 10000,
+          "matchedPackages": 5484,
+          "totalDownloads": 138534506246,
+          "matchedDownloads": 105082046203,
+          "weightedCoverage": 0.7585261538840191,
+          "changePp": null,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 5484,
+            "totalDownloads": 138534506246,
+            "matchedDownloads": 105082046203,
+            "weightedCoverage": 0.7585261538840191
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 20000,
+          "matchedPackages": 8704,
+          "totalDownloads": 139200035432,
+          "matchedDownloads": 105323163364,
+          "weightedCoverage": 0.7566317281251768,
+          "changePp": -0.18944257588423552,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 3220,
+            "totalDownloads": 665529186,
+            "matchedDownloads": 241117161,
+            "weightedCoverage": 0.36229389495173847
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 30000,
+          "matchedPackages": 9998,
+          "totalDownloads": 139410560278,
+          "matchedDownloads": 105353000302,
+          "weightedCoverage": 0.7557031554274979,
+          "changePp": -0.09285726976788755,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 1294,
+            "totalDownloads": 210524846,
+            "matchedDownloads": 29836938,
+            "weightedCoverage": 0.14172644496317552
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 40000,
+          "matchedPackages": 11011,
+          "totalDownloads": 139508072213,
+          "matchedDownloads": 105362867560,
+          "weightedCoverage": 0.7552456706528973,
+          "changePp": -0.04574847746006139,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 1013,
+            "totalDownloads": 97511935,
+            "matchedDownloads": 9867258,
+            "weightedCoverage": 0.10119025942824332
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 50000,
+          "matchedPackages": 12082,
+          "totalDownloads": 139567021774,
+          "matchedDownloads": 105369147867,
+          "weightedCoverage": 0.7549716725891278,
+          "changePp": -0.02739980637694872,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 1071,
+            "totalDownloads": 58949561,
+            "matchedDownloads": 6280307,
+            "weightedCoverage": 0.10653695962214206
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 60000,
+          "matchedPackages": 12947,
+          "totalDownloads": 139607607638,
+          "matchedDownloads": 105372769035,
+          "weightedCoverage": 0.7547781300588553,
+          "changePp": -0.019354253027248358,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 865,
+            "totalDownloads": 40585864,
+            "matchedDownloads": 3621168,
+            "weightedCoverage": 0.08922239526550427
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 70000,
+          "matchedPackages": 13486,
+          "totalDownloads": 139637717473,
+          "matchedDownloads": 105374396551,
+          "weightedCoverage": 0.7546270338554835,
+          "changePp": -0.01510962033718366,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 539,
+            "totalDownloads": 30109835,
+            "matchedDownloads": 1627516,
+            "weightedCoverage": 0.05405263761824002
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 80000,
+          "matchedPackages": 13905,
+          "totalDownloads": 139661284757,
+          "matchedDownloads": 105375382268,
+          "weightedCoverage": 0.7545067514690642,
+          "changePp": -0.012028238641925704,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 419,
+            "totalDownloads": 23567284,
+            "matchedDownloads": 985717,
+            "weightedCoverage": 0.04182565118661955
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 90000,
+          "matchedPackages": 14210,
+          "totalDownloads": 139680459353,
+          "matchedDownloads": 105375968571,
+          "weightedCoverage": 0.7544073742247238,
+          "changePp": -0.009937724434039286,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 305,
+            "totalDownloads": 19174596,
+            "matchedDownloads": 586303,
+            "weightedCoverage": 0.030577071871553382
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 100000,
+          "matchedPackages": 14543,
+          "totalDownloads": 139696506873,
+          "matchedDownloads": 105376504101,
+          "weightedCoverage": 0.7543245458299055,
+          "changePp": -0.008282839481832394,
+          "batch": {
+            "packages": 10000,
+            "matchedPackages": 333,
+            "totalDownloads": 16047520,
+            "matchedDownloads": 535530,
+            "weightedCoverage": 0.03337151161051677
+          }
+        }
+      ]
+    },
+    {
+      "id": "domain",
+      "label": "业务与行业组件",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 126,
+          "matchedPackages": 67,
+          "totalDownloads": 334895605,
+          "matchedDownloads": 230233171,
+          "weightedCoverage": 0.6874774334527323,
+          "changePp": null,
+          "batch": {
+            "packages": 126,
+            "matchedPackages": 67,
+            "totalDownloads": 334895605,
+            "matchedDownloads": 230233171,
+            "weightedCoverage": 0.6874774334527323
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 344,
+          "matchedPackages": 117,
+          "totalDownloads": 348562522,
+          "matchedDownloads": 233685580,
+          "weightedCoverage": 0.6704265813178848,
+          "changePp": -1.7050852134847472,
+          "batch": {
+            "packages": 218,
+            "matchedPackages": 50,
+            "totalDownloads": 13666917,
+            "matchedDownloads": 3452409,
+            "weightedCoverage": 0.25261066559488143
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 498,
+          "matchedPackages": 147,
+          "totalDownloads": 351934698,
+          "matchedDownloads": 234411499,
+          "weightedCoverage": 0.6660653249938998,
+          "changePp": -0.43612563239849855,
+          "batch": {
+            "packages": 154,
+            "matchedPackages": 30,
+            "totalDownloads": 3372176,
+            "matchedDownloads": 725919,
+            "weightedCoverage": 0.21526723397592534
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 648,
+          "matchedPackages": 167,
+          "totalDownloads": 353361174,
+          "matchedDownloads": 234611641,
+          "weightedCoverage": 0.6639428954353656,
+          "changePp": -0.21224295585342556,
+          "batch": {
+            "packages": 150,
+            "matchedPackages": 20,
+            "totalDownloads": 1426476,
+            "matchedDownloads": 200142,
+            "weightedCoverage": 0.14030519966687136
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 832,
+          "matchedPackages": 179,
+          "totalDownloads": 354453757,
+          "matchedDownloads": 234684501,
+          "weightedCoverage": 0.6621018859732385,
+          "changePp": -0.18410094621270634,
+          "batch": {
+            "packages": 184,
+            "matchedPackages": 12,
+            "totalDownloads": 1092583,
+            "matchedDownloads": 72860,
+            "weightedCoverage": 0.06668600920936898
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 1044,
+          "matchedPackages": 200,
+          "totalDownloads": 355321048,
+          "matchedDownloads": 234771855,
+          "weightedCoverage": 0.6607316293854902,
+          "changePp": -0.1370256587748253,
+          "batch": {
+            "packages": 212,
+            "matchedPackages": 21,
+            "totalDownloads": 867291,
+            "matchedDownloads": 87354,
+            "weightedCoverage": 0.10072051941044009
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1284,
+          "matchedPackages": 212,
+          "totalDownloads": 356038282,
+          "matchedDownloads": 234807519,
+          "weightedCoverage": 0.6595007640217745,
+          "changePp": -0.12308653637157496,
+          "batch": {
+            "packages": 240,
+            "matchedPackages": 12,
+            "totalDownloads": 717234,
+            "matchedDownloads": 35664,
+            "weightedCoverage": 0.049724357740988295
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1506,
+          "matchedPackages": 217,
+          "totalDownloads": 356561619,
+          "matchedDownloads": 234819163,
+          "weightedCoverage": 0.658565449805185,
+          "changePp": -0.09353142165894335,
+          "batch": {
+            "packages": 222,
+            "matchedPackages": 5,
+            "totalDownloads": 523337,
+            "matchedDownloads": 11644,
+            "weightedCoverage": 0.022249525640266214
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1768,
+          "matchedPackages": 220,
+          "totalDownloads": 357062434,
+          "matchedDownloads": 234824644,
+          "weightedCoverage": 0.6576570975819875,
+          "changePp": -0.09083522231975172,
+          "batch": {
+            "packages": 262,
+            "matchedPackages": 3,
+            "totalDownloads": 500815,
+            "matchedDownloads": 5481,
+            "weightedCoverage": 0.010944161017541407
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 2015,
+          "matchedPackages": 223,
+          "totalDownloads": 357458181,
+          "matchedDownloads": 234829380,
+          "weightedCoverage": 0.6569422452244841,
+          "changePp": -0.07148523575034593,
+          "batch": {
+            "packages": 247,
+            "matchedPackages": 3,
+            "totalDownloads": 395747,
+            "matchedDownloads": 4736,
+            "weightedCoverage": 0.011967241697347043
+          }
+        }
+      ]
+    },
+    {
+      "id": "agent-tui",
+      "label": "Agent与TUI开发",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 281,
+          "matchedPackages": 140,
+          "totalDownloads": 5989193705,
+          "matchedDownloads": 3432338165,
+          "weightedCoverage": 0.5730885214372942,
+          "changePp": null,
+          "batch": {
+            "packages": 281,
+            "matchedPackages": 140,
+            "totalDownloads": 5989193705,
+            "matchedDownloads": 3432338165,
+            "weightedCoverage": 0.5730885214372942
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 487,
+          "matchedPackages": 204,
+          "totalDownloads": 6002491910,
+          "matchedDownloads": 3437182822,
+          "weightedCoverage": 0.5726259815983659,
+          "changePp": -0.046253983892829975,
+          "batch": {
+            "packages": 206,
+            "matchedPackages": 64,
+            "totalDownloads": 13298205,
+            "matchedDownloads": 4844657,
+            "weightedCoverage": 0.3643090928437334
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 693,
+          "matchedPackages": 224,
+          "totalDownloads": 6006786688,
+          "matchedDownloads": 3437605370,
+          "weightedCoverage": 0.5722869062201664,
+          "changePp": -0.03390753781994382,
+          "batch": {
+            "packages": 206,
+            "matchedPackages": 20,
+            "totalDownloads": 4294778,
+            "matchedDownloads": 422548,
+            "weightedCoverage": 0.09838645909055137
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 920,
+          "matchedPackages": 254,
+          "totalDownloads": 6008990994,
+          "matchedDownloads": 3437898394,
+          "weightedCoverage": 0.5721257358236607,
+          "changePp": -0.016117039650576093,
+          "batch": {
+            "packages": 227,
+            "matchedPackages": 30,
+            "totalDownloads": 2204306,
+            "matchedDownloads": 293024,
+            "weightedCoverage": 0.1329325420336378
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 1149,
+          "matchedPackages": 281,
+          "totalDownloads": 6010328104,
+          "matchedDownloads": 3438053625,
+          "weightedCoverage": 0.5720242831189037,
+          "changePp": -0.010145270475692136,
+          "batch": {
+            "packages": 229,
+            "matchedPackages": 27,
+            "totalDownloads": 1337110,
+            "matchedDownloads": 155231,
+            "weightedCoverage": 0.11609441257637741
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 1412,
+          "matchedPackages": 307,
+          "totalDownloads": 6011390890,
+          "matchedDownloads": 3438161608,
+          "weightedCoverage": 0.5719411149455297,
+          "changePp": -0.008316817337405968,
+          "batch": {
+            "packages": 263,
+            "matchedPackages": 26,
+            "totalDownloads": 1062786,
+            "matchedDownloads": 107983,
+            "weightedCoverage": 0.10160370949560871
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1691,
+          "matchedPackages": 335,
+          "totalDownloads": 6012232921,
+          "matchedDownloads": 3438246361,
+          "weightedCoverage": 0.5718751096602765,
+          "changePp": -0.006600528525313454,
+          "batch": {
+            "packages": 279,
+            "matchedPackages": 28,
+            "totalDownloads": 842031,
+            "matchedDownloads": 84753,
+            "weightedCoverage": 0.10065306384206757
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1980,
+          "matchedPackages": 344,
+          "totalDownloads": 6012911190,
+          "matchedDownloads": 3438268052,
+          "weightedCoverage": 0.5718142083518782,
+          "changePp": -0.006090130839830898,
+          "batch": {
+            "packages": 289,
+            "matchedPackages": 9,
+            "totalDownloads": 678269,
+            "matchedDownloads": 21691,
+            "weightedCoverage": 0.031979937163573745
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 2274,
+          "matchedPackages": 356,
+          "totalDownloads": 6013475801,
+          "matchedDownloads": 3438291454,
+          "weightedCoverage": 0.5717644117613703,
+          "changePp": -0.00497965905079667,
+          "batch": {
+            "packages": 294,
+            "matchedPackages": 12,
+            "totalDownloads": 564611,
+            "matchedDownloads": 23402,
+            "weightedCoverage": 0.04144800579514037
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 2590,
+          "matchedPackages": 371,
+          "totalDownloads": 6013984410,
+          "matchedDownloads": 3438316315,
+          "weightedCoverage": 0.5717201909075118,
+          "changePp": -0.0044220853858467635,
+          "batch": {
+            "packages": 316,
+            "matchedPackages": 15,
+            "totalDownloads": 508609,
+            "matchedDownloads": 24861,
+            "weightedCoverage": 0.04888037765749328
+          }
+        }
+      ]
+    },
+    {
+      "id": "foundation",
+      "label": "开发基础库",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 778,
+          "matchedPackages": 591,
+          "totalDownloads": 35770730012,
+          "matchedDownloads": 31745311405,
+          "weightedCoverage": 0.8874661320680458,
+          "changePp": null,
+          "batch": {
+            "packages": 778,
+            "matchedPackages": 591,
+            "totalDownloads": 35770730012,
+            "matchedDownloads": 31745311405,
+            "weightedCoverage": 0.8874661320680458
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 1253,
+          "matchedPackages": 785,
+          "totalDownloads": 35803413722,
+          "matchedDownloads": 31760583879,
+          "weightedCoverage": 0.8870825593785261,
+          "changePp": -0.03835726895197178,
+          "batch": {
+            "packages": 475,
+            "matchedPackages": 194,
+            "totalDownloads": 32683710,
+            "matchedDownloads": 15272474,
+            "weightedCoverage": 0.4672809176192054
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 1739,
+          "matchedPackages": 881,
+          "totalDownloads": 35813432216,
+          "matchedDownloads": 31762690776,
+          "weightedCoverage": 0.8868932356002927,
+          "changePp": -0.018932377823344115,
+          "batch": {
+            "packages": 486,
+            "matchedPackages": 96,
+            "totalDownloads": 10018494,
+            "matchedDownloads": 2106897,
+            "weightedCoverage": 0.2103007697564125
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 2106,
+          "matchedPackages": 928,
+          "totalDownloads": 35816998149,
+          "matchedDownloads": 31763126897,
+          "weightedCoverage": 0.8868171130607945,
+          "changePp": -0.007612253949818015,
+          "batch": {
+            "packages": 367,
+            "matchedPackages": 47,
+            "totalDownloads": 3565933,
+            "matchedDownloads": 436121,
+            "weightedCoverage": 0.12230207353867838
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 2478,
+          "matchedPackages": 988,
+          "totalDownloads": 35819186066,
+          "matchedDownloads": 31763473349,
+          "weightedCoverage": 0.8867726165098505,
+          "changePp": -0.00444965509439621,
+          "batch": {
+            "packages": 372,
+            "matchedPackages": 60,
+            "totalDownloads": 2187917,
+            "matchedDownloads": 346452,
+            "weightedCoverage": 0.15834787151432161
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 2833,
+          "matchedPackages": 1035,
+          "totalDownloads": 35820629032,
+          "matchedDownloads": 31763669474,
+          "weightedCoverage": 0.8867423697563838,
+          "changePp": -0.003024675346674499,
+          "batch": {
+            "packages": 355,
+            "matchedPackages": 47,
+            "totalDownloads": 1442966,
+            "matchedDownloads": 196125,
+            "weightedCoverage": 0.13591796341701745
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 3165,
+          "matchedPackages": 1066,
+          "totalDownloads": 35821635612,
+          "matchedDownloads": 31763764961,
+          "weightedCoverage": 0.8867201181165317,
+          "changePp": -0.002225163985203338,
+          "batch": {
+            "packages": 332,
+            "matchedPackages": 31,
+            "totalDownloads": 1006580,
+            "matchedDownloads": 95487,
+            "weightedCoverage": 0.09486280275785333
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 3493,
+          "matchedPackages": 1094,
+          "totalDownloads": 35822409710,
+          "matchedDownloads": 31763830131,
+          "weightedCoverage": 0.8867027759478998,
+          "changePp": -0.001734216863191751,
+          "batch": {
+            "packages": 328,
+            "matchedPackages": 28,
+            "totalDownloads": 774098,
+            "matchedDownloads": 65170,
+            "weightedCoverage": 0.08418830690687742
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 3806,
+          "matchedPackages": 1114,
+          "totalDownloads": 35823009631,
+          "matchedDownloads": 31763868326,
+          "weightedCoverage": 0.8866889927225055,
+          "changePp": -0.0013783225394359278,
+          "batch": {
+            "packages": 313,
+            "matchedPackages": 20,
+            "totalDownloads": 599921,
+            "matchedDownloads": 38195,
+            "weightedCoverage": 0.06366671611762216
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 4101,
+          "matchedPackages": 1128,
+          "totalDownloads": 35823484105,
+          "matchedDownloads": 31763890734,
+          "weightedCoverage": 0.8866778742374366,
+          "changePp": -0.0011118485068850603,
+          "batch": {
+            "packages": 295,
+            "matchedPackages": 14,
+            "totalDownloads": 474474,
+            "matchedDownloads": 22408,
+            "weightedCoverage": 0.04722703456880672
+          }
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "label": "云服务与DevOps",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 507,
+          "matchedPackages": 209,
+          "totalDownloads": 10269719869,
+          "matchedDownloads": 4904611746,
+          "weightedCoverage": 0.47757989590397465,
+          "changePp": null,
+          "batch": {
+            "packages": 507,
+            "matchedPackages": 209,
+            "totalDownloads": 10269719869,
+            "matchedDownloads": 4904611746,
+            "weightedCoverage": 0.47757989590397465
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 823,
+          "matchedPackages": 286,
+          "totalDownloads": 10293598434,
+          "matchedDownloads": 4910807478,
+          "weightedCoverage": 0.4770739318700724,
+          "changePp": -0.050596403390223976,
+          "batch": {
+            "packages": 316,
+            "matchedPackages": 77,
+            "totalDownloads": 23878565,
+            "matchedDownloads": 6195732,
+            "weightedCoverage": 0.25946835582456484
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 1195,
+          "matchedPackages": 306,
+          "totalDownloads": 10300902597,
+          "matchedDownloads": 4911216576,
+          "weightedCoverage": 0.476775363105591,
+          "changePp": -0.029856876448142167,
+          "batch": {
+            "packages": 372,
+            "matchedPackages": 20,
+            "totalDownloads": 7304163,
+            "matchedDownloads": 409098,
+            "weightedCoverage": 0.05600888151044822
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 1905,
+          "matchedPackages": 329,
+          "totalDownloads": 10308385736,
+          "matchedDownloads": 4911433725,
+          "weightedCoverage": 0.47645032411309446,
+          "changePp": -0.03250389924965291,
+          "batch": {
+            "packages": 710,
+            "matchedPackages": 23,
+            "totalDownloads": 7483139,
+            "matchedDownloads": 217149,
+            "weightedCoverage": 0.029018437316211818
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 2176,
+          "matchedPackages": 348,
+          "totalDownloads": 10309994071,
+          "matchedDownloads": 4911545926,
+          "weightedCoverage": 0.47638688171656857,
+          "changePp": -0.006344239652589234,
+          "batch": {
+            "packages": 271,
+            "matchedPackages": 19,
+            "totalDownloads": 1608335,
+            "matchedDownloads": 112201,
+            "weightedCoverage": 0.06976220750030311
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 2378,
+          "matchedPackages": 368,
+          "totalDownloads": 10310820024,
+          "matchedDownloads": 4911628985,
+          "weightedCoverage": 0.4763567760437518,
+          "changePp": -0.003010567281674925,
+          "batch": {
+            "packages": 202,
+            "matchedPackages": 20,
+            "totalDownloads": 825953,
+            "matchedDownloads": 83059,
+            "weightedCoverage": 0.10056141209003418
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 2539,
+          "matchedPackages": 379,
+          "totalDownloads": 10311302935,
+          "matchedDownloads": 4911662447,
+          "weightedCoverage": 0.47633771192272706,
+          "changePp": -0.001906412102475885,
+          "batch": {
+            "packages": 161,
+            "matchedPackages": 11,
+            "totalDownloads": 482911,
+            "matchedDownloads": 33462,
+            "weightedCoverage": 0.06929227124666865
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 2686,
+          "matchedPackages": 389,
+          "totalDownloads": 10311651019,
+          "matchedDownloads": 4911686128,
+          "weightedCoverage": 0.476323929014844,
+          "changePp": -0.0013782907883064244,
+          "batch": {
+            "packages": 147,
+            "matchedPackages": 10,
+            "totalDownloads": 348084,
+            "matchedDownloads": 23681,
+            "weightedCoverage": 0.06803242895393066
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 2838,
+          "matchedPackages": 401,
+          "totalDownloads": 10311943776,
+          "matchedDownloads": 4911709118,
+          "weightedCoverage": 0.4763126355897618,
+          "changePp": -0.001129342508221498,
+          "batch": {
+            "packages": 152,
+            "matchedPackages": 12,
+            "totalDownloads": 292757,
+            "matchedDownloads": 22990,
+            "weightedCoverage": 0.07852929221162944
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 2986,
+          "matchedPackages": 421,
+          "totalDownloads": 10312182931,
+          "matchedDownloads": 4911741287,
+          "weightedCoverage": 0.47630470869892677,
+          "changePp": -0.0007926890835008304,
+          "batch": {
+            "packages": 148,
+            "matchedPackages": 20,
+            "totalDownloads": 239155,
+            "matchedDownloads": 32169,
+            "weightedCoverage": 0.1345110911333654
+          }
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "测试与质量",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 861,
+          "matchedPackages": 642,
+          "totalDownloads": 6379766000,
+          "matchedDownloads": 4138752460,
+          "weightedCoverage": 0.6487310757165702,
+          "changePp": null,
+          "batch": {
+            "packages": 861,
+            "matchedPackages": 642,
+            "totalDownloads": 6379766000,
+            "matchedDownloads": 4138752460,
+            "weightedCoverage": 0.6487310757165702
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 1676,
+          "matchedPackages": 1201,
+          "totalDownloads": 6438652911,
+          "matchedDownloads": 4181149059,
+          "weightedCoverage": 0.6493825830954161,
+          "changePp": 0.06515073788458947,
+          "batch": {
+            "packages": 815,
+            "matchedPackages": 559,
+            "totalDownloads": 58886911,
+            "matchedDownloads": 42396599,
+            "weightedCoverage": 0.7199664285328194
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 2370,
+          "matchedPackages": 1445,
+          "totalDownloads": 6456273456,
+          "matchedDownloads": 4188339565,
+          "weightedCoverage": 0.6487240036444949,
+          "changePp": -0.06585794509211818,
+          "batch": {
+            "packages": 694,
+            "matchedPackages": 244,
+            "totalDownloads": 17620545,
+            "matchedDownloads": 7190506,
+            "weightedCoverage": 0.40807511912940264
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 2737,
+          "matchedPackages": 1498,
+          "totalDownloads": 6459848041,
+          "matchedDownloads": 4188857933,
+          "weightedCoverage": 0.6484452740085748,
+          "changePp": -0.027872963592012745,
+          "batch": {
+            "packages": 367,
+            "matchedPackages": 53,
+            "totalDownloads": 3574585,
+            "matchedDownloads": 518368,
+            "weightedCoverage": 0.14501487585272135
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 3172,
+          "matchedPackages": 1649,
+          "totalDownloads": 6462346239,
+          "matchedDownloads": 4189669088,
+          "weightedCoverage": 0.6483201198220416,
+          "changePp": -0.012515418653313848,
+          "batch": {
+            "packages": 435,
+            "matchedPackages": 151,
+            "totalDownloads": 2498198,
+            "matchedDownloads": 811155,
+            "weightedCoverage": 0.32469604090628523
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 3561,
+          "matchedPackages": 1786,
+          "totalDownloads": 6464028017,
+          "matchedDownloads": 4190304185,
+          "weightedCoverage": 0.6482496941504207,
+          "changePp": -0.0070425671620966135,
+          "batch": {
+            "packages": 389,
+            "matchedPackages": 137,
+            "totalDownloads": 1681778,
+            "matchedDownloads": 635097,
+            "weightedCoverage": 0.3776342656402926
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 3760,
+          "matchedPackages": 1791,
+          "totalDownloads": 6464623465,
+          "matchedDownloads": 4190318131,
+          "weightedCoverage": 0.6481921419997198,
+          "changePp": -0.005755215070091246,
+          "batch": {
+            "packages": 199,
+            "matchedPackages": 5,
+            "totalDownloads": 595448,
+            "matchedDownloads": 13946,
+            "weightedCoverage": 0.023421020811221133
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 3983,
+          "matchedPackages": 1799,
+          "totalDownloads": 6465147412,
+          "matchedDownloads": 4190336956,
+          "weightedCoverage": 0.648142523126741,
+          "changePp": -0.0049618872978718365,
+          "batch": {
+            "packages": 223,
+            "matchedPackages": 8,
+            "totalDownloads": 523947,
+            "matchedDownloads": 18825,
+            "weightedCoverage": 0.03592920658005485
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 4195,
+          "matchedPackages": 1804,
+          "totalDownloads": 6465554870,
+          "matchedDownloads": 4190346180,
+          "weightedCoverage": 0.648103103949066,
+          "changePp": -0.003941917767502634,
+          "batch": {
+            "packages": 212,
+            "matchedPackages": 5,
+            "totalDownloads": 407458,
+            "matchedDownloads": 9224,
+            "weightedCoverage": 0.022637916055151697
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 4382,
+          "matchedPackages": 1807,
+          "totalDownloads": 6465855076,
+          "matchedDownloads": 4190351067,
+          "weightedCoverage": 0.6480737687044318,
+          "changePp": -0.002933524463422099,
+          "batch": {
+            "packages": 187,
+            "matchedPackages": 3,
+            "totalDownloads": 300206,
+            "matchedDownloads": 4887,
+            "weightedCoverage": 0.016278821875645392
+          }
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI与机器学习",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 444,
+          "matchedPackages": 100,
+          "totalDownloads": 3257304866,
+          "matchedDownloads": 1766716245,
+          "weightedCoverage": 0.5423859041998558,
+          "changePp": null,
+          "batch": {
+            "packages": 444,
+            "matchedPackages": 100,
+            "totalDownloads": 3257304866,
+            "matchedDownloads": 1766716245,
+            "weightedCoverage": 0.5423859041998558
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 816,
+          "matchedPackages": 149,
+          "totalDownloads": 3282649654,
+          "matchedDownloads": 1770222829,
+          "weightedCoverage": 0.5392664510642902,
+          "changePp": -0.31194531355656085,
+          "batch": {
+            "packages": 372,
+            "matchedPackages": 49,
+            "totalDownloads": 25344788,
+            "matchedDownloads": 3506584,
+            "weightedCoverage": 0.13835523106368064
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 1227,
+          "matchedPackages": 168,
+          "totalDownloads": 3291219273,
+          "matchedDownloads": 1770656843,
+          "weightedCoverage": 0.5379941888180599,
+          "changePp": -0.1272262246230227,
+          "batch": {
+            "packages": 411,
+            "matchedPackages": 19,
+            "totalDownloads": 8569619,
+            "matchedDownloads": 434014,
+            "weightedCoverage": 0.05064565880933563
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 1630,
+          "matchedPackages": 196,
+          "totalDownloads": 3295169045,
+          "matchedDownloads": 1770944835,
+          "weightedCoverage": 0.5374367174537475,
+          "changePp": -0.055747136431238964,
+          "batch": {
+            "packages": 403,
+            "matchedPackages": 28,
+            "totalDownloads": 3949772,
+            "matchedDownloads": 287992,
+            "weightedCoverage": 0.07291357577095589
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 2062,
+          "matchedPackages": 216,
+          "totalDownloads": 3297724712,
+          "matchedDownloads": 1771066597,
+          "weightedCoverage": 0.5370571383825079,
+          "changePp": -0.03795790712396441,
+          "batch": {
+            "packages": 432,
+            "matchedPackages": 20,
+            "totalDownloads": 2555667,
+            "matchedDownloads": 121762,
+            "weightedCoverage": 0.047643922310692276
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 2475,
+          "matchedPackages": 244,
+          "totalDownloads": 3299393663,
+          "matchedDownloads": 1771181826,
+          "weightedCoverage": 0.5368204000214811,
+          "changePp": -0.023673836102677814,
+          "batch": {
+            "packages": 413,
+            "matchedPackages": 28,
+            "totalDownloads": 1668951,
+            "matchedDownloads": 115229,
+            "weightedCoverage": 0.06904276997946614
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 2815,
+          "matchedPackages": 258,
+          "totalDownloads": 3300414468,
+          "matchedDownloads": 1771224444,
+          "weightedCoverage": 0.5366672765415837,
+          "changePp": -0.015312347989737685,
+          "batch": {
+            "packages": 340,
+            "matchedPackages": 14,
+            "totalDownloads": 1020805,
+            "matchedDownloads": 42618,
+            "weightedCoverage": 0.04174940365691782
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 3165,
+          "matchedPackages": 271,
+          "totalDownloads": 3301241382,
+          "matchedDownloads": 1771254980,
+          "weightedCoverage": 0.5365420988776397,
+          "changePp": -0.012517766394404273,
+          "batch": {
+            "packages": 350,
+            "matchedPackages": 13,
+            "totalDownloads": 826914,
+            "matchedDownloads": 30536,
+            "weightedCoverage": 0.036927661159443424
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 3528,
+          "matchedPackages": 278,
+          "totalDownloads": 3301936906,
+          "matchedDownloads": 1771268427,
+          "weightedCoverage": 0.5364331534565064,
+          "changePp": -0.010894542113326633,
+          "batch": {
+            "packages": 363,
+            "matchedPackages": 7,
+            "totalDownloads": 695524,
+            "matchedDownloads": 13447,
+            "weightedCoverage": 0.019333624720354724
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 3934,
+          "matchedPackages": 292,
+          "totalDownloads": 3302585602,
+          "matchedDownloads": 1771290730,
+          "weightedCoverage": 0.5363345401031637,
+          "changePp": -0.00986133533427136,
+          "batch": {
+            "packages": 406,
+            "matchedPackages": 14,
+            "totalDownloads": 648696,
+            "matchedDownloads": 22303,
+            "weightedCoverage": 0.03438128183309285
+          }
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "label": "网络与协议",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 323,
+          "matchedPackages": 188,
+          "totalDownloads": 13979418815,
+          "matchedDownloads": 12624491095,
+          "weightedCoverage": 0.9030769635039366,
+          "changePp": null,
+          "batch": {
+            "packages": 323,
+            "matchedPackages": 188,
+            "totalDownloads": 13979418815,
+            "matchedDownloads": 12624491095,
+            "weightedCoverage": 0.9030769635039366
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 553,
+          "matchedPackages": 268,
+          "totalDownloads": 13994950222,
+          "matchedDownloads": 12630785160,
+          "weightedCoverage": 0.9025244791613808,
+          "changePp": -0.05524843425558368,
+          "batch": {
+            "packages": 230,
+            "matchedPackages": 80,
+            "totalDownloads": 15531407,
+            "matchedDownloads": 6294065,
+            "weightedCoverage": 0.40524757351346213
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 766,
+          "matchedPackages": 308,
+          "totalDownloads": 13999401248,
+          "matchedDownloads": 12631695606,
+          "weightedCoverage": 0.9023025615330945,
+          "changePp": -0.022191762828627226,
+          "batch": {
+            "packages": 213,
+            "matchedPackages": 40,
+            "totalDownloads": 4451026,
+            "matchedDownloads": 910446,
+            "weightedCoverage": 0.20454744591471719
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 966,
+          "matchedPackages": 334,
+          "totalDownloads": 14001354554,
+          "matchedDownloads": 12631963400,
+          "weightedCoverage": 0.9021958090755738,
+          "changePp": -0.010675245752067575,
+          "batch": {
+            "packages": 200,
+            "matchedPackages": 26,
+            "totalDownloads": 1953306,
+            "matchedDownloads": 267794,
+            "weightedCoverage": 0.13709782287055894
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 1151,
+          "matchedPackages": 353,
+          "totalDownloads": 14002456494,
+          "matchedDownloads": 12632075050,
+          "weightedCoverage": 0.9021327833021868,
+          "changePp": -0.006302577338701543,
+          "batch": {
+            "packages": 185,
+            "matchedPackages": 19,
+            "totalDownloads": 1101940,
+            "matchedDownloads": 111650,
+            "weightedCoverage": 0.10132130606022106
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 1327,
+          "matchedPackages": 368,
+          "totalDownloads": 14003165177,
+          "matchedDownloads": 12632136001,
+          "weightedCoverage": 0.9020914801282287,
+          "changePp": -0.004130317395811822,
+          "batch": {
+            "packages": 176,
+            "matchedPackages": 15,
+            "totalDownloads": 708683,
+            "matchedDownloads": 60951,
+            "weightedCoverage": 0.08600601397239668
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1532,
+          "matchedPackages": 381,
+          "totalDownloads": 14003785143,
+          "matchedDownloads": 12632176891,
+          "weightedCoverage": 0.902054463275908,
+          "changePp": -0.0037016852320714833,
+          "batch": {
+            "packages": 205,
+            "matchedPackages": 13,
+            "totalDownloads": 619966,
+            "matchedDownloads": 40890,
+            "weightedCoverage": 0.06595522980292468
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1694,
+          "matchedPackages": 391,
+          "totalDownloads": 14004167478,
+          "matchedDownloads": 12632199537,
+          "weightedCoverage": 0.902031452911763,
+          "changePp": -0.002301036414498192,
+          "batch": {
+            "packages": 162,
+            "matchedPackages": 10,
+            "totalDownloads": 382335,
+            "matchedDownloads": 22646,
+            "weightedCoverage": 0.05923077929041286
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1884,
+          "matchedPackages": 396,
+          "totalDownloads": 14004531306,
+          "matchedDownloads": 12632208845,
+          "weightedCoverage": 0.9020086834029174,
+          "changePp": -0.0022769508845610353,
+          "batch": {
+            "packages": 190,
+            "matchedPackages": 5,
+            "totalDownloads": 363828,
+            "matchedDownloads": 9308,
+            "weightedCoverage": 0.025583517486284728
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 2067,
+          "matchedPackages": 404,
+          "totalDownloads": 14004823768,
+          "matchedDownloads": 12632221521,
+          "weightedCoverage": 0.9019907519196139,
+          "changePp": -0.001793148330353489,
+          "batch": {
+            "packages": 183,
+            "matchedPackages": 8,
+            "totalDownloads": 292462,
+            "matchedDownloads": 12676,
+            "weightedCoverage": 0.04334238294205743
+          }
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "后端开发库",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 592,
+          "matchedPackages": 339,
+          "totalDownloads": 3598985979,
+          "matchedDownloads": 1891467578,
+          "weightedCoverage": 0.5255556951420954,
+          "changePp": null,
+          "batch": {
+            "packages": 592,
+            "matchedPackages": 339,
+            "totalDownloads": 3598985979,
+            "matchedDownloads": 1891467578,
+            "weightedCoverage": 0.5255556951420954
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 1242,
+          "matchedPackages": 539,
+          "totalDownloads": 3640885156,
+          "matchedDownloads": 1906594639,
+          "weightedCoverage": 0.5236623945300845,
+          "changePp": -0.1893300612010984,
+          "batch": {
+            "packages": 650,
+            "matchedPackages": 200,
+            "totalDownloads": 41899177,
+            "matchedDownloads": 15127061,
+            "weightedCoverage": 0.3610348002778193
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 1868,
+          "matchedPackages": 600,
+          "totalDownloads": 3653909591,
+          "matchedDownloads": 1907926415,
+          "weightedCoverage": 0.5221602690169025,
+          "changePp": -0.15021255131819622,
+          "batch": {
+            "packages": 626,
+            "matchedPackages": 61,
+            "totalDownloads": 13024435,
+            "matchedDownloads": 1331776,
+            "weightedCoverage": 0.10225211304751415
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 2423,
+          "matchedPackages": 644,
+          "totalDownloads": 3659368769,
+          "matchedDownloads": 1908353677,
+          "weightedCoverage": 0.521498049927747,
+          "changePp": -0.06622190891555357,
+          "batch": {
+            "packages": 555,
+            "matchedPackages": 44,
+            "totalDownloads": 5459178,
+            "matchedDownloads": 427262,
+            "weightedCoverage": 0.07826489629024735
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 2956,
+          "matchedPackages": 691,
+          "totalDownloads": 3662498055,
+          "matchedDownloads": 1908628069,
+          "weightedCoverage": 0.5211273945645822,
+          "changePp": -0.0370655363164718,
+          "batch": {
+            "packages": 533,
+            "matchedPackages": 47,
+            "totalDownloads": 3129286,
+            "matchedDownloads": 274392,
+            "weightedCoverage": 0.08768517802463566
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 3490,
+          "matchedPackages": 720,
+          "totalDownloads": 3664660330,
+          "matchedDownloads": 1908750610,
+          "weightedCoverage": 0.5208533501384561,
+          "changePp": -0.02740444261261077,
+          "batch": {
+            "packages": 534,
+            "matchedPackages": 29,
+            "totalDownloads": 2162275,
+            "matchedDownloads": 122541,
+            "weightedCoverage": 0.056672254916696536
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 4024,
+          "matchedPackages": 738,
+          "totalDownloads": 3666270969,
+          "matchedDownloads": 1908805517,
+          "weightedCoverage": 0.520639508956055,
+          "changePp": -0.021384118240108663,
+          "batch": {
+            "packages": 534,
+            "matchedPackages": 18,
+            "totalDownloads": 1610639,
+            "matchedDownloads": 54907,
+            "weightedCoverage": 0.03409019649965014
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 4516,
+          "matchedPackages": 749,
+          "totalDownloads": 3667428203,
+          "matchedDownloads": 1908831635,
+          "weightedCoverage": 0.5204823460316287,
+          "changePp": -0.015716292442635726,
+          "batch": {
+            "packages": 492,
+            "matchedPackages": 11,
+            "totalDownloads": 1157234,
+            "matchedDownloads": 26118,
+            "weightedCoverage": 0.022569333427811488
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 5058,
+          "matchedPackages": 753,
+          "totalDownloads": 3668469726,
+          "matchedDownloads": 1908839427,
+          "weightedCoverage": 0.5203366988341885,
+          "changePp": -0.014564719744014631,
+          "batch": {
+            "packages": 542,
+            "matchedPackages": 4,
+            "totalDownloads": 1041523,
+            "matchedDownloads": 7792,
+            "weightedCoverage": 0.0074813518280441235
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 5550,
+          "matchedPackages": 759,
+          "totalDownloads": 3669256850,
+          "matchedDownloads": 1908849216,
+          "weightedCoverage": 0.5202277447543635,
+          "changePp": -0.010895407982502991,
+          "batch": {
+            "packages": 492,
+            "matchedPackages": 6,
+            "totalDownloads": 787124,
+            "matchedDownloads": 9789,
+            "weightedCoverage": 0.012436414084693136
+          }
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "数据处理与可视化",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 219,
+          "matchedPackages": 53,
+          "totalDownloads": 2600766590,
+          "matchedDownloads": 1692379575,
+          "weightedCoverage": 0.6507233603766034,
+          "changePp": null,
+          "batch": {
+            "packages": 219,
+            "matchedPackages": 53,
+            "totalDownloads": 2600766590,
+            "matchedDownloads": 1692379575,
+            "weightedCoverage": 0.6507233603766034
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 404,
+          "matchedPackages": 94,
+          "totalDownloads": 2614017071,
+          "matchedDownloads": 1695639516,
+          "weightedCoverage": 0.6486719366952444,
+          "changePp": -0.20514236813590214,
+          "batch": {
+            "packages": 185,
+            "matchedPackages": 41,
+            "totalDownloads": 13250481,
+            "matchedDownloads": 3259941,
+            "weightedCoverage": 0.24602435187069813
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 527,
+          "matchedPackages": 107,
+          "totalDownloads": 2616596542,
+          "matchedDownloads": 1695917570,
+          "weightedCoverage": 0.6481387339538875,
+          "changePp": -0.053320274135681966,
+          "batch": {
+            "packages": 123,
+            "matchedPackages": 13,
+            "totalDownloads": 2579471,
+            "matchedDownloads": 278054,
+            "weightedCoverage": 0.10779497036407852
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 659,
+          "matchedPackages": 118,
+          "totalDownloads": 2617865064,
+          "matchedDownloads": 1696026721,
+          "weightedCoverage": 0.6478663642076855,
+          "changePp": -0.027236974620203913,
+          "batch": {
+            "packages": 132,
+            "matchedPackages": 11,
+            "totalDownloads": 1268522,
+            "matchedDownloads": 109151,
+            "weightedCoverage": 0.08604580764070312
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 812,
+          "matchedPackages": 140,
+          "totalDownloads": 2618758351,
+          "matchedDownloads": 1696150614,
+          "weightedCoverage": 0.6476926797588282,
+          "changePp": -0.017368444885734746,
+          "batch": {
+            "packages": 153,
+            "matchedPackages": 22,
+            "totalDownloads": 893287,
+            "matchedDownloads": 123893,
+            "weightedCoverage": 0.1386933874555434
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 967,
+          "matchedPackages": 153,
+          "totalDownloads": 2619381383,
+          "matchedDownloads": 1696203368,
+          "weightedCoverage": 0.6475587629233753,
+          "changePp": -0.013391683545282973,
+          "batch": {
+            "packages": 155,
+            "matchedPackages": 13,
+            "totalDownloads": 623032,
+            "matchedDownloads": 52754,
+            "weightedCoverage": 0.08467301840033899
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1106,
+          "matchedPackages": 159,
+          "totalDownloads": 2619800615,
+          "matchedDownloads": 1696220676,
+          "weightedCoverage": 0.6474617443358376,
+          "changePp": -0.009701858753774495,
+          "batch": {
+            "packages": 139,
+            "matchedPackages": 6,
+            "totalDownloads": 419232,
+            "matchedDownloads": 17308,
+            "weightedCoverage": 0.041285016410960995
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1246,
+          "matchedPackages": 166,
+          "totalDownloads": 2620130025,
+          "matchedDownloads": 1696236661,
+          "weightedCoverage": 0.6473864444952498,
+          "changePp": -0.00752998405877392,
+          "batch": {
+            "packages": 140,
+            "matchedPackages": 7,
+            "totalDownloads": 329410,
+            "matchedDownloads": 15985,
+            "weightedCoverage": 0.04852615281867582
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1381,
+          "matchedPackages": 177,
+          "totalDownloads": 2620388257,
+          "matchedDownloads": 1696257247,
+          "weightedCoverage": 0.6473305024431729,
+          "changePp": -0.005594205207692937,
+          "batch": {
+            "packages": 135,
+            "matchedPackages": 11,
+            "totalDownloads": 258232,
+            "matchedDownloads": 20586,
+            "weightedCoverage": 0.07971901236097773
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1536,
+          "matchedPackages": 186,
+          "totalDownloads": 2620637817,
+          "matchedDownloads": 1696271688,
+          "weightedCoverage": 0.6472743684748559,
+          "changePp": -0.005613396831705142,
+          "batch": {
+            "packages": 155,
+            "matchedPackages": 9,
+            "totalDownloads": 249560,
+            "matchedDownloads": 14441,
+            "weightedCoverage": 0.05786584388523802
+          }
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "label": "数据库与存储",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 299,
+          "matchedPackages": 154,
+          "totalDownloads": 3311799066,
+          "matchedDownloads": 2540347830,
+          "weightedCoverage": 0.7670597700446359,
+          "changePp": null,
+          "batch": {
+            "packages": 299,
+            "matchedPackages": 154,
+            "totalDownloads": 3311799066,
+            "matchedDownloads": 2540347830,
+            "weightedCoverage": 0.7670597700446359
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 529,
+          "matchedPackages": 219,
+          "totalDownloads": 3327259612,
+          "matchedDownloads": 2545264079,
+          "weightedCoverage": 0.7649730937196253,
+          "changePp": -0.20866763250105835,
+          "batch": {
+            "packages": 230,
+            "matchedPackages": 65,
+            "totalDownloads": 15460546,
+            "matchedDownloads": 4916249,
+            "weightedCoverage": 0.3179867645036598
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 756,
+          "matchedPackages": 241,
+          "totalDownloads": 3332050395,
+          "matchedDownloads": 2545772624,
+          "weightedCoverage": 0.7640258466138835,
+          "changePp": -0.09472471057417886,
+          "batch": {
+            "packages": 227,
+            "matchedPackages": 22,
+            "totalDownloads": 4790783,
+            "matchedDownloads": 508545,
+            "weightedCoverage": 0.10615070647115513
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 967,
+          "matchedPackages": 258,
+          "totalDownloads": 3334078478,
+          "matchedDownloads": 2545951298,
+          "weightedCoverage": 0.7636146883762704,
+          "changePp": -0.04111582376130629,
+          "batch": {
+            "packages": 211,
+            "matchedPackages": 17,
+            "totalDownloads": 2028083,
+            "matchedDownloads": 178674,
+            "weightedCoverage": 0.08809994462751278
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 1153,
+          "matchedPackages": 268,
+          "totalDownloads": 3335190099,
+          "matchedDownloads": 2546011114,
+          "weightedCoverage": 0.7633781099204444,
+          "changePp": -0.023657845582603088,
+          "batch": {
+            "packages": 186,
+            "matchedPackages": 10,
+            "totalDownloads": 1111621,
+            "matchedDownloads": 59816,
+            "weightedCoverage": 0.05380970672558363
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 1396,
+          "matchedPackages": 282,
+          "totalDownloads": 3336174237,
+          "matchedDownloads": 2546068587,
+          "weightedCoverage": 0.7631701482382738,
+          "changePp": -0.020796168217063205,
+          "batch": {
+            "packages": 243,
+            "matchedPackages": 14,
+            "totalDownloads": 984138,
+            "matchedDownloads": 57473,
+            "weightedCoverage": 0.05839933017523965
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1631,
+          "matchedPackages": 289,
+          "totalDownloads": 3336887645,
+          "matchedDownloads": 2546090106,
+          "weightedCoverage": 0.7630134355332782,
+          "changePp": -0.015671270499562073,
+          "batch": {
+            "packages": 235,
+            "matchedPackages": 7,
+            "totalDownloads": 713408,
+            "matchedDownloads": 21519,
+            "weightedCoverage": 0.030163665111689244
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1884,
+          "matchedPackages": 297,
+          "totalDownloads": 3337482294,
+          "matchedDownloads": 2546109068,
+          "weightedCoverage": 0.7628831687219132,
+          "changePp": -0.01302668113649652,
+          "batch": {
+            "packages": 253,
+            "matchedPackages": 8,
+            "totalDownloads": 594649,
+            "matchedDownloads": 18962,
+            "weightedCoverage": 0.031887718637381046
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 2096,
+          "matchedPackages": 303,
+          "totalDownloads": 3337887763,
+          "matchedDownloads": 2546120685,
+          "weightedCoverage": 0.7627939780430538,
+          "changePp": -0.008919067885937437,
+          "batch": {
+            "packages": 212,
+            "matchedPackages": 6,
+            "totalDownloads": 405469,
+            "matchedDownloads": 11617,
+            "weightedCoverage": 0.028650772315516108
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 2297,
+          "matchedPackages": 310,
+          "totalDownloads": 3338210417,
+          "matchedDownloads": 2546131932,
+          "weightedCoverage": 0.7627236195279059,
+          "changePp": -0.007035851514791691,
+          "batch": {
+            "packages": 201,
+            "matchedPackages": 7,
+            "totalDownloads": 322654,
+            "matchedDownloads": 11247,
+            "weightedCoverage": 0.03485777334234195
+          }
+        }
+      ]
+    },
+    {
+      "id": "observability",
+      "label": "日志与可观测性",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 257,
+          "matchedPackages": 162,
+          "totalDownloads": 4536094033,
+          "matchedDownloads": 3661149924,
+          "weightedCoverage": 0.8071150856585428,
+          "changePp": null,
+          "batch": {
+            "packages": 257,
+            "matchedPackages": 162,
+            "totalDownloads": 4536094033,
+            "matchedDownloads": 3661149924,
+            "weightedCoverage": 0.8071150856585428
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 358,
+          "matchedPackages": 200,
+          "totalDownloads": 4543284216,
+          "matchedDownloads": 3664237670,
+          "weightedCoverage": 0.8065173772522798,
+          "changePp": -0.05977084062630533,
+          "batch": {
+            "packages": 101,
+            "matchedPackages": 38,
+            "totalDownloads": 7190183,
+            "matchedDownloads": 3087746,
+            "weightedCoverage": 0.4294391394488847
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 463,
+          "matchedPackages": 219,
+          "totalDownloads": 4545435742,
+          "matchedDownloads": 3664618670,
+          "weightedCoverage": 0.8062194425363411,
+          "changePp": -0.02979347159386414,
+          "batch": {
+            "packages": 105,
+            "matchedPackages": 19,
+            "totalDownloads": 2151526,
+            "matchedDownloads": 381000,
+            "weightedCoverage": 0.1770836141417766
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 559,
+          "matchedPackages": 231,
+          "totalDownloads": 4546389001,
+          "matchedDownloads": 3664727445,
+          "weightedCoverage": 0.8060743249629377,
+          "changePp": -0.014511757340340825,
+          "batch": {
+            "packages": 96,
+            "matchedPackages": 12,
+            "totalDownloads": 953259,
+            "matchedDownloads": 108775,
+            "weightedCoverage": 0.11410854762451758
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 657,
+          "matchedPackages": 247,
+          "totalDownloads": 4546958316,
+          "matchedDownloads": 3664820437,
+          "weightedCoverage": 0.80599384958162,
+          "changePp": -0.008047538131772392,
+          "batch": {
+            "packages": 98,
+            "matchedPackages": 16,
+            "totalDownloads": 569315,
+            "matchedDownloads": 92992,
+            "weightedCoverage": 0.16334015439607247
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 730,
+          "matchedPackages": 253,
+          "totalDownloads": 4547252515,
+          "matchedDownloads": 3664845858,
+          "weightedCoverage": 0.8059472936483714,
+          "changePp": -0.004655593324864871,
+          "batch": {
+            "packages": 73,
+            "matchedPackages": 6,
+            "totalDownloads": 294199,
+            "matchedDownloads": 25421,
+            "weightedCoverage": 0.08640749968558696
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 830,
+          "matchedPackages": 259,
+          "totalDownloads": 4547550535,
+          "matchedDownloads": 3664864689,
+          "weightedCoverage": 0.8058986174630822,
+          "changePp": -0.004867618528914264,
+          "batch": {
+            "packages": 100,
+            "matchedPackages": 6,
+            "totalDownloads": 298020,
+            "matchedDownloads": 18831,
+            "weightedCoverage": 0.06318703442721965
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 930,
+          "matchedPackages": 265,
+          "totalDownloads": 4547784659,
+          "matchedDownloads": 3664878495,
+          "weightedCoverage": 0.8058601648491114,
+          "changePp": -0.0038452613970840765,
+          "batch": {
+            "packages": 100,
+            "matchedPackages": 6,
+            "totalDownloads": 234124,
+            "matchedDownloads": 13806,
+            "weightedCoverage": 0.05896875160171533
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1018,
+          "matchedPackages": 265,
+          "totalDownloads": 4547953708,
+          "matchedDownloads": 3664878495,
+          "weightedCoverage": 0.8058302107502454,
+          "changePp": -0.002995409886596967,
+          "batch": {
+            "packages": 88,
+            "matchedPackages": 0,
+            "totalDownloads": 169049,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1118,
+          "matchedPackages": 267,
+          "totalDownloads": 4548114310,
+          "matchedDownloads": 3664881852,
+          "weightedCoverage": 0.805802493561337,
+          "changePp": -0.0027717188908371604,
+          "batch": {
+            "packages": 100,
+            "matchedPackages": 2,
+            "totalDownloads": 160602,
+            "matchedDownloads": 3357,
+            "weightedCoverage": 0.020902603952628235
+          }
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "label": "其他/待确认",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 4122,
+          "matchedPackages": 2204,
+          "totalDownloads": 20223607767,
+          "matchedDownloads": 14890073177,
+          "weightedCoverage": 0.7362718535956265,
+          "changePp": null,
+          "batch": {
+            "packages": 4122,
+            "matchedPackages": 2204,
+            "totalDownloads": 20223607767,
+            "matchedDownloads": 14890073177,
+            "weightedCoverage": 0.7362718535956265
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 9083,
+          "matchedPackages": 3616,
+          "totalDownloads": 20544456349,
+          "matchedDownloads": 14993862030,
+          "weightedCoverage": 0.729825203222271,
+          "changePp": -0.6446650373355567,
+          "batch": {
+            "packages": 4961,
+            "matchedPackages": 1412,
+            "totalDownloads": 320848582,
+            "matchedDownloads": 103788853,
+            "weightedCoverage": 0.3234823490664515
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 14253,
+          "matchedPackages": 4188,
+          "totalDownloads": 20651665862,
+          "matchedDownloads": 15006008008,
+          "weightedCoverage": 0.7266245787760751,
+          "changePp": -0.32006244461958433,
+          "batch": {
+            "packages": 5170,
+            "matchedPackages": 572,
+            "totalDownloads": 107209513,
+            "matchedDownloads": 12145978,
+            "weightedCoverage": 0.11329197997569489
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 19609,
+          "matchedPackages": 4750,
+          "totalDownloads": 20703418794,
+          "matchedDownloads": 15011454345,
+          "weightedCoverage": 0.7250712790174745,
+          "changePp": -0.15532997586006347,
+          "batch": {
+            "packages": 5356,
+            "matchedPackages": 562,
+            "totalDownloads": 51752932,
+            "matchedDownloads": 5446337,
+            "weightedCoverage": 0.10523726462492985
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 25358,
+          "matchedPackages": 5291,
+          "totalDownloads": 20737340130,
+          "matchedDownloads": 15014699434,
+          "weightedCoverage": 0.7240417208703998,
+          "changePp": -0.10295581470747273,
+          "batch": {
+            "packages": 5749,
+            "matchedPackages": 541,
+            "totalDownloads": 33921336,
+            "matchedDownloads": 3245089,
+            "weightedCoverage": 0.09566512946306124
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 31226,
+          "matchedPackages": 5720,
+          "totalDownloads": 20761090319,
+          "matchedDownloads": 15016450681,
+          "weightedCoverage": 0.7232977868824809,
+          "changePp": -0.07439339879188323,
+          "batch": {
+            "packages": 5868,
+            "matchedPackages": 429,
+            "totalDownloads": 23750189,
+            "matchedDownloads": 1751247,
+            "weightedCoverage": 0.07373612900512076
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 37321,
+          "matchedPackages": 6048,
+          "totalDownloads": 20779436587,
+          "matchedDownloads": 15017437585,
+          "weightedCoverage": 0.7227066779276964,
+          "changePp": -0.05911089547845361,
+          "batch": {
+            "packages": 6095,
+            "matchedPackages": 328,
+            "totalDownloads": 18346268,
+            "matchedDownloads": 986904,
+            "weightedCoverage": 0.05379317472087511
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 43448,
+          "matchedPackages": 6302,
+          "totalDownloads": 20793877329,
+          "matchedDownloads": 15018036087,
+          "weightedCoverage": 0.7222335618021188,
+          "changePp": -0.0473116125577544,
+          "batch": {
+            "packages": 6127,
+            "matchedPackages": 254,
+            "totalDownloads": 14440742,
+            "matchedDownloads": 598502,
+            "weightedCoverage": 0.041445377252775514
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 49518,
+          "matchedPackages": 6485,
+          "totalDownloads": 20805518079,
+          "matchedDownloads": 15018388401,
+          "weightedCoverage": 0.7218464036307163,
+          "changePp": -0.03871581714025574,
+          "batch": {
+            "packages": 6070,
+            "matchedPackages": 183,
+            "totalDownloads": 11640750,
+            "matchedDownloads": 352314,
+            "weightedCoverage": 0.03026557567167064
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 55653,
+          "matchedPackages": 6682,
+          "totalDownloads": 20815362489,
+          "matchedDownloads": 15018704026,
+          "weightedCoverage": 0.7215201769335856,
+          "changePp": -0.032622669713067154,
+          "batch": {
+            "packages": 6135,
+            "matchedPackages": 197,
+            "totalDownloads": 9844410,
+            "matchedDownloads": 315625,
+            "weightedCoverage": 0.03206134242681887
+          }
+        }
+      ]
+    },
+    {
+      "id": "messaging",
+      "label": "消息与业务集成",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 79,
+          "matchedPackages": 43,
+          "totalDownloads": 420813749,
+          "matchedDownloads": 215327668,
+          "weightedCoverage": 0.5116935188350987,
+          "changePp": null,
+          "batch": {
+            "packages": 79,
+            "matchedPackages": 43,
+            "totalDownloads": 420813749,
+            "matchedDownloads": 215327668,
+            "weightedCoverage": 0.5116935188350987
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 164,
+          "matchedPackages": 67,
+          "totalDownloads": 426188844,
+          "matchedDownloads": 216986922,
+          "weightedCoverage": 0.5091332752013565,
+          "changePp": -0.25602436337421874,
+          "batch": {
+            "packages": 85,
+            "matchedPackages": 24,
+            "totalDownloads": 5375095,
+            "matchedDownloads": 1659254,
+            "weightedCoverage": 0.3086929626360092
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 225,
+          "matchedPackages": 74,
+          "totalDownloads": 427408474,
+          "matchedDownloads": 217130310,
+          "weightedCoverage": 0.5080159220240449,
+          "changePp": -0.1117353177311653,
+          "batch": {
+            "packages": 61,
+            "matchedPackages": 7,
+            "totalDownloads": 1219630,
+            "matchedDownloads": 143388,
+            "weightedCoverage": 0.11756680304682568
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 300,
+          "matchedPackages": 83,
+          "totalDownloads": 428104456,
+          "matchedDownloads": 217204702,
+          "weightedCoverage": 0.5073637962787287,
+          "changePp": -0.06521257453161455,
+          "batch": {
+            "packages": 75,
+            "matchedPackages": 9,
+            "totalDownloads": 695982,
+            "matchedDownloads": 74392,
+            "weightedCoverage": 0.10688782181148362
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 369,
+          "matchedPackages": 91,
+          "totalDownloads": 428508510,
+          "matchedDownloads": 217246418,
+          "weightedCoverage": 0.5069827388025503,
+          "changePp": -0.0381057476178448,
+          "batch": {
+            "packages": 69,
+            "matchedPackages": 8,
+            "totalDownloads": 404054,
+            "matchedDownloads": 41716,
+            "weightedCoverage": 0.10324362585199008
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 442,
+          "matchedPackages": 94,
+          "totalDownloads": 428798837,
+          "matchedDownloads": 217259664,
+          "weightedCoverage": 0.5066703667388911,
+          "changePp": -0.031237206365919423,
+          "batch": {
+            "packages": 73,
+            "matchedPackages": 3,
+            "totalDownloads": 290327,
+            "matchedDownloads": 13246,
+            "weightedCoverage": 0.04562441660610277
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 509,
+          "matchedPackages": 99,
+          "totalDownloads": 428999768,
+          "matchedDownloads": 217274180,
+          "weightedCoverage": 0.5064668939401384,
+          "changePp": -0.020347279875265745,
+          "batch": {
+            "packages": 67,
+            "matchedPackages": 5,
+            "totalDownloads": 200931,
+            "matchedDownloads": 14516,
+            "weightedCoverage": 0.07224370555066167
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 584,
+          "matchedPackages": 108,
+          "totalDownloads": 429176512,
+          "matchedDownloads": 217294491,
+          "weightedCoverage": 0.506305645636078,
+          "changePp": -0.01612483040603907,
+          "batch": {
+            "packages": 75,
+            "matchedPackages": 9,
+            "totalDownloads": 176744,
+            "matchedDownloads": 20311,
+            "weightedCoverage": 0.1149176209659168
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 668,
+          "matchedPackages": 111,
+          "totalDownloads": 429337834,
+          "matchedDownloads": 217300545,
+          "weightedCoverage": 0.5061295040678851,
+          "changePp": -0.017614156819290017,
+          "batch": {
+            "packages": 84,
+            "matchedPackages": 3,
+            "totalDownloads": 161322,
+            "matchedDownloads": 6054,
+            "weightedCoverage": 0.03752742961282404
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 754,
+          "matchedPackages": 114,
+          "totalDownloads": 429476351,
+          "matchedDownloads": 217305652,
+          "weightedCoverage": 0.5059781557099055,
+          "changePp": -0.015134835797969703,
+          "batch": {
+            "packages": 86,
+            "matchedPackages": 3,
+            "totalDownloads": 138517,
+            "matchedDownloads": 5107,
+            "weightedCoverage": 0.036869120757740924
+          }
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "label": "安全与身份",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 194,
+          "matchedPackages": 106,
+          "totalDownloads": 6929089625,
+          "matchedDownloads": 6242987372,
+          "weightedCoverage": 0.9009823382101224,
+          "changePp": null,
+          "batch": {
+            "packages": 194,
+            "matchedPackages": 106,
+            "totalDownloads": 6929089625,
+            "matchedDownloads": 6242987372,
+            "weightedCoverage": 0.9009823382101224
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 349,
+          "matchedPackages": 156,
+          "totalDownloads": 6939375228,
+          "matchedDownloads": 6246750400,
+          "weightedCoverage": 0.9001891661362688,
+          "changePp": -0.0793172073853654,
+          "batch": {
+            "packages": 155,
+            "matchedPackages": 50,
+            "totalDownloads": 10285603,
+            "matchedDownloads": 3763028,
+            "weightedCoverage": 0.36585390278042035
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 490,
+          "matchedPackages": 188,
+          "totalDownloads": 6942311986,
+          "matchedDownloads": 6247408035,
+          "weightedCoverage": 0.8999030938970538,
+          "changePp": -0.028607223921495173,
+          "batch": {
+            "packages": 141,
+            "matchedPackages": 32,
+            "totalDownloads": 2936758,
+            "matchedDownloads": 657635,
+            "weightedCoverage": 0.2239323090292084
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 631,
+          "matchedPackages": 207,
+          "totalDownloads": 6943685997,
+          "matchedDownloads": 6247602492,
+          "weightedCoverage": 0.8997530266632534,
+          "changePp": -0.015006723380039944,
+          "batch": {
+            "packages": 141,
+            "matchedPackages": 19,
+            "totalDownloads": 1374011,
+            "matchedDownloads": 194457,
+            "weightedCoverage": 0.14152506784880178
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 758,
+          "matchedPackages": 225,
+          "totalDownloads": 6944451995,
+          "matchedDownloads": 6247716419,
+          "weightedCoverage": 0.8996701861426,
+          "changePp": -0.008284052065343772,
+          "batch": {
+            "packages": 127,
+            "matchedPackages": 18,
+            "totalDownloads": 765998,
+            "matchedDownloads": 113927,
+            "weightedCoverage": 0.14873015334243692
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 894,
+          "matchedPackages": 236,
+          "totalDownloads": 6945001836,
+          "matchedDownloads": 6247761693,
+          "weightedCoverage": 0.8996054775125044,
+          "changePp": -0.006470863009555572,
+          "batch": {
+            "packages": 136,
+            "matchedPackages": 11,
+            "totalDownloads": 549841,
+            "matchedDownloads": 45274,
+            "weightedCoverage": 0.08234016743022074
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1038,
+          "matchedPackages": 244,
+          "totalDownloads": 6945435497,
+          "matchedDownloads": 6247784486,
+          "weightedCoverage": 0.8995525894234649,
+          "changePp": -0.0052888089039471176,
+          "batch": {
+            "packages": 144,
+            "matchedPackages": 8,
+            "totalDownloads": 433661,
+            "matchedDownloads": 22793,
+            "weightedCoverage": 0.05255948771044664
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1165,
+          "matchedPackages": 253,
+          "totalDownloads": 6945731750,
+          "matchedDownloads": 6247805301,
+          "weightedCoverage": 0.8995172180382578,
+          "changePp": -0.003537138520715022,
+          "batch": {
+            "packages": 127,
+            "matchedPackages": 9,
+            "totalDownloads": 296253,
+            "matchedDownloads": 20815,
+            "weightedCoverage": 0.07026089187282492
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1311,
+          "matchedPackages": 259,
+          "totalDownloads": 6946010364,
+          "matchedDownloads": 6247816698,
+          "weightedCoverage": 0.8994827779672457,
+          "changePp": -0.003444007101205404,
+          "batch": {
+            "packages": 146,
+            "matchedPackages": 6,
+            "totalDownloads": 278614,
+            "matchedDownloads": 11397,
+            "weightedCoverage": 0.04090605640778999
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1421,
+          "matchedPackages": 265,
+          "totalDownloads": 6946187177,
+          "matchedDownloads": 6247826199,
+          "weightedCoverage": 0.8994612497180624,
+          "changePp": -0.0021528249183333514,
+          "batch": {
+            "packages": 110,
+            "matchedPackages": 6,
+            "totalDownloads": 176813,
+            "matchedDownloads": 9501,
+            "weightedCoverage": 0.05373473669922461
+          }
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "label": "构建与工程工具",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 184,
+          "matchedPackages": 113,
+          "totalDownloads": 7547346677,
+          "matchedDownloads": 5247790564,
+          "weightedCoverage": 0.6953159552074462,
+          "changePp": null,
+          "batch": {
+            "packages": 184,
+            "matchedPackages": 113,
+            "totalDownloads": 7547346677,
+            "matchedDownloads": 5247790564,
+            "weightedCoverage": 0.6953159552074462
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 360,
+          "matchedPackages": 171,
+          "totalDownloads": 7560364141,
+          "matchedDownloads": 5252842928,
+          "weightedCoverage": 0.6947870274546344,
+          "changePp": -0.052892775281176974,
+          "batch": {
+            "packages": 176,
+            "matchedPackages": 58,
+            "totalDownloads": 13017464,
+            "matchedDownloads": 5052364,
+            "weightedCoverage": 0.3881219875084732
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 540,
+          "matchedPackages": 188,
+          "totalDownloads": 7564071019,
+          "matchedDownloads": 5253208802,
+          "weightedCoverage": 0.6944949074122383,
+          "changePp": -0.029212004239609346,
+          "batch": {
+            "packages": 180,
+            "matchedPackages": 17,
+            "totalDownloads": 3706878,
+            "matchedDownloads": 365874,
+            "weightedCoverage": 0.09870138698926698
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 732,
+          "matchedPackages": 206,
+          "totalDownloads": 7565956401,
+          "matchedDownloads": 5253394054,
+          "weightedCoverage": 0.6943463292103631,
+          "changePp": -0.014857820187519355,
+          "batch": {
+            "packages": 192,
+            "matchedPackages": 18,
+            "totalDownloads": 1885382,
+            "matchedDownloads": 185252,
+            "weightedCoverage": 0.09825701104603736
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 871,
+          "matchedPackages": 226,
+          "totalDownloads": 7566769060,
+          "matchedDownloads": 5253513175,
+          "weightedCoverage": 0.6942875001658898,
+          "changePp": -0.00588290444732964,
+          "batch": {
+            "packages": 139,
+            "matchedPackages": 20,
+            "totalDownloads": 812659,
+            "matchedDownloads": 119121,
+            "weightedCoverage": 0.14658177661233063
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 1014,
+          "matchedPackages": 233,
+          "totalDownloads": 7567345384,
+          "matchedDownloads": 5253541449,
+          "weightedCoverage": 0.6942383600077001,
+          "changePp": -0.0049140158189686645,
+          "batch": {
+            "packages": 143,
+            "matchedPackages": 7,
+            "totalDownloads": 576324,
+            "matchedDownloads": 28274,
+            "weightedCoverage": 0.049059209750071144
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 1159,
+          "matchedPackages": 239,
+          "totalDownloads": 7567784371,
+          "matchedDownloads": 5253560187,
+          "weightedCoverage": 0.6942005651127979,
+          "changePp": -0.0037794894902187792,
+          "batch": {
+            "packages": 145,
+            "matchedPackages": 6,
+            "totalDownloads": 438987,
+            "matchedDownloads": 18738,
+            "weightedCoverage": 0.04268463530810707
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 1323,
+          "matchedPackages": 245,
+          "totalDownloads": 7568174651,
+          "matchedDownloads": 5253573980,
+          "weightedCoverage": 0.6941665886774737,
+          "changePp": -0.003397643532421224,
+          "batch": {
+            "packages": 164,
+            "matchedPackages": 6,
+            "totalDownloads": 390280,
+            "matchedDownloads": 13793,
+            "weightedCoverage": 0.03534129343035769
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 1473,
+          "matchedPackages": 248,
+          "totalDownloads": 7568461673,
+          "matchedDownloads": 5253579666,
+          "weightedCoverage": 0.6941410147773897,
+          "changePp": -0.0025573900084063794,
+          "batch": {
+            "packages": 150,
+            "matchedPackages": 3,
+            "totalDownloads": 287022,
+            "matchedDownloads": 5686,
+            "weightedCoverage": 0.019810328128157424
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1611,
+          "matchedPackages": 249,
+          "totalDownloads": 7568683229,
+          "matchedDownloads": 5253581248,
+          "weightedCoverage": 0.6941209043959581,
+          "changePp": -0.0020110381431570623,
+          "batch": {
+            "packages": 138,
+            "matchedPackages": 1,
+            "totalDownloads": 221556,
+            "matchedDownloads": 1582,
+            "weightedCoverage": 0.007140406940006138
+          }
+        }
+      ]
+    },
+    {
+      "id": "system-iot",
+      "label": "系统、IoT与硬件",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 112,
+          "matchedPackages": 55,
+          "totalDownloads": 6243957044,
+          "matchedDownloads": 4217837899,
+          "weightedCoverage": 0.6755071934796609,
+          "changePp": null,
+          "batch": {
+            "packages": 112,
+            "matchedPackages": 55,
+            "totalDownloads": 6243957044,
+            "matchedDownloads": 4217837899,
+            "weightedCoverage": 0.6755071934796609
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 231,
+          "matchedPackages": 91,
+          "totalDownloads": 6251597713,
+          "matchedDownloads": 4220469647,
+          "weightedCoverage": 0.6751025642970703,
+          "changePp": -0.04046291825906545,
+          "batch": {
+            "packages": 119,
+            "matchedPackages": 36,
+            "totalDownloads": 7640669,
+            "matchedDownloads": 2631748,
+            "weightedCoverage": 0.3444394725121583
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 356,
+          "matchedPackages": 102,
+          "totalDownloads": 6254222024,
+          "matchedDownloads": 4220691782,
+          "weightedCoverage": 0.6748548046109467,
+          "changePp": -0.024775968612356092,
+          "batch": {
+            "packages": 125,
+            "matchedPackages": 11,
+            "totalDownloads": 2624311,
+            "matchedDownloads": 222135,
+            "weightedCoverage": 0.08464507445954386
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 449,
+          "matchedPackages": 112,
+          "totalDownloads": 6255111812,
+          "matchedDownloads": 4220776413,
+          "weightedCoverage": 0.6747723365876102,
+          "changePp": -0.008246802333655712,
+          "batch": {
+            "packages": 93,
+            "matchedPackages": 10,
+            "totalDownloads": 889788,
+            "matchedDownloads": 84631,
+            "weightedCoverage": 0.09511366752529817
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 559,
+          "matchedPackages": 121,
+          "totalDownloads": 6255768081,
+          "matchedDownloads": 4220830465,
+          "weightedCoverage": 0.6747101891164242,
+          "changePp": -0.0062147471185936,
+          "batch": {
+            "packages": 110,
+            "matchedPackages": 9,
+            "totalDownloads": 656269,
+            "matchedDownloads": 54052,
+            "weightedCoverage": 0.08236256778851356
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 649,
+          "matchedPackages": 128,
+          "totalDownloads": 6256133636,
+          "matchedDownloads": 4220859444,
+          "weightedCoverage": 0.6746753969115502,
+          "changePp": -0.0034792204874012356,
+          "batch": {
+            "packages": 90,
+            "matchedPackages": 7,
+            "totalDownloads": 365555,
+            "matchedDownloads": 28979,
+            "weightedCoverage": 0.07927398065954508
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 758,
+          "matchedPackages": 134,
+          "totalDownloads": 6256459726,
+          "matchedDownloads": 4220877581,
+          "weightedCoverage": 0.6746431313957443,
+          "changePp": -0.003226551580592929,
+          "batch": {
+            "packages": 109,
+            "matchedPackages": 6,
+            "totalDownloads": 326090,
+            "matchedDownloads": 18137,
+            "weightedCoverage": 0.055619614216933976
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 872,
+          "matchedPackages": 140,
+          "totalDownloads": 6256729935,
+          "matchedDownloads": 4220891766,
+          "weightedCoverage": 0.674616262784243,
+          "changePp": -0.002686861150125175,
+          "batch": {
+            "packages": 114,
+            "matchedPackages": 6,
+            "totalDownloads": 270209,
+            "matchedDownloads": 14185,
+            "weightedCoverage": 0.05249640093409176
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 956,
+          "matchedPackages": 141,
+          "totalDownloads": 6256890786,
+          "matchedDownloads": 4220893551,
+          "weightedCoverage": 0.674599205158637,
+          "changePp": -0.0017057625605998439,
+          "batch": {
+            "packages": 84,
+            "matchedPackages": 1,
+            "totalDownloads": 160851,
+            "matchedDownloads": 1785,
+            "weightedCoverage": 0.011097226625883581
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1072,
+          "matchedPackages": 145,
+          "totalDownloads": 6257076482,
+          "matchedDownloads": 4220900030,
+          "weightedCoverage": 0.6745802200344592,
+          "changePp": -0.0018985124177861579,
+          "batch": {
+            "packages": 116,
+            "matchedPackages": 4,
+            "totalDownloads": 185696,
+            "matchedDownloads": 6479,
+            "weightedCoverage": 0.03489035843529209
+          }
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "label": "通用办公开发",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 119,
+          "matchedPackages": 53,
+          "totalDownloads": 1610471147,
+          "matchedDownloads": 1248215085,
+          "weightedCoverage": 0.7750620601463033,
+          "changePp": null,
+          "batch": {
+            "packages": 119,
+            "matchedPackages": 53,
+            "totalDownloads": 1610471147,
+            "matchedDownloads": 1248215085,
+            "weightedCoverage": 0.7750620601463033
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 191,
+          "matchedPackages": 71,
+          "totalDownloads": 1615241296,
+          "matchedDownloads": 1249441461,
+          "weightedCoverage": 0.7735323905438336,
+          "changePp": -0.15296696024696965,
+          "batch": {
+            "packages": 72,
+            "matchedPackages": 18,
+            "totalDownloads": 4770149,
+            "matchedDownloads": 1226376,
+            "weightedCoverage": 0.2570938559780837
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 277,
+          "matchedPackages": 83,
+          "totalDownloads": 1617124255,
+          "matchedDownloads": 1249743988,
+          "weightedCoverage": 0.7728187763778238,
+          "changePp": -0.07136141660097906,
+          "batch": {
+            "packages": 86,
+            "matchedPackages": 12,
+            "totalDownloads": 1882959,
+            "matchedDownloads": 302527,
+            "weightedCoverage": 0.1606657394027167
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 351,
+          "matchedPackages": 86,
+          "totalDownloads": 1617848812,
+          "matchedDownloads": 1249772127,
+          "weightedCoverage": 0.7724900607090843,
+          "changePp": -0.032871566873948765,
+          "batch": {
+            "packages": 74,
+            "matchedPackages": 3,
+            "totalDownloads": 724557,
+            "matchedDownloads": 28139,
+            "weightedCoverage": 0.03883614401627477
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 428,
+          "matchedPackages": 92,
+          "totalDownloads": 1618303750,
+          "matchedDownloads": 1249807420,
+          "weightedCoverage": 0.7722947067261013,
+          "changePp": -0.0195353982982982,
+          "batch": {
+            "packages": 77,
+            "matchedPackages": 6,
+            "totalDownloads": 454938,
+            "matchedDownloads": 35293,
+            "weightedCoverage": 0.07757760398120184
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 497,
+          "matchedPackages": 95,
+          "totalDownloads": 1618584684,
+          "matchedDownloads": 1249819395,
+          "weightedCoverage": 0.772168059759053,
+          "changePp": -0.012664696704833833,
+          "batch": {
+            "packages": 69,
+            "matchedPackages": 3,
+            "totalDownloads": 280934,
+            "matchedDownloads": 11975,
+            "weightedCoverage": 0.04262567008621242
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 567,
+          "matchedPackages": 96,
+          "totalDownloads": 1618797089,
+          "matchedDownloads": 1249822813,
+          "weightedCoverage": 0.772068853775904,
+          "changePp": -0.009920598314905327,
+          "batch": {
+            "packages": 70,
+            "matchedPackages": 1,
+            "totalDownloads": 212405,
+            "matchedDownloads": 3418,
+            "weightedCoverage": 0.016091899908194252
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 627,
+          "matchedPackages": 96,
+          "totalDownloads": 1618938058,
+          "matchedDownloads": 1249822813,
+          "weightedCoverage": 0.7720016258954362,
+          "changePp": -0.0067227880467757295,
+          "batch": {
+            "packages": 60,
+            "matchedPackages": 0,
+            "totalDownloads": 140969,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 709,
+          "matchedPackages": 98,
+          "totalDownloads": 1619096465,
+          "matchedDownloads": 1249826501,
+          "weightedCoverage": 0.7719283736438768,
+          "changePp": -0.007325225155940807,
+          "batch": {
+            "packages": 82,
+            "matchedPackages": 2,
+            "totalDownloads": 158407,
+            "matchedDownloads": 3688,
+            "weightedCoverage": 0.023281799415429873
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 781,
+          "matchedPackages": 98,
+          "totalDownloads": 1619212626,
+          "matchedDownloads": 1249826501,
+          "weightedCoverage": 0.7718729961286752,
+          "changePp": -0.005537751520157119,
+          "batch": {
+            "packages": 72,
+            "matchedPackages": 0,
+            "totalDownloads": 116161,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "automation",
+      "label": "自动化与数据采集",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 45,
+          "matchedPackages": 17,
+          "totalDownloads": 874991571,
+          "matchedDownloads": 823634709,
+          "weightedCoverage": 0.9413058780197096,
+          "changePp": null,
+          "batch": {
+            "packages": 45,
+            "matchedPackages": 17,
+            "totalDownloads": 874991571,
+            "matchedDownloads": 823634709,
+            "weightedCoverage": 0.9413058780197096
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 63,
+          "matchedPackages": 19,
+          "totalDownloads": 876390290,
+          "matchedDownloads": 823815461,
+          "weightedCoverage": 0.9400097997434453,
+          "changePp": -0.1296078276264212,
+          "batch": {
+            "packages": 18,
+            "matchedPackages": 2,
+            "totalDownloads": 1398719,
+            "matchedDownloads": 180752,
+            "weightedCoverage": 0.1292268139633479
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 87,
+          "matchedPackages": 21,
+          "totalDownloads": 876916362,
+          "matchedDownloads": 823873337,
+          "weightedCoverage": 0.9395118767324357,
+          "changePp": -0.049792301100959335,
+          "batch": {
+            "packages": 24,
+            "matchedPackages": 2,
+            "totalDownloads": 526072,
+            "matchedDownloads": 57876,
+            "weightedCoverage": 0.11001535911434177
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 103,
+          "matchedPackages": 25,
+          "totalDownloads": 877078880,
+          "matchedDownloads": 823908379,
+          "weightedCoverage": 0.9393777433108411,
+          "changePp": -0.013413342159462882,
+          "batch": {
+            "packages": 16,
+            "matchedPackages": 4,
+            "totalDownloads": 162518,
+            "matchedDownloads": 35042,
+            "weightedCoverage": 0.21561919295093468
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 131,
+          "matchedPackages": 30,
+          "totalDownloads": 877249989,
+          "matchedDownloads": 823938788,
+          "weightedCoverage": 0.9392291802012208,
+          "changePp": -0.014856310962030328,
+          "batch": {
+            "packages": 28,
+            "matchedPackages": 5,
+            "totalDownloads": 171109,
+            "matchedDownloads": 30409,
+            "weightedCoverage": 0.17771712767884798
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 162,
+          "matchedPackages": 32,
+          "totalDownloads": 877375666,
+          "matchedDownloads": 823946944,
+          "weightedCoverage": 0.9391039390873647,
+          "changePp": -0.01252411138561449,
+          "batch": {
+            "packages": 31,
+            "matchedPackages": 2,
+            "totalDownloads": 125677,
+            "matchedDownloads": 8156,
+            "weightedCoverage": 0.06489652044526843
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 181,
+          "matchedPackages": 33,
+          "totalDownloads": 877430994,
+          "matchedDownloads": 823950121,
+          "weightedCoverage": 0.9390483429857049,
+          "changePp": -0.005559610165972728,
+          "batch": {
+            "packages": 19,
+            "matchedPackages": 1,
+            "totalDownloads": 55328,
+            "matchedDownloads": 3177,
+            "weightedCoverage": 0.0574211972238288
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 207,
+          "matchedPackages": 33,
+          "totalDownloads": 877491663,
+          "matchedDownloads": 823950121,
+          "weightedCoverage": 0.938983418011118,
+          "changePp": -0.006492497458698843,
+          "batch": {
+            "packages": 26,
+            "matchedPackages": 0,
+            "totalDownloads": 60669,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 241,
+          "matchedPackages": 36,
+          "totalDownloads": 877556804,
+          "matchedDownloads": 823956116,
+          "weightedCoverage": 0.9389205487830734,
+          "changePp": -0.006286922804454864,
+          "batch": {
+            "packages": 34,
+            "matchedPackages": 3,
+            "totalDownloads": 65141,
+            "matchedDownloads": 5995,
+            "weightedCoverage": 0.09203113246649576
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 261,
+          "matchedPackages": 38,
+          "totalDownloads": 877588852,
+          "matchedDownloads": 823959149,
+          "weightedCoverage": 0.9388897171177831,
+          "changePp": -0.0030831665290276256,
+          "batch": {
+            "packages": 20,
+            "matchedPackages": 2,
+            "totalDownloads": 32048,
+            "matchedDownloads": 3033,
+            "weightedCoverage": 0.09463929106340489
+          }
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "label": "科学计算与地理空间",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 251,
+          "matchedPackages": 129,
+          "totalDownloads": 2486925602,
+          "matchedDownloads": 1988948313,
+          "weightedCoverage": 0.799761887287853,
+          "changePp": null,
+          "batch": {
+            "packages": 251,
+            "matchedPackages": 129,
+            "totalDownloads": 2486925602,
+            "matchedDownloads": 1988948313,
+            "weightedCoverage": 0.799761887287853
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 686,
+          "matchedPackages": 281,
+          "totalDownloads": 2515679535,
+          "matchedDownloads": 1999691006,
+          "weightedCoverage": 0.7948909939357598,
+          "changePp": -0.48708933520932307,
+          "batch": {
+            "packages": 435,
+            "matchedPackages": 152,
+            "totalDownloads": 28753933,
+            "matchedDownloads": 10742693,
+            "weightedCoverage": 0.3736077774125717
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 1123,
+          "matchedPackages": 325,
+          "totalDownloads": 2524685565,
+          "matchedDownloads": 2000646358,
+          "weightedCoverage": 0.7924338720572516,
+          "changePp": -0.24571218785082172,
+          "batch": {
+            "packages": 437,
+            "matchedPackages": 44,
+            "totalDownloads": 9006030,
+            "matchedDownloads": 955352,
+            "weightedCoverage": 0.10607914919226341
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 1588,
+          "matchedPackages": 385,
+          "totalDownloads": 2529166558,
+          "matchedDownloads": 2001244047,
+          "weightedCoverage": 0.7912662140300212,
+          "changePp": -0.11676580272304005,
+          "batch": {
+            "packages": 465,
+            "matchedPackages": 60,
+            "totalDownloads": 4480993,
+            "matchedDownloads": 597689,
+            "weightedCoverage": 0.13338315859899805
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 2031,
+          "matchedPackages": 423,
+          "totalDownloads": 2531777632,
+          "matchedDownloads": 2001466868,
+          "weightedCoverage": 0.7905381747207094,
+          "changePp": -0.07280393093117565,
+          "batch": {
+            "packages": 443,
+            "matchedPackages": 38,
+            "totalDownloads": 2611074,
+            "matchedDownloads": 222821,
+            "weightedCoverage": 0.08533691500126002
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 2472,
+          "matchedPackages": 463,
+          "totalDownloads": 2533559914,
+          "matchedDownloads": 2001628510,
+          "weightedCoverage": 0.790045855611844,
+          "changePp": -0.049231910886538,
+          "batch": {
+            "packages": 441,
+            "matchedPackages": 40,
+            "totalDownloads": 1782282,
+            "matchedDownloads": 161642,
+            "weightedCoverage": 0.09069384081755862
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 2905,
+          "matchedPackages": 485,
+          "totalDownloads": 2534867658,
+          "matchedDownloads": 2001695290,
+          "weightedCoverage": 0.789664613725566,
+          "changePp": -0.03812418862780831,
+          "batch": {
+            "packages": 433,
+            "matchedPackages": 22,
+            "totalDownloads": 1307744,
+            "matchedDownloads": 66780,
+            "weightedCoverage": 0.05106504025252649
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 3335,
+          "matchedPackages": 502,
+          "totalDownloads": 2535881638,
+          "matchedDownloads": 2001737101,
+          "weightedCoverage": 0.789365351680503,
+          "changePp": -0.02992620450629202,
+          "batch": {
+            "packages": 430,
+            "matchedPackages": 17,
+            "totalDownloads": 1013980,
+            "matchedDownloads": 41811,
+            "weightedCoverage": 0.041234541115209376
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 3771,
+          "matchedPackages": 516,
+          "totalDownloads": 2536716286,
+          "matchedDownloads": 2001764725,
+          "weightedCoverage": 0.7891165188821593,
+          "changePp": -0.02488327983437566,
+          "batch": {
+            "packages": 436,
+            "matchedPackages": 14,
+            "totalDownloads": 834648,
+            "matchedDownloads": 27624,
+            "weightedCoverage": 0.03309658682462547
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 4213,
+          "matchedPackages": 534,
+          "totalDownloads": 2537427222,
+          "matchedDownloads": 2001794439,
+          "weightedCoverage": 0.7889071346141647,
+          "changePp": -0.020938426799455012,
+          "batch": {
+            "packages": 442,
+            "matchedPackages": 18,
+            "totalDownloads": 710936,
+            "matchedDownloads": 29714,
+            "weightedCoverage": 0.04179560466764941
+          }
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": "前端与交互式应用",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 87,
+          "matchedPackages": 47,
+          "totalDownloads": 920399398,
+          "matchedDownloads": 695345509,
+          "weightedCoverage": 0.7554823596266629,
+          "changePp": null,
+          "batch": {
+            "packages": 87,
+            "matchedPackages": 47,
+            "totalDownloads": 920399398,
+            "matchedDownloads": 695345509,
+            "weightedCoverage": 0.7554823596266629
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 155,
+          "matchedPackages": 64,
+          "totalDownloads": 925411986,
+          "matchedDownloads": 696746666,
+          "weightedCoverage": 0.752904302668066,
+          "changePp": -0.25780569585969193,
+          "batch": {
+            "packages": 68,
+            "matchedPackages": 17,
+            "totalDownloads": 5012588,
+            "matchedDownloads": 1401157,
+            "weightedCoverage": 0.2795276611602629
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 207,
+          "matchedPackages": 66,
+          "totalDownloads": 926435838,
+          "matchedDownloads": 696780288,
+          "weightedCoverage": 0.7521085210868106,
+          "changePp": -0.07957815812553726,
+          "batch": {
+            "packages": 52,
+            "matchedPackages": 2,
+            "totalDownloads": 1023852,
+            "matchedDownloads": 33622,
+            "weightedCoverage": 0.03283873059778171
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 267,
+          "matchedPackages": 72,
+          "totalDownloads": 927028175,
+          "matchedDownloads": 696838117,
+          "weightedCoverage": 0.7516903323893042,
+          "changePp": -0.04181886975064275,
+          "batch": {
+            "packages": 60,
+            "matchedPackages": 6,
+            "totalDownloads": 592337,
+            "matchedDownloads": 57829,
+            "weightedCoverage": 0.09762854591220876
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 329,
+          "matchedPackages": 84,
+          "totalDownloads": 927394088,
+          "matchedDownloads": 696910641,
+          "weightedCoverage": 0.7514719470586058,
+          "changePp": -0.02183853306984007,
+          "batch": {
+            "packages": 62,
+            "matchedPackages": 12,
+            "totalDownloads": 365913,
+            "matchedDownloads": 72524,
+            "weightedCoverage": 0.19820011860742853
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 381,
+          "matchedPackages": 86,
+          "totalDownloads": 927603245,
+          "matchedDownloads": 696918245,
+          "weightedCoverage": 0.7513107018076463,
+          "changePp": -0.016124525095950748,
+          "batch": {
+            "packages": 52,
+            "matchedPackages": 2,
+            "totalDownloads": 209157,
+            "matchedDownloads": 7604,
+            "weightedCoverage": 0.03635546503344378
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 435,
+          "matchedPackages": 90,
+          "totalDownloads": 927765304,
+          "matchedDownloads": 696931269,
+          "weightedCoverage": 0.7511935033517917,
+          "changePp": -0.011719845585456135,
+          "batch": {
+            "packages": 54,
+            "matchedPackages": 4,
+            "totalDownloads": 162059,
+            "matchedDownloads": 13024,
+            "weightedCoverage": 0.08036579270512591
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 499,
+          "matchedPackages": 90,
+          "totalDownloads": 927917349,
+          "matchedDownloads": 696931269,
+          "weightedCoverage": 0.7510704156475471,
+          "changePp": -0.012308770424462878,
+          "batch": {
+            "packages": 64,
+            "matchedPackages": 0,
+            "totalDownloads": 152045,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 547,
+          "matchedPackages": 91,
+          "totalDownloads": 928009057,
+          "matchedDownloads": 696933134,
+          "weightedCoverage": 0.750998202811721,
+          "changePp": -0.007221283582603544,
+          "batch": {
+            "packages": 48,
+            "matchedPackages": 1,
+            "totalDownloads": 91708,
+            "matchedDownloads": 1865,
+            "weightedCoverage": 0.020336284729794565
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 609,
+          "matchedPackages": 91,
+          "totalDownloads": 928107732,
+          "matchedDownloads": 696933134,
+          "weightedCoverage": 0.75091835782702,
+          "changePp": -0.007984498470103851,
+          "batch": {
+            "packages": 62,
+            "matchedPackages": 0,
+            "totalDownloads": 98675,
+            "matchedDownloads": 0,
+            "weightedCoverage": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "multimedia",
+      "label": "多媒体与图形",
+      "points": [
+        {
+          "cutoff": 10000,
+          "packages": 120,
+          "matchedPackages": 72,
+          "totalDownloads": 1248229126,
+          "matchedDownloads": 884086713,
+          "weightedCoverage": 0.7082727798806386,
+          "changePp": null,
+          "batch": {
+            "packages": 120,
+            "matchedPackages": 72,
+            "totalDownloads": 1248229126,
+            "matchedDownloads": 884086713,
+            "weightedCoverage": 0.7082727798806386
+          }
+        },
+        {
+          "cutoff": 20000,
+          "packages": 233,
+          "matchedPackages": 106,
+          "totalDownloads": 1255564620,
+          "matchedDownloads": 886404132,
+          "weightedCoverage": 0.7059804950540897,
+          "changePp": -0.22922848265489737,
+          "batch": {
+            "packages": 113,
+            "matchedPackages": 34,
+            "totalDownloads": 7335494,
+            "matchedDownloads": 2317419,
+            "weightedCoverage": 0.3159186007104634
+          }
+        },
+        {
+          "cutoff": 30000,
+          "packages": 340,
+          "matchedPackages": 117,
+          "totalDownloads": 1257776447,
+          "matchedDownloads": 886657880,
+          "weightedCoverage": 0.7049407564554275,
+          "changePp": -0.10397385986621321,
+          "batch": {
+            "packages": 107,
+            "matchedPackages": 11,
+            "totalDownloads": 2211827,
+            "matchedDownloads": 253748,
+            "weightedCoverage": 0.11472325819333971
+          }
+        },
+        {
+          "cutoff": 40000,
+          "packages": 450,
+          "matchedPackages": 128,
+          "totalDownloads": 1258863323,
+          "matchedDownloads": 886776918,
+          "weightedCoverage": 0.7044266854059422,
+          "changePp": -0.05140710494853096,
+          "batch": {
+            "packages": 110,
+            "matchedPackages": 11,
+            "totalDownloads": 1086876,
+            "matchedDownloads": 119038,
+            "weightedCoverage": 0.10952307346928261
+          }
+        },
+        {
+          "cutoff": 50000,
+          "packages": 568,
+          "matchedPackages": 139,
+          "totalDownloads": 1259564275,
+          "matchedDownloads": 886839869,
+          "weightedCoverage": 0.704084647843795,
+          "changePp": -0.03420375621472349,
+          "batch": {
+            "packages": 118,
+            "matchedPackages": 11,
+            "totalDownloads": 700952,
+            "matchedDownloads": 62951,
+            "weightedCoverage": 0.08980786130862027
+          }
+        },
+        {
+          "cutoff": 60000,
+          "packages": 650,
+          "matchedPackages": 144,
+          "totalDownloads": 1259897801,
+          "matchedDownloads": 886860653,
+          "weightedCoverage": 0.703914755860424,
+          "changePp": -0.016989198337102884,
+          "batch": {
+            "packages": 82,
+            "matchedPackages": 5,
+            "totalDownloads": 333526,
+            "matchedDownloads": 20784,
+            "weightedCoverage": 0.06231598136277232
+          }
+        },
+        {
+          "cutoff": 70000,
+          "packages": 750,
+          "matchedPackages": 151,
+          "totalDownloads": 1260197889,
+          "matchedDownloads": 886881297,
+          "weightedCoverage": 0.7037635158266798,
+          "changePp": -0.015124003374411554,
+          "batch": {
+            "packages": 100,
+            "matchedPackages": 7,
+            "totalDownloads": 300088,
+            "matchedDownloads": 20644,
+            "weightedCoverage": 0.06879315400815761
+          }
+        },
+        {
+          "cutoff": 80000,
+          "packages": 857,
+          "matchedPackages": 154,
+          "totalDownloads": 1260450881,
+          "matchedDownloads": 886888533,
+          "weightedCoverage": 0.7036280003996442,
+          "changePp": -0.013551542703560404,
+          "batch": {
+            "packages": 107,
+            "matchedPackages": 3,
+            "totalDownloads": 252992,
+            "matchedDownloads": 7236,
+            "weightedCoverage": 0.028601694915254237
+          }
+        },
+        {
+          "cutoff": 90000,
+          "packages": 960,
+          "matchedPackages": 158,
+          "totalDownloads": 1260647827,
+          "matchedDownloads": 886896386,
+          "weightedCoverage": 0.7035243047303488,
+          "changePp": -0.010369566929546714,
+          "batch": {
+            "packages": 103,
+            "matchedPackages": 4,
+            "totalDownloads": 196946,
+            "matchedDownloads": 7853,
+            "weightedCoverage": 0.03987387405684807
+          }
+        },
+        {
+          "cutoff": 100000,
+          "packages": 1049,
+          "matchedPackages": 159,
+          "totalDownloads": 1260791246,
+          "matchedDownloads": 886898001,
+          "weightedCoverage": 0.7034455575526736,
+          "changePp": -0.007874717767519801,
+          "batch": {
+            "packages": 89,
+            "matchedPackages": 1,
+            "totalDownloads": 143419,
+            "matchedDownloads": 1615,
+            "weightedCoverage": 0.011260711621193844
+          }
+        }
+      ]
+    }
+  ]
+}
