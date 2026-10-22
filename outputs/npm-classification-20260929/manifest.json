@@ -1,0 +1,30 @@
+{
+  "publishedAt": "2026-10-22",
+  "snapshotDate": "2026-09-29",
+  "files": [
+    {
+      "file": "classified.json.gz",
+      "uncompressedBytes": 45267476,
+      "bytes": 3392737,
+      "sha256": "f1dadf5aab19f3740afcb6179c4b1fa837731acb60fd7f62325ba0751efb141b"
+    },
+    {
+      "file": "source-records.json.gz",
+      "uncompressedBytes": 11052802,
+      "bytes": 561855,
+      "sha256": "cc511fc26a04733eeddc73cacb444d71ac5fa0e1a5a20c9eaaaea40b4cb0d793"
+    },
+    {
+      "file": "npm-metadata.jsonl.gz",
+      "uncompressedBytes": 267210,
+      "bytes": 35985,
+      "sha256": "6374468464c846870d59823cbbbf7f4dd2404c7f33003f9bd7cacda39ee7fa39"
+    },
+    {
+      "file": "npms-metadata.jsonl.gz",
+      "uncompressedBytes": 13877388,
+      "bytes": 2145688,
+      "sha256": "2298187aad74cd356a833248b64c1ee898f116d29c2bce8a36be0dedb4d1211f"
+    }
+  ]
+}

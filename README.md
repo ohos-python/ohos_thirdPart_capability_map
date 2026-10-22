@@ -20,6 +20,7 @@
 - [Node.js覆盖分析](nodejs-coverage.html)：18个标签，1,801个项目依赖样本；不是npm全生态Top5万。数量覆盖73.29%，下载加权覆盖95.40%。
 - [C/C++覆盖分析](cpp-coverage.html)：21个标签，ConanCenter与Homebrew原生候选并集2,589个包族，数量覆盖33.76%；Homebrew安装子集覆盖82.18%。Conan官网热门榜10个库下载计数另列，窗口未说明，不是全量下载覆盖率。
 - [Node.js / C/C++分析底稿](outputs/ecosystem-coverage-20260916/README.md)；[C/C++口径与来源](outputs/ecosystem-coverage-20260916/NATIVE-METHOD.md)。
+- [鸿蒙 npm 三方库功能分类（2026-09-29 快照）](outputs/npm-classification-20260929/README.md)：47,797 个归并条目，含 Excel 分类表、分类数据、来源快照及复现脚本。
 - [会话与数据交接](HANDOFF.md)：已达成的结论、统计口径、限制和下一步。
 - [V1 使用说明](README-v1.md)；[分类验证数据与复现说明](outputs/taxonomy-validation-20260912/README.md)。
 

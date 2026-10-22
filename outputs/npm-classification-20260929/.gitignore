@@ -1,0 +1,8 @@
+node_modules/
+classified.json
+source-records.json
+npm-metadata.jsonl
+npms-metadata.jsonl
+registry-metadata.json
+preview-*.png
+*.inspect.ndjson

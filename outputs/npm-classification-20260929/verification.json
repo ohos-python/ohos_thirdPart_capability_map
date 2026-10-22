@@ -1,0 +1,134 @@
+{
+  "stats": {
+    "raw": 48011,
+    "unique": 47797,
+    "compatible": 45748,
+    "ports": 2250,
+    "overlap": 201,
+    "withDescription": 35058,
+    "states": {
+      "描述规则分类": 2381,
+      "关键词规则分类": 6812,
+      "包名推断": 14141,
+      "历史描述规则分类": 18301,
+      "重点包功能规则": 39,
+      "待确认": 6123
+    },
+    "categories": [
+      {
+        "id": "foundation",
+        "label": "通用编程工具库",
+        "definition": "日志、配置、解析、序列化、校验、日期、字符串、数据结构及语言兼容工具",
+        "count": 12820
+      },
+      {
+        "id": "frontend",
+        "label": "前端开发库",
+        "definition": "Web 框架、UI 组件、DOM、样式和浏览器端交互",
+        "count": 7801
+      },
+      {
+        "id": "backend",
+        "label": "后端开发库",
+        "definition": "服务端框架、API、中间件、会话、任务队列和邮件服务",
+        "count": 1787
+      },
+      {
+        "id": "agent",
+        "label": "Agent/TUI开发库",
+        "definition": "Agent 编排、MCP、终端界面、交互式命令行和伪终端",
+        "count": 300
+      },
+      {
+        "id": "office",
+        "label": "通用办公开发库",
+        "definition": "浏览器自动化，以及 Word、PPT、Excel、PDF 和办公文档处理",
+        "count": 431
+      },
+      {
+        "id": "database",
+        "label": "数据库与存储",
+        "definition": "数据库驱动、ORM、持久化、缓存及搜索存储",
+        "count": 876
+      },
+      {
+        "id": "network",
+        "label": "网络与通信",
+        "definition": "HTTP 客户端、WebSocket、RPC、协议、消息和实时通信",
+        "count": 1500
+      },
+      {
+        "id": "build",
+        "label": "构建与工程工具",
+        "definition": "编译、打包、转换、代码生成、脚手架及包管理",
+        "count": 4799
+      },
+      {
+        "id": "testing",
+        "label": "测试与质量",
+        "definition": "测试、断言、Mock、Lint、格式化、覆盖率和性能检测",
+        "count": 2351
+      },
+      {
+        "id": "data",
+        "label": "数据处理与可视化",
+        "definition": "统计、数学、数据转换、CSV、图表和可视化",
+        "count": 1138
+      },
+      {
+        "id": "ai",
+        "label": "AI与机器学习",
+        "definition": "模型 SDK、推理、机器学习、Embedding、Tokenization",
+        "count": 246
+      },
+      {
+        "id": "multimedia",
+        "label": "多媒体与图形",
+        "definition": "图像、字体、SVG、音视频、Canvas、3D 和渲染",
+        "count": 1658
+      },
+      {
+        "id": "security",
+        "label": "安全与加密",
+        "definition": "密码、哈希、签名、加密、权限与安全认证",
+        "count": 819
+      },
+      {
+        "id": "cloud",
+        "label": "云服务与DevOps",
+        "definition": "云平台 SDK、部署、容器、监控和可观测性",
+        "count": 1922
+      },
+      {
+        "id": "mobile",
+        "label": "跨端与移动开发",
+        "definition": "移动开发、React Native、Electron 和桌面跨端",
+        "count": 1035
+      },
+      {
+        "id": "system",
+        "label": "系统与原生能力",
+        "definition": "原生绑定、文件系统、进程、压缩、硬件和操作系统接口",
+        "count": 1167
+      },
+      {
+        "id": "business",
+        "label": "业务应用与集成",
+        "definition": "支付、电商、业务平台、行业服务与区块链集成",
+        "count": 1024
+      },
+      {
+        "id": "other",
+        "label": "其他/待确认",
+        "definition": "缺少功能证据或未命中当前规则，保留在总数中",
+        "count": 6123
+      }
+    ]
+  },
+  "uniqueCheck": true,
+  "categoryCountsCheck": true,
+  "sourceCountsCheck": true,
+  "rows": 47797,
+  "columns": 20,
+  "exportedAt": "2026-09-29T02:36:28.756Z"
+}
